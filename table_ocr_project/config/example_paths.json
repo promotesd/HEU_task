@@ -1,0 +1,7 @@
+{
+  "template_image": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/input/sample.jpeg",
+  "input_image": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/input/sample.jpeg",
+  "template_config": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/config/template_config.json",
+  "lexicon": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/config/domain_lexicon_demo.json",
+  "output_dir": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/output/full_run"
+}
