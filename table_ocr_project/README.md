@@ -108,7 +108,7 @@ python src/build_template_config.py \
 - `data/output/template_debug/template_layout_debug.png`
 - `data/output/template_debug/template_main_table_grid_debug.png`
 
-### 2. 推荐入口：结构化主表处理
+### 2. 总流程入口：结构化主表处理
 
 这个入口最适合你当前的主表识别任务：
 
@@ -129,23 +129,11 @@ python src/process_form.py \
 5. 主表上半区和飞行记录结构化整理
 6. 生成 `ocr_result.json` 和结构化 `report.txt`
 
-### 3. 原始完整流程
 
-如果你想保留旧版语义抽取结果，可以运行：
-
-```bash
-python src/run_full_pipeline.py \
-  --input data/input/sample.jpeg \
-  --config config/template_config.json \
-  --output-dir data/output/full_demo \
-  --lexicon config/domain_lexicon_demo.json
-```
-
-这个入口仍然会生成完整 OCR JSON 和中文报告，但主表部分更偏旧版抽取逻辑。
 
 ## 输出文件说明
 
-无论是 `process_form.py` 还是 `run_full_pipeline.py`，输出目录通常都会包含以下内容：
+`process_form.py`，输出目录通常都会包含以下内容：
 
 - `aligned.png`
   与模板配准后的整图。
