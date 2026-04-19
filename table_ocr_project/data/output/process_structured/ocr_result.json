@@ -239,7 +239,7 @@
     "subregion_texts": {
       "confidentiality": "内部 批准",
       "title": "2022/11/20XX计划",
-      "astronomical_times": "天风时刻:18:27 天亮时刻:06:19 日出时刻:06:46 日没时刻:17:59 月出时刻:03:03 月没时刻:15:21",
+      "astronomical_times": "天亮时刻:06:19 天风时刻:18:27 日出时刻:06:46 日没时刻:17:59 月出时刻:03:03 月没时刻:15:21",
       "approved": "批准 #YALUBI"
     }
   },
@@ -773,41 +773,59 @@
         "code_name": "宫850",
         "events": [
           {
-            "start_time": "14:50",
+            "start_time": "13:30",
             "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "147 郑807",
+            "display_time": "13:30~15:20",
+            "text": "SD",
+            "remark": "SD",
+            "pilot_codes": [
+              "郑807"
+            ],
             "pilot_code": "郑807",
-            "flight_code": "",
+            "flight_code": "SD",
             "source_cols": [
-              20,
+              12,
+              13,
+              22,
               23
             ],
             "source_row": 8
           },
           {
-            "start_time": "17:30",
-            "end_time": "18:10",
-            "display_time": "17:30~18:10",
-            "text": "CQY 8850",
+            "start_time": "17:10",
+            "end_time": "18:20",
+            "display_time": "17:10~18:20",
+            "text": "CQY -06B10-70",
+            "remark": "CQY -06B10-70",
+            "pilot_codes": [
+              "宫850"
+            ],
             "pilot_code": "宫850",
             "flight_code": "CQY",
             "source_cols": [
-              36,
-              40
+              34,
+              38,
+              39,
+              41
             ],
             "source_row": 8
           },
           {
-            "start_time": "19:50",
-            "end_time": "20:30",
-            "display_time": "19:50~20:30",
-            "text": "SD 苑813",
+            "start_time": "19:30",
+            "end_time": "20:40",
+            "display_time": "19:30~20:40",
+            "text": "CO-D -70",
+            "remark": "CO-D -70",
+            "pilot_codes": [
+              "苑813"
+            ],
             "pilot_code": "苑813",
-            "flight_code": "SD",
+            "flight_code": "",
             "source_cols": [
-              50,
-              54
+              48,
+              52,
+              54,
+              55
             ],
             "source_row": 8
           }
@@ -823,26 +841,21 @@
         "code_name": "郑807",
         "events": [
           {
-            "start_time": "17:30",
-            "end_time": "17:30",
-            "display_time": "17:30",
-            "text": "60T",
-            "pilot_code": "郑807",
-            "flight_code": "",
-            "source_cols": [
-              36
+            "start_time": "13:30",
+            "end_time": "15:00",
+            "display_time": "13:30~15:00",
+            "text": "9 B",
+            "remark": "9 B",
+            "pilot_codes": [
+              "郑807"
             ],
-            "source_row": 9
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "19:50",
-            "display_time": "19:50",
-            "text": "6.0T",
             "pilot_code": "郑807",
             "flight_code": "",
             "source_cols": [
-              50
+              12,
+              13,
+              19,
+              21
             ],
             "source_row": 9
           }
@@ -855,7 +868,7 @@
         "aircraft_no": "60",
         "secondary_code": "0750",
         "name": "",
-        "code_name": "雁809",
+        "code_name": "胜809",
         "events": [],
         "source_group": 1
       },
@@ -868,52 +881,57 @@
         "code_name": "苑813",
         "events": [
           {
-            "start_time": "13:40",
-            "end_time": "13:40",
-            "display_time": "13:40",
-            "text": "500B",
+            "start_time": "13:30",
+            "end_time": "15:00",
+            "display_time": "13:30~15:00",
+            "text": "B 10-70",
+            "remark": "B 10-70",
+            "pilot_codes": [
+              "苑813"
+            ],
             "pilot_code": "苑813",
             "flight_code": "",
             "source_cols": [
-              13
+              12,
+              14,
+              19,
+              21
             ],
             "source_row": 11
           },
           {
-            "start_time": "14:50",
-            "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "10-70 836",
-            "pilot_code": "苑813",
-            "flight_code": "",
-            "source_cols": [
-              20,
-              23
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
+            "text": "CQY P0 货7",
+            "remark": "CQY P0 货7",
+            "pilot_codes": [
+              "苑813"
             ],
-            "source_row": 11
-          },
-          {
-            "start_time": "17:40",
-            "end_time": "18:20",
-            "display_time": "17:40~18:20",
-            "text": "CQY 货7",
             "pilot_code": "苑813",
             "flight_code": "CQY",
             "source_cols": [
-              37,
-              41
+              35,
+              39,
+              40,
+              42
             ],
             "source_row": 11
           },
           {
-            "start_time": "20:40",
-            "end_time": "20:40",
-            "display_time": "20:40",
-            "text": "黄827",
+            "start_time": "20:30",
+            "end_time": "20:50",
+            "display_time": "20:30~20:50",
+            "text": "",
+            "remark": "",
+            "pilot_codes": [
+              "黄827"
+            ],
             "pilot_code": "黄827",
             "flight_code": "",
             "source_cols": [
-              55
+              54,
+              56
             ],
             "source_row": 11
           }
@@ -929,14 +947,21 @@
         "code_name": "贾831",
         "events": [
           {
-            "start_time": "17:20",
-            "end_time": "17:20",
-            "display_time": "17:20",
-            "text": "6.67",
+            "start_time": "13:30",
+            "end_time": "14:10",
+            "display_time": "13:30~14:10",
+            "text": "9 k",
+            "remark": "9 k",
+            "pilot_codes": [
+              "贾831"
+            ],
             "pilot_code": "贾831",
             "flight_code": "",
             "source_cols": [
-              35
+              12,
+              13,
+              15,
+              16
             ],
             "source_row": 12
           }
@@ -962,42 +987,59 @@
         "code_name": "彤812",
         "events": [
           {
-            "start_time": "14:50",
+            "start_time": "13:30",
             "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "247 贾831",
-            "pilot_code": "贾831",
-            "flight_code": "",
+            "display_time": "13:30~15:20",
+            "text": "SD OB",
+            "remark": "SD OB",
+            "pilot_codes": [
+              "高835"
+            ],
+            "pilot_code": "高835",
+            "flight_code": "SD",
             "source_cols": [
-              20,
+              12,
+              14,
+              22,
               23
             ],
             "source_row": 14
           },
           {
-            "start_time": "17:40",
-            "end_time": "18:20",
-            "display_time": "17:40~18:20",
-            "text": "CQY 彤812",
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
+            "text": "CQY -O1B00-79",
+            "remark": "CQY -O1B00-79",
+            "pilot_codes": [
+              "彤812"
+            ],
             "pilot_code": "彤812",
             "flight_code": "CQY",
             "source_cols": [
-              37,
-              41
+              35,
+              39,
+              40,
+              42
             ],
             "source_row": 14
           },
           {
-            "start_time": "19:50",
-            "end_time": "20:40",
-            "display_time": "19:50~20:40",
-            "text": "CQY 0079 821",
+            "start_time": "19:40",
+            "end_time": "20:20",
+            "display_time": "19:40~20:20",
+            "text": "CQY -O5B 0079",
+            "remark": "CQY -O5B 0079",
+            "pilot_codes": [
+              "彤812"
+            ],
             "pilot_code": "彤812",
             "flight_code": "CQY",
             "source_cols": [
-              50,
-              53,
-              55
+              49,
+              51,
+              52,
+              53
             ],
             "source_row": 14
           }
@@ -1011,32 +1053,7 @@
         "secondary_code": "0752",
         "name": "",
         "code_name": "潘851",
-        "events": [
-          {
-            "start_time": "17:30",
-            "end_time": "17:30",
-            "display_time": "17:30",
-            "text": "6.07",
-            "pilot_code": "潘851",
-            "flight_code": "",
-            "source_cols": [
-              36
-            ],
-            "source_row": 15
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "19:50",
-            "display_time": "19:50",
-            "text": "6.07",
-            "pilot_code": "潘851",
-            "flight_code": "",
-            "source_cols": [
-              50
-            ],
-            "source_row": 15
-          }
-        ],
+        "events": [],
         "source_group": 3
       },
       {
@@ -1058,40 +1075,54 @@
         "code_name": "彭823",
         "events": [
           {
-            "start_time": "13:40",
-            "end_time": "13:40",
-            "display_time": "13:40",
-            "text": "50-028",
+            "start_time": "13:30",
+            "end_time": "13:50",
+            "display_time": "13:30~13:50",
+            "text": "50-",
+            "remark": "50-",
+            "pilot_codes": [
+              "彭823"
+            ],
             "pilot_code": "彭823",
             "flight_code": "",
             "source_cols": [
-              13
+              12,
+              14
             ],
             "source_row": 17
           },
           {
-            "start_time": "14:50",
-            "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "147 837-",
-            "pilot_code": "彭823",
-            "flight_code": "",
-            "source_cols": [
-              20,
-              23
+            "start_time": "17:20",
+            "end_time": "18:00",
+            "display_time": "17:20~18:00",
+            "text": "CQY -p0-",
+            "remark": "CQY -p0-",
+            "pilot_codes": [
+              "彭823"
             ],
-            "source_row": 17
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "20:20",
-            "display_time": "19:50~20:20",
-            "text": "CQY 0p-7",
             "pilot_code": "彭823",
             "flight_code": "CQY",
             "source_cols": [
-              50,
-              53
+              35,
+              39
+            ],
+            "source_row": 17
+          },
+          {
+            "start_time": "19:40",
+            "end_time": "20:30",
+            "display_time": "19:40~20:30",
+            "text": "CQY -05B 0p-7",
+            "remark": "CQY -05B 0p-7",
+            "pilot_codes": [
+              "彭823"
+            ],
+            "pilot_code": "彭823",
+            "flight_code": "CQY",
+            "source_cols": [
+              49,
+              52,
+              54
             ],
             "source_row": 17
           }
@@ -1105,34 +1136,7 @@
         "secondary_code": "0753",
         "name": "",
         "code_name": "飞826",
-        "events": [
-          {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
-            "text": "4.0 嘎825",
-            "pilot_code": "嘎825",
-            "flight_code": "",
-            "source_cols": [
-              36,
-              41
-            ],
-            "source_row": 18
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "20:40",
-            "display_time": "19:50~20:40",
-            "text": "5o 825",
-            "pilot_code": "飞826",
-            "flight_code": "",
-            "source_cols": [
-              50,
-              55
-            ],
-            "source_row": 18
-          }
-        ],
+        "events": [],
         "source_group": 4
       },
       {
@@ -1151,32 +1155,71 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "name": "",
-        "code_name": "",
+        "code_name": "冯185",
         "events": [
           {
-            "start_time": "15:20",
-            "end_time": "15:30",
-            "display_time": "15:20~15:30",
-            "text": "103 冯185",
-            "pilot_code": "冯185",
+            "start_time": "13:20",
+            "end_time": "13:50",
+            "display_time": "13:20~13:50",
+            "text": "（)",
+            "remark": "（)",
+            "pilot_codes": [],
+            "pilot_code": "",
             "flight_code": "",
             "source_cols": [
-              23,
-              24
+              11,
+              14
             ],
             "source_row": 20
           },
           {
-            "start_time": "17:30",
-            "end_time": "18:50",
-            "display_time": "17:30~18:50",
-            "text": "AI(伴轨) 03 光180",
+            "start_time": "15:20",
+            "end_time": "15:40",
+            "display_time": "15:20~15:40",
+            "text": "103",
+            "remark": "103",
+            "pilot_codes": [
+              "冯185"
+            ],
+            "pilot_code": "冯185",
+            "flight_code": "",
+            "source_cols": [
+              23,
+              24,
+              25
+            ],
+            "source_row": 20
+          },
+          {
+            "start_time": "17:10",
+            "end_time": "17:40",
+            "display_time": "17:10~17:40",
+            "text": "MF(伴航) (伴航)",
+            "remark": "MF(伴航) (伴航)",
+            "pilot_codes": [],
+            "pilot_code": "",
+            "flight_code": "MF",
+            "source_cols": [
+              34,
+              37
+            ],
+            "source_row": 20
+          },
+          {
+            "start_time": "18:30",
+            "end_time": "19:00",
+            "display_time": "18:30~19:00",
+            "text": "",
+            "remark": "",
+            "pilot_codes": [
+              "光180"
+            ],
             "pilot_code": "光180",
             "flight_code": "",
             "source_cols": [
-              36,
               42,
-              44
+              43,
+              45
             ],
             "source_row": 20
           }
@@ -1192,34 +1235,48 @@
         "code_name": "森153",
         "events": [
           {
-            "start_time": "13:20",
-            "end_time": "15:30",
-            "display_time": "13:20~15:30",
-            "text": "0.65T 南 自 414 豪182",
+            "start_time": "13:10",
+            "end_time": "15:40",
+            "display_time": "13:10~15:40",
+            "text": "0.65T 414",
+            "remark": "0.65T 414",
+            "pilot_codes": [
+              "豪182"
+            ],
             "pilot_code": "豪182",
             "flight_code": "",
             "source_cols": [
-              11,
+              10,
+              12,
+              15,
               16,
               19,
+              22,
               23,
-              24
+              25
             ],
             "source_row": 21
           },
           {
-            "start_time": "17:20",
-            "end_time": "18:50",
-            "display_time": "17:20~18:50",
-            "text": "0.55T 厦 马 44 汤191",
+            "start_time": "17:10",
+            "end_time": "19:00",
+            "display_time": "17:10~19:00",
+            "text": "0.55T 44",
+            "remark": "0.55T 44",
+            "pilot_codes": [
+              "汤191"
+            ],
             "pilot_code": "汤191",
             "flight_code": "",
             "source_cols": [
+              34,
               35,
               37,
               39,
-              42,
-              44
+              41,
+              43,
+              44,
+              45
             ],
             "source_row": 21
           }
@@ -1245,15 +1302,37 @@
         "code_name": "豪182",
         "events": [
           {
+            "start_time": "19:30",
+            "end_time": "20:00",
+            "display_time": "19:30~20:00",
+            "text": "MF(伴航) (伴航)",
+            "remark": "MF(伴航) (伴航)",
+            "pilot_codes": [
+              "豪182"
+            ],
+            "pilot_code": "豪182",
+            "flight_code": "MF",
+            "source_cols": [
+              48,
+              51
+            ],
+            "source_row": 23
+          },
+          {
             "start_time": "20:50",
-            "end_time": "21:10",
-            "display_time": "20:50~21:10",
-            "text": "03 光180",
+            "end_time": "21:20",
+            "display_time": "20:50~21:20",
+            "text": "",
+            "remark": "",
+            "pilot_codes": [
+              "光180"
+            ],
             "pilot_code": "光180",
             "flight_code": "",
             "source_cols": [
               56,
-              58
+              58,
+              59
             ],
             "source_row": 23
           }
@@ -1269,18 +1348,25 @@
         "code_name": "冯185",
         "events": [
           {
-            "start_time": "19:40",
-            "end_time": "21:10",
-            "display_time": "19:40~21:10",
-            "text": "0.55T 星 马 44 豪182",
+            "start_time": "19:30",
+            "end_time": "21:20",
+            "display_time": "19:30~21:20",
+            "text": "0.55T 44",
+            "remark": "0.55T 44",
+            "pilot_codes": [
+              "豪182"
+            ],
             "pilot_code": "豪182",
             "flight_code": "",
             "source_cols": [
+              48,
               49,
               51,
               53,
-              56,
-              58
+              55,
+              57,
+              58,
+              59
             ],
             "source_row": 24
           }
@@ -1306,14 +1392,22 @@
         "code_name": "玉165",
         "events": [
           {
-            "start_time": "15:20",
-            "end_time": "15:20",
-            "display_time": "15:20",
-            "text": "1030",
+            "start_time": "12:40",
+            "end_time": "15:50",
+            "display_time": "12:40~15:50",
+            "text": "CC 1",
+            "remark": "CC 1",
+            "pilot_codes": [
+              "玉165"
+            ],
             "pilot_code": "玉165",
-            "flight_code": "",
+            "flight_code": "CC",
             "source_cols": [
-              23
+              7,
+              8,
+              23,
+              24,
+              26
             ],
             "source_row": 26
           }
@@ -1330,26 +1424,21 @@
         "events": [
           {
             "start_time": "12:40",
-            "end_time": "12:40",
-            "display_time": "12:40",
-            "text": "32T",
-            "pilot_code": "韩171",
-            "flight_code": "",
-            "source_cols": [
-              7
+            "end_time": "14:50",
+            "display_time": "12:40~14:50",
+            "text": "",
+            "remark": "",
+            "pilot_codes": [
+              "韩171"
             ],
-            "source_row": 27
-          },
-          {
-            "start_time": "14:00",
-            "end_time": "14:40",
-            "display_time": "14:00~14:40",
-            "text": "忠 春",
             "pilot_code": "韩171",
             "flight_code": "",
             "source_cols": [
+              7,
+              8,
               15,
-              19
+              19,
+              20
             ],
             "source_row": 27
           }
@@ -1375,15 +1464,23 @@
         "code_name": "说176",
         "events": [
           {
-            "start_time": "15:40",
-            "end_time": "16:10",
-            "display_time": "15:40~16:10",
-            "text": "hoho 说176",
+            "start_time": "13:10",
+            "end_time": "16:20",
+            "display_time": "13:10~16:20",
+            "text": "CC",
+            "remark": "CC",
+            "pilot_codes": [
+              "说176"
+            ],
             "pilot_code": "说176",
-            "flight_code": "",
+            "flight_code": "CC",
             "source_cols": [
+              10,
+              11,
               25,
-              28
+              26,
+              28,
+              29
             ],
             "source_row": 29
           }
@@ -1396,17 +1493,27 @@
         "aircraft_no": "10",
         "secondary_code": "0705",
         "name": "",
-        "code_name": "玉165",
+        "code_name": "本150",
         "events": [
           {
-            "start_time": "16:00",
-            "end_time": "16:00",
-            "display_time": "16:00",
-            "text": "玉165",
-            "pilot_code": "玉165",
+            "start_time": "13:10",
+            "end_time": "16:20",
+            "display_time": "13:10~16:20",
+            "text": "1",
+            "remark": "1",
+            "pilot_codes": [
+              "本150"
+            ],
+            "pilot_code": "本150",
             "flight_code": "",
             "source_cols": [
-              27
+              10,
+              11,
+              15,
+              16,
+              20,
+              26,
+              29
             ],
             "source_row": 30
           }
@@ -1423,8 +1530,7 @@
         "crew_codes": [
           "宫850",
           "郑807",
-          "雁809",
-          "苑813"
+          "胜809"
         ],
         "crew_rows": [
           {
@@ -1436,41 +1542,59 @@
             "code_name": "宫850",
             "events": [
               {
-                "start_time": "14:50",
+                "start_time": "13:30",
                 "end_time": "15:20",
-                "display_time": "14:50~15:20",
-                "text": "147 郑807",
+                "display_time": "13:30~15:20",
+                "text": "SD",
+                "remark": "SD",
+                "pilot_codes": [
+                  "郑807"
+                ],
                 "pilot_code": "郑807",
-                "flight_code": "",
+                "flight_code": "SD",
                 "source_cols": [
-                  20,
+                  12,
+                  13,
+                  22,
                   23
                 ],
                 "source_row": 8
               },
               {
-                "start_time": "17:30",
-                "end_time": "18:10",
-                "display_time": "17:30~18:10",
-                "text": "CQY 8850",
+                "start_time": "17:10",
+                "end_time": "18:20",
+                "display_time": "17:10~18:20",
+                "text": "CQY -06B10-70",
+                "remark": "CQY -06B10-70",
+                "pilot_codes": [
+                  "宫850"
+                ],
                 "pilot_code": "宫850",
                 "flight_code": "CQY",
                 "source_cols": [
-                  36,
-                  40
+                  34,
+                  38,
+                  39,
+                  41
                 ],
                 "source_row": 8
               },
               {
-                "start_time": "19:50",
-                "end_time": "20:30",
-                "display_time": "19:50~20:30",
-                "text": "SD 苑813",
+                "start_time": "19:30",
+                "end_time": "20:40",
+                "display_time": "19:30~20:40",
+                "text": "CO-D -70",
+                "remark": "CO-D -70",
+                "pilot_codes": [
+                  "苑813"
+                ],
                 "pilot_code": "苑813",
-                "flight_code": "SD",
+                "flight_code": "",
                 "source_cols": [
-                  50,
-                  54
+                  48,
+                  52,
+                  54,
+                  55
                 ],
                 "source_row": 8
               }
@@ -1486,26 +1610,21 @@
             "code_name": "郑807",
             "events": [
               {
-                "start_time": "17:30",
-                "end_time": "17:30",
-                "display_time": "17:30",
-                "text": "60T",
-                "pilot_code": "郑807",
-                "flight_code": "",
-                "source_cols": [
-                  36
+                "start_time": "13:30",
+                "end_time": "15:00",
+                "display_time": "13:30~15:00",
+                "text": "9 B",
+                "remark": "9 B",
+                "pilot_codes": [
+                  "郑807"
                 ],
-                "source_row": 9
-              },
-              {
-                "start_time": "19:50",
-                "end_time": "19:50",
-                "display_time": "19:50",
-                "text": "6.0T",
                 "pilot_code": "郑807",
                 "flight_code": "",
                 "source_cols": [
-                  50
+                  12,
+                  13,
+                  19,
+                  21
                 ],
                 "source_row": 9
               }
@@ -1518,72 +1637,85 @@
             "aircraft_no": "60",
             "secondary_code": "0750",
             "name": "",
-            "code_name": "雁809",
+            "code_name": "胜809",
             "events": [],
             "source_group": 1
           }
         ],
         "events": [
           {
-            "start_time": "14:50",
-            "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "147 郑807",
+            "start_time": "13:30",
+            "end_time": "15:00",
+            "display_time": "13:30~15:00",
+            "text": "9 B",
+            "remark": "9 B",
+            "pilot_codes": [
+              "郑807"
+            ],
             "pilot_code": "郑807",
             "flight_code": "",
             "source_cols": [
-              20,
+              12,
+              13,
+              19,
+              21
+            ],
+            "source_row": 9
+          },
+          {
+            "start_time": "13:30",
+            "end_time": "15:20",
+            "display_time": "13:30~15:20",
+            "text": "SD",
+            "remark": "SD",
+            "pilot_codes": [
+              "郑807"
+            ],
+            "pilot_code": "郑807",
+            "flight_code": "SD",
+            "source_cols": [
+              12,
+              13,
+              22,
               23
             ],
             "source_row": 8
           },
           {
-            "start_time": "17:30",
-            "end_time": "17:30",
-            "display_time": "17:30",
-            "text": "60T",
-            "pilot_code": "郑807",
-            "flight_code": "",
-            "source_cols": [
-              36
+            "start_time": "17:10",
+            "end_time": "18:20",
+            "display_time": "17:10~18:20",
+            "text": "CQY -06B10-70",
+            "remark": "CQY -06B10-70",
+            "pilot_codes": [
+              "宫850"
             ],
-            "source_row": 9
-          },
-          {
-            "start_time": "17:30",
-            "end_time": "18:10",
-            "display_time": "17:30~18:10",
-            "text": "CQY 8850",
             "pilot_code": "宫850",
             "flight_code": "CQY",
             "source_cols": [
-              36,
-              40
+              34,
+              38,
+              39,
+              41
             ],
             "source_row": 8
           },
           {
-            "start_time": "19:50",
-            "end_time": "19:50",
-            "display_time": "19:50",
-            "text": "6.0T",
-            "pilot_code": "郑807",
+            "start_time": "19:30",
+            "end_time": "20:40",
+            "display_time": "19:30~20:40",
+            "text": "CO-D -70",
+            "remark": "CO-D -70",
+            "pilot_codes": [
+              "苑813"
+            ],
+            "pilot_code": "苑813",
             "flight_code": "",
             "source_cols": [
-              50
-            ],
-            "source_row": 9
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "20:30",
-            "display_time": "19:50~20:30",
-            "text": "SD 苑813",
-            "pilot_code": "苑813",
-            "flight_code": "SD",
-            "source_cols": [
-              50,
-              54
+              48,
+              52,
+              54,
+              55
             ],
             "source_row": 8
           }
@@ -1597,8 +1729,7 @@
         "crew_codes": [
           "苑813",
           "贾831",
-          "嘎825",
-          "黄827"
+          "嘎825"
         ],
         "crew_rows": [
           {
@@ -1610,52 +1741,57 @@
             "code_name": "苑813",
             "events": [
               {
-                "start_time": "13:40",
-                "end_time": "13:40",
-                "display_time": "13:40",
-                "text": "500B",
+                "start_time": "13:30",
+                "end_time": "15:00",
+                "display_time": "13:30~15:00",
+                "text": "B 10-70",
+                "remark": "B 10-70",
+                "pilot_codes": [
+                  "苑813"
+                ],
                 "pilot_code": "苑813",
                 "flight_code": "",
                 "source_cols": [
-                  13
+                  12,
+                  14,
+                  19,
+                  21
                 ],
                 "source_row": 11
               },
               {
-                "start_time": "14:50",
-                "end_time": "15:20",
-                "display_time": "14:50~15:20",
-                "text": "10-70 836",
-                "pilot_code": "苑813",
-                "flight_code": "",
-                "source_cols": [
-                  20,
-                  23
+                "start_time": "17:20",
+                "end_time": "18:30",
+                "display_time": "17:20~18:30",
+                "text": "CQY P0 货7",
+                "remark": "CQY P0 货7",
+                "pilot_codes": [
+                  "苑813"
                 ],
-                "source_row": 11
-              },
-              {
-                "start_time": "17:40",
-                "end_time": "18:20",
-                "display_time": "17:40~18:20",
-                "text": "CQY 货7",
                 "pilot_code": "苑813",
                 "flight_code": "CQY",
                 "source_cols": [
-                  37,
-                  41
+                  35,
+                  39,
+                  40,
+                  42
                 ],
                 "source_row": 11
               },
               {
-                "start_time": "20:40",
-                "end_time": "20:40",
-                "display_time": "20:40",
-                "text": "黄827",
+                "start_time": "20:30",
+                "end_time": "20:50",
+                "display_time": "20:30~20:50",
+                "text": "",
+                "remark": "",
+                "pilot_codes": [
+                  "黄827"
+                ],
                 "pilot_code": "黄827",
                 "flight_code": "",
                 "source_cols": [
-                  55
+                  54,
+                  56
                 ],
                 "source_row": 11
               }
@@ -1671,14 +1807,21 @@
             "code_name": "贾831",
             "events": [
               {
-                "start_time": "17:20",
-                "end_time": "17:20",
-                "display_time": "17:20",
-                "text": "6.67",
+                "start_time": "13:30",
+                "end_time": "14:10",
+                "display_time": "13:30~14:10",
+                "text": "9 k",
+                "remark": "9 k",
+                "pilot_codes": [
+                  "贾831"
+                ],
                 "pilot_code": "贾831",
                 "flight_code": "",
                 "source_cols": [
-                  35
+                  12,
+                  13,
+                  15,
+                  16
                 ],
                 "source_row": 12
               }
@@ -1698,64 +1841,76 @@
         ],
         "events": [
           {
-            "start_time": "13:40",
-            "end_time": "13:40",
-            "display_time": "13:40",
-            "text": "500B",
-            "pilot_code": "苑813",
+            "start_time": "13:30",
+            "end_time": "14:10",
+            "display_time": "13:30~14:10",
+            "text": "9 k",
+            "remark": "9 k",
+            "pilot_codes": [
+              "贾831"
+            ],
+            "pilot_code": "贾831",
             "flight_code": "",
             "source_cols": [
-              13
+              12,
+              13,
+              15,
+              16
             ],
-            "source_row": 11
+            "source_row": 12
           },
           {
-            "start_time": "14:50",
-            "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "10-70 836",
+            "start_time": "13:30",
+            "end_time": "15:00",
+            "display_time": "13:30~15:00",
+            "text": "B 10-70",
+            "remark": "B 10-70",
+            "pilot_codes": [
+              "苑813"
+            ],
             "pilot_code": "苑813",
             "flight_code": "",
             "source_cols": [
-              20,
-              23
+              12,
+              14,
+              19,
+              21
             ],
             "source_row": 11
           },
           {
             "start_time": "17:20",
-            "end_time": "17:20",
-            "display_time": "17:20",
-            "text": "6.67",
-            "pilot_code": "贾831",
-            "flight_code": "",
-            "source_cols": [
-              35
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
+            "text": "CQY P0 货7",
+            "remark": "CQY P0 货7",
+            "pilot_codes": [
+              "苑813"
             ],
-            "source_row": 12
-          },
-          {
-            "start_time": "17:40",
-            "end_time": "18:20",
-            "display_time": "17:40~18:20",
-            "text": "CQY 货7",
             "pilot_code": "苑813",
             "flight_code": "CQY",
             "source_cols": [
-              37,
-              41
+              35,
+              39,
+              40,
+              42
             ],
             "source_row": 11
           },
           {
-            "start_time": "20:40",
-            "end_time": "20:40",
-            "display_time": "20:40",
-            "text": "黄827",
+            "start_time": "20:30",
+            "end_time": "20:50",
+            "display_time": "20:30~20:50",
+            "text": "",
+            "remark": "",
+            "pilot_codes": [
+              "黄827"
+            ],
             "pilot_code": "黄827",
             "flight_code": "",
             "source_cols": [
-              55
+              54,
+              56
             ],
             "source_row": 11
           }
@@ -1769,8 +1924,7 @@
         "crew_codes": [
           "彤812",
           "潘851",
-          "黄827",
-          "贾831"
+          "黄827"
         ],
         "crew_rows": [
           {
@@ -1782,42 +1936,59 @@
             "code_name": "彤812",
             "events": [
               {
-                "start_time": "14:50",
+                "start_time": "13:30",
                 "end_time": "15:20",
-                "display_time": "14:50~15:20",
-                "text": "247 贾831",
-                "pilot_code": "贾831",
-                "flight_code": "",
+                "display_time": "13:30~15:20",
+                "text": "SD OB",
+                "remark": "SD OB",
+                "pilot_codes": [
+                  "高835"
+                ],
+                "pilot_code": "高835",
+                "flight_code": "SD",
                 "source_cols": [
-                  20,
+                  12,
+                  14,
+                  22,
                   23
                 ],
                 "source_row": 14
               },
               {
-                "start_time": "17:40",
-                "end_time": "18:20",
-                "display_time": "17:40~18:20",
-                "text": "CQY 彤812",
+                "start_time": "17:20",
+                "end_time": "18:30",
+                "display_time": "17:20~18:30",
+                "text": "CQY -O1B00-79",
+                "remark": "CQY -O1B00-79",
+                "pilot_codes": [
+                  "彤812"
+                ],
                 "pilot_code": "彤812",
                 "flight_code": "CQY",
                 "source_cols": [
-                  37,
-                  41
+                  35,
+                  39,
+                  40,
+                  42
                 ],
                 "source_row": 14
               },
               {
-                "start_time": "19:50",
-                "end_time": "20:40",
-                "display_time": "19:50~20:40",
-                "text": "CQY 0079 821",
+                "start_time": "19:40",
+                "end_time": "20:20",
+                "display_time": "19:40~20:20",
+                "text": "CQY -O5B 0079",
+                "remark": "CQY -O5B 0079",
+                "pilot_codes": [
+                  "彤812"
+                ],
                 "pilot_code": "彤812",
                 "flight_code": "CQY",
                 "source_cols": [
-                  50,
-                  53,
-                  55
+                  49,
+                  51,
+                  52,
+                  53
                 ],
                 "source_row": 14
               }
@@ -1831,32 +2002,7 @@
             "secondary_code": "0752",
             "name": "",
             "code_name": "潘851",
-            "events": [
-              {
-                "start_time": "17:30",
-                "end_time": "17:30",
-                "display_time": "17:30",
-                "text": "6.07",
-                "pilot_code": "潘851",
-                "flight_code": "",
-                "source_cols": [
-                  36
-                ],
-                "source_row": 15
-              },
-              {
-                "start_time": "19:50",
-                "end_time": "19:50",
-                "display_time": "19:50",
-                "text": "6.07",
-                "pilot_code": "潘851",
-                "flight_code": "",
-                "source_cols": [
-                  50
-                ],
-                "source_row": 15
-              }
-            ],
+            "events": [],
             "source_group": 3
           },
           {
@@ -1872,66 +2018,59 @@
         ],
         "events": [
           {
-            "start_time": "14:50",
+            "start_time": "13:30",
             "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "247 贾831",
-            "pilot_code": "贾831",
-            "flight_code": "",
+            "display_time": "13:30~15:20",
+            "text": "SD OB",
+            "remark": "SD OB",
+            "pilot_codes": [
+              "高835"
+            ],
+            "pilot_code": "高835",
+            "flight_code": "SD",
             "source_cols": [
-              20,
+              12,
+              14,
+              22,
               23
             ],
             "source_row": 14
           },
           {
-            "start_time": "17:30",
-            "end_time": "17:30",
-            "display_time": "17:30",
-            "text": "6.07",
-            "pilot_code": "潘851",
-            "flight_code": "",
-            "source_cols": [
-              36
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
+            "text": "CQY -O1B00-79",
+            "remark": "CQY -O1B00-79",
+            "pilot_codes": [
+              "彤812"
             ],
-            "source_row": 15
-          },
-          {
-            "start_time": "17:40",
-            "end_time": "18:20",
-            "display_time": "17:40~18:20",
-            "text": "CQY 彤812",
             "pilot_code": "彤812",
             "flight_code": "CQY",
             "source_cols": [
-              37,
-              41
+              35,
+              39,
+              40,
+              42
             ],
             "source_row": 14
           },
           {
-            "start_time": "19:50",
-            "end_time": "19:50",
-            "display_time": "19:50",
-            "text": "6.07",
-            "pilot_code": "潘851",
-            "flight_code": "",
-            "source_cols": [
-              50
+            "start_time": "19:40",
+            "end_time": "20:20",
+            "display_time": "19:40~20:20",
+            "text": "CQY -O5B 0079",
+            "remark": "CQY -O5B 0079",
+            "pilot_codes": [
+              "彤812"
             ],
-            "source_row": 15
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "20:40",
-            "display_time": "19:50~20:40",
-            "text": "CQY 0079 821",
             "pilot_code": "彤812",
             "flight_code": "CQY",
             "source_cols": [
-              50,
-              53,
-              55
+              49,
+              51,
+              52,
+              53
             ],
             "source_row": 14
           }
@@ -1945,8 +2084,7 @@
         "crew_codes": [
           "彭823",
           "飞826",
-          "黄827",
-          "嘎825"
+          "黄827"
         ],
         "crew_rows": [
           {
@@ -1958,40 +2096,54 @@
             "code_name": "彭823",
             "events": [
               {
-                "start_time": "13:40",
-                "end_time": "13:40",
-                "display_time": "13:40",
-                "text": "50-028",
+                "start_time": "13:30",
+                "end_time": "13:50",
+                "display_time": "13:30~13:50",
+                "text": "50-",
+                "remark": "50-",
+                "pilot_codes": [
+                  "彭823"
+                ],
                 "pilot_code": "彭823",
                 "flight_code": "",
                 "source_cols": [
-                  13
+                  12,
+                  14
                 ],
                 "source_row": 17
               },
               {
-                "start_time": "14:50",
-                "end_time": "15:20",
-                "display_time": "14:50~15:20",
-                "text": "147 837-",
-                "pilot_code": "彭823",
-                "flight_code": "",
-                "source_cols": [
-                  20,
-                  23
+                "start_time": "17:20",
+                "end_time": "18:00",
+                "display_time": "17:20~18:00",
+                "text": "CQY -p0-",
+                "remark": "CQY -p0-",
+                "pilot_codes": [
+                  "彭823"
                 ],
-                "source_row": 17
-              },
-              {
-                "start_time": "19:50",
-                "end_time": "20:20",
-                "display_time": "19:50~20:20",
-                "text": "CQY 0p-7",
                 "pilot_code": "彭823",
                 "flight_code": "CQY",
                 "source_cols": [
-                  50,
-                  53
+                  35,
+                  39
+                ],
+                "source_row": 17
+              },
+              {
+                "start_time": "19:40",
+                "end_time": "20:30",
+                "display_time": "19:40~20:30",
+                "text": "CQY -05B 0p-7",
+                "remark": "CQY -05B 0p-7",
+                "pilot_codes": [
+                  "彭823"
+                ],
+                "pilot_code": "彭823",
+                "flight_code": "CQY",
+                "source_cols": [
+                  49,
+                  52,
+                  54
                 ],
                 "source_row": 17
               }
@@ -2005,34 +2157,7 @@
             "secondary_code": "0753",
             "name": "",
             "code_name": "飞826",
-            "events": [
-              {
-                "start_time": "17:30",
-                "end_time": "18:20",
-                "display_time": "17:30~18:20",
-                "text": "4.0 嘎825",
-                "pilot_code": "嘎825",
-                "flight_code": "",
-                "source_cols": [
-                  36,
-                  41
-                ],
-                "source_row": 18
-              },
-              {
-                "start_time": "19:50",
-                "end_time": "20:40",
-                "display_time": "19:50~20:40",
-                "text": "5o 825",
-                "pilot_code": "飞826",
-                "flight_code": "",
-                "source_cols": [
-                  50,
-                  55
-                ],
-                "source_row": 18
-              }
-            ],
+            "events": [],
             "source_group": 4
           },
           {
@@ -2048,68 +2173,56 @@
         ],
         "events": [
           {
-            "start_time": "13:40",
-            "end_time": "13:40",
-            "display_time": "13:40",
-            "text": "50-028",
+            "start_time": "13:30",
+            "end_time": "13:50",
+            "display_time": "13:30~13:50",
+            "text": "50-",
+            "remark": "50-",
+            "pilot_codes": [
+              "彭823"
+            ],
             "pilot_code": "彭823",
             "flight_code": "",
             "source_cols": [
-              13
+              12,
+              14
             ],
             "source_row": 17
           },
           {
-            "start_time": "14:50",
-            "end_time": "15:20",
-            "display_time": "14:50~15:20",
-            "text": "147 837-",
-            "pilot_code": "彭823",
-            "flight_code": "",
-            "source_cols": [
-              20,
-              23
+            "start_time": "17:20",
+            "end_time": "18:00",
+            "display_time": "17:20~18:00",
+            "text": "CQY -p0-",
+            "remark": "CQY -p0-",
+            "pilot_codes": [
+              "彭823"
             ],
-            "source_row": 17
-          },
-          {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
-            "text": "4.0 嘎825",
-            "pilot_code": "嘎825",
-            "flight_code": "",
-            "source_cols": [
-              36,
-              41
-            ],
-            "source_row": 18
-          },
-          {
-            "start_time": "19:50",
-            "end_time": "20:20",
-            "display_time": "19:50~20:20",
-            "text": "CQY 0p-7",
             "pilot_code": "彭823",
             "flight_code": "CQY",
             "source_cols": [
-              50,
-              53
+              35,
+              39
             ],
             "source_row": 17
           },
           {
-            "start_time": "19:50",
-            "end_time": "20:40",
-            "display_time": "19:50~20:40",
-            "text": "5o 825",
-            "pilot_code": "飞826",
-            "flight_code": "",
-            "source_cols": [
-              50,
-              55
+            "start_time": "19:40",
+            "end_time": "20:30",
+            "display_time": "19:40~20:30",
+            "text": "CQY -05B 0p-7",
+            "remark": "CQY -05B 0p-7",
+            "pilot_codes": [
+              "彭823"
             ],
-            "source_row": 18
+            "pilot_code": "彭823",
+            "flight_code": "CQY",
+            "source_cols": [
+              49,
+              52,
+              54
+            ],
+            "source_row": 17
           }
         ]
       },
@@ -2119,11 +2232,9 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "crew_codes": [
-          "森153",
-          "光180",
           "冯185",
-          "豪182",
-          "汤191"
+          "森153",
+          "光180"
         ],
         "crew_rows": [
           {
@@ -2132,32 +2243,71 @@
             "aircraft_no": "374",
             "secondary_code": "0701",
             "name": "",
-            "code_name": "",
+            "code_name": "冯185",
             "events": [
               {
-                "start_time": "15:20",
-                "end_time": "15:30",
-                "display_time": "15:20~15:30",
-                "text": "103 冯185",
-                "pilot_code": "冯185",
+                "start_time": "13:20",
+                "end_time": "13:50",
+                "display_time": "13:20~13:50",
+                "text": "（)",
+                "remark": "（)",
+                "pilot_codes": [],
+                "pilot_code": "",
                 "flight_code": "",
                 "source_cols": [
-                  23,
-                  24
+                  11,
+                  14
                 ],
                 "source_row": 20
               },
               {
-                "start_time": "17:30",
-                "end_time": "18:50",
-                "display_time": "17:30~18:50",
-                "text": "AI(伴轨) 03 光180",
+                "start_time": "15:20",
+                "end_time": "15:40",
+                "display_time": "15:20~15:40",
+                "text": "103",
+                "remark": "103",
+                "pilot_codes": [
+                  "冯185"
+                ],
+                "pilot_code": "冯185",
+                "flight_code": "",
+                "source_cols": [
+                  23,
+                  24,
+                  25
+                ],
+                "source_row": 20
+              },
+              {
+                "start_time": "17:10",
+                "end_time": "17:40",
+                "display_time": "17:10~17:40",
+                "text": "MF(伴航) (伴航)",
+                "remark": "MF(伴航) (伴航)",
+                "pilot_codes": [],
+                "pilot_code": "",
+                "flight_code": "MF",
+                "source_cols": [
+                  34,
+                  37
+                ],
+                "source_row": 20
+              },
+              {
+                "start_time": "18:30",
+                "end_time": "19:00",
+                "display_time": "18:30~19:00",
+                "text": "",
+                "remark": "",
+                "pilot_codes": [
+                  "光180"
+                ],
                 "pilot_code": "光180",
                 "flight_code": "",
                 "source_cols": [
-                  36,
                   42,
-                  44
+                  43,
+                  45
                 ],
                 "source_row": 20
               }
@@ -2173,34 +2323,48 @@
             "code_name": "森153",
             "events": [
               {
-                "start_time": "13:20",
-                "end_time": "15:30",
-                "display_time": "13:20~15:30",
-                "text": "0.65T 南 自 414 豪182",
+                "start_time": "13:10",
+                "end_time": "15:40",
+                "display_time": "13:10~15:40",
+                "text": "0.65T 414",
+                "remark": "0.65T 414",
+                "pilot_codes": [
+                  "豪182"
+                ],
                 "pilot_code": "豪182",
                 "flight_code": "",
                 "source_cols": [
-                  11,
+                  10,
+                  12,
+                  15,
                   16,
                   19,
+                  22,
                   23,
-                  24
+                  25
                 ],
                 "source_row": 21
               },
               {
-                "start_time": "17:20",
-                "end_time": "18:50",
-                "display_time": "17:20~18:50",
-                "text": "0.55T 厦 马 44 汤191",
+                "start_time": "17:10",
+                "end_time": "19:00",
+                "display_time": "17:10~19:00",
+                "text": "0.55T 44",
+                "remark": "0.55T 44",
+                "pilot_codes": [
+                  "汤191"
+                ],
                 "pilot_code": "汤191",
                 "flight_code": "",
                 "source_cols": [
+                  34,
                   35,
                   37,
                   39,
-                  42,
-                  44
+                  41,
+                  43,
+                  44,
+                  45
                 ],
                 "source_row": 21
               }
@@ -2220,61 +2384,44 @@
         ],
         "events": [
           {
-            "start_time": "13:20",
-            "end_time": "15:30",
-            "display_time": "13:20~15:30",
-            "text": "0.65T 南 自 414 豪182",
-            "pilot_code": "豪182",
+            "start_time": "13:10",
+            "end_time": "15:40",
+            "display_time": "13:10~15:40",
+            "text": "0.65T 414 （) 103",
+            "remark": "0.65T 414 （) 103",
+            "pilot_codes": [
+              "豪182",
+              "冯185"
+            ],
+            "pilot_code": "豪182、冯185",
             "flight_code": "",
             "source_cols": [
-              11,
+              10,
+              12,
+              15,
               16,
               19,
+              22,
               23,
-              24
+              25
             ],
             "source_row": 21
           },
           {
-            "start_time": "15:20",
-            "end_time": "15:30",
-            "display_time": "15:20~15:30",
-            "text": "103 冯185",
-            "pilot_code": "冯185",
-            "flight_code": "",
-            "source_cols": [
-              23,
-              24
+            "start_time": "17:10",
+            "end_time": "19:00",
+            "display_time": "17:10~19:00",
+            "text": "MF(伴航) (伴航) 0.55T 44",
+            "remark": "MF(伴航) (伴航) 0.55T 44",
+            "pilot_codes": [
+              "光180",
+              "汤191"
             ],
-            "source_row": 20
-          },
-          {
-            "start_time": "17:20",
-            "end_time": "18:50",
-            "display_time": "17:20~18:50",
-            "text": "0.55T 厦 马 44 汤191",
-            "pilot_code": "汤191",
-            "flight_code": "",
+            "pilot_code": "光180、汤191",
+            "flight_code": "MF",
             "source_cols": [
-              35,
-              37,
-              39,
-              42,
-              44
-            ],
-            "source_row": 21
-          },
-          {
-            "start_time": "17:30",
-            "end_time": "18:50",
-            "display_time": "17:30~18:50",
-            "text": "AI(伴轨) 03 光180",
-            "pilot_code": "光180",
-            "flight_code": "",
-            "source_cols": [
-              36,
-              42,
-              44
+              34,
+              37
             ],
             "source_row": 20
           }
@@ -2288,8 +2435,7 @@
         "crew_codes": [
           "豪182",
           "冯185",
-          "汤191",
-          "光180"
+          "汤191"
         ],
         "crew_rows": [
           {
@@ -2301,15 +2447,37 @@
             "code_name": "豪182",
             "events": [
               {
+                "start_time": "19:30",
+                "end_time": "20:00",
+                "display_time": "19:30~20:00",
+                "text": "MF(伴航) (伴航)",
+                "remark": "MF(伴航) (伴航)",
+                "pilot_codes": [
+                  "豪182"
+                ],
+                "pilot_code": "豪182",
+                "flight_code": "MF",
+                "source_cols": [
+                  48,
+                  51
+                ],
+                "source_row": 23
+              },
+              {
                 "start_time": "20:50",
-                "end_time": "21:10",
-                "display_time": "20:50~21:10",
-                "text": "03 光180",
+                "end_time": "21:20",
+                "display_time": "20:50~21:20",
+                "text": "",
+                "remark": "",
+                "pilot_codes": [
+                  "光180"
+                ],
                 "pilot_code": "光180",
                 "flight_code": "",
                 "source_cols": [
                   56,
-                  58
+                  58,
+                  59
                 ],
                 "source_row": 23
               }
@@ -2325,18 +2493,25 @@
             "code_name": "冯185",
             "events": [
               {
-                "start_time": "19:40",
-                "end_time": "21:10",
-                "display_time": "19:40~21:10",
-                "text": "0.55T 星 马 44 豪182",
+                "start_time": "19:30",
+                "end_time": "21:20",
+                "display_time": "19:30~21:20",
+                "text": "0.55T 44",
+                "remark": "0.55T 44",
+                "pilot_codes": [
+                  "豪182"
+                ],
                 "pilot_code": "豪182",
                 "flight_code": "",
                 "source_cols": [
+                  48,
                   49,
                   51,
                   53,
-                  56,
-                  58
+                  55,
+                  57,
+                  58,
+                  59
                 ],
                 "source_row": 24
               }
@@ -2356,31 +2531,20 @@
         ],
         "events": [
           {
-            "start_time": "19:40",
-            "end_time": "21:10",
-            "display_time": "19:40~21:10",
-            "text": "0.55T 星 马 44 豪182",
-            "pilot_code": "豪182",
-            "flight_code": "",
-            "source_cols": [
-              49,
-              51,
-              53,
-              56,
-              58
+            "start_time": "19:30",
+            "end_time": "21:20",
+            "display_time": "19:30~21:20",
+            "text": "MF(伴航) (伴航) 0.55T 44",
+            "remark": "MF(伴航) (伴航) 0.55T 44",
+            "pilot_codes": [
+              "豪182",
+              "光180"
             ],
-            "source_row": 24
-          },
-          {
-            "start_time": "20:50",
-            "end_time": "21:10",
-            "display_time": "20:50~21:10",
-            "text": "03 光180",
-            "pilot_code": "光180",
-            "flight_code": "",
+            "pilot_code": "豪182、光180",
+            "flight_code": "MF",
             "source_cols": [
-              56,
-              58
+              48,
+              51
             ],
             "source_row": 23
           }
@@ -2406,14 +2570,22 @@
             "code_name": "玉165",
             "events": [
               {
-                "start_time": "15:20",
-                "end_time": "15:20",
-                "display_time": "15:20",
-                "text": "1030",
+                "start_time": "12:40",
+                "end_time": "15:50",
+                "display_time": "12:40~15:50",
+                "text": "CC 1",
+                "remark": "CC 1",
+                "pilot_codes": [
+                  "玉165"
+                ],
                 "pilot_code": "玉165",
-                "flight_code": "",
+                "flight_code": "CC",
                 "source_cols": [
-                  23
+                  7,
+                  8,
+                  23,
+                  24,
+                  26
                 ],
                 "source_row": 26
               }
@@ -2430,26 +2602,21 @@
             "events": [
               {
                 "start_time": "12:40",
-                "end_time": "12:40",
-                "display_time": "12:40",
-                "text": "32T",
-                "pilot_code": "韩171",
-                "flight_code": "",
-                "source_cols": [
-                  7
+                "end_time": "14:50",
+                "display_time": "12:40~14:50",
+                "text": "",
+                "remark": "",
+                "pilot_codes": [
+                  "韩171"
                 ],
-                "source_row": 27
-              },
-              {
-                "start_time": "14:00",
-                "end_time": "14:40",
-                "display_time": "14:00~14:40",
-                "text": "忠 春",
                 "pilot_code": "韩171",
                 "flight_code": "",
                 "source_cols": [
+                  7,
+                  8,
                   15,
-                  19
+                  19,
+                  20
                 ],
                 "source_row": 27
               }
@@ -2470,38 +2637,21 @@
         "events": [
           {
             "start_time": "12:40",
-            "end_time": "12:40",
-            "display_time": "12:40",
-            "text": "32T",
-            "pilot_code": "韩171",
-            "flight_code": "",
-            "source_cols": [
-              7
+            "end_time": "15:50",
+            "display_time": "12:40~15:50",
+            "text": "CC 1",
+            "remark": "CC 1",
+            "pilot_codes": [
+              "玉165"
             ],
-            "source_row": 27
-          },
-          {
-            "start_time": "14:00",
-            "end_time": "14:40",
-            "display_time": "14:00~14:40",
-            "text": "忠 春",
-            "pilot_code": "韩171",
-            "flight_code": "",
-            "source_cols": [
-              15,
-              19
-            ],
-            "source_row": 27
-          },
-          {
-            "start_time": "15:20",
-            "end_time": "15:20",
-            "display_time": "15:20",
-            "text": "1030",
             "pilot_code": "玉165",
-            "flight_code": "",
+            "flight_code": "CC",
             "source_cols": [
-              23
+              7,
+              8,
+              23,
+              24,
+              26
             ],
             "source_row": 26
           }
@@ -2514,7 +2664,7 @@
         "secondary_code": "0705",
         "crew_codes": [
           "说176",
-          "玉165"
+          "本150"
         ],
         "crew_rows": [
           {
@@ -2526,15 +2676,23 @@
             "code_name": "说176",
             "events": [
               {
-                "start_time": "15:40",
-                "end_time": "16:10",
-                "display_time": "15:40~16:10",
-                "text": "hoho 说176",
+                "start_time": "13:10",
+                "end_time": "16:20",
+                "display_time": "13:10~16:20",
+                "text": "CC",
+                "remark": "CC",
+                "pilot_codes": [
+                  "说176"
+                ],
                 "pilot_code": "说176",
-                "flight_code": "",
+                "flight_code": "CC",
                 "source_cols": [
+                  10,
+                  11,
                   25,
-                  28
+                  26,
+                  28,
+                  29
                 ],
                 "source_row": 29
               }
@@ -2547,17 +2705,27 @@
             "aircraft_no": "10",
             "secondary_code": "0705",
             "name": "",
-            "code_name": "玉165",
+            "code_name": "本150",
             "events": [
               {
-                "start_time": "16:00",
-                "end_time": "16:00",
-                "display_time": "16:00",
-                "text": "玉165",
-                "pilot_code": "玉165",
+                "start_time": "13:10",
+                "end_time": "16:20",
+                "display_time": "13:10~16:20",
+                "text": "1",
+                "remark": "1",
+                "pilot_codes": [
+                  "本150"
+                ],
+                "pilot_code": "本150",
                 "flight_code": "",
                 "source_cols": [
-                  27
+                  10,
+                  11,
+                  15,
+                  16,
+                  20,
+                  26,
+                  29
                 ],
                 "source_row": 30
               }
@@ -2567,38 +2735,42 @@
         ],
         "events": [
           {
-            "start_time": "15:40",
-            "end_time": "16:10",
-            "display_time": "15:40~16:10",
-            "text": "hoho 说176",
+            "start_time": "13:10",
+            "end_time": "16:20",
+            "display_time": "13:10~16:20",
+            "text": "CC",
+            "remark": "CC",
+            "pilot_codes": [
+              "说176"
+            ],
             "pilot_code": "说176",
-            "flight_code": "",
+            "flight_code": "CC",
             "source_cols": [
+              10,
+              11,
               25,
-              28
+              26,
+              28,
+              29
             ],
             "source_row": 29
-          },
-          {
-            "start_time": "16:00",
-            "end_time": "16:00",
-            "display_time": "16:00",
-            "text": "玉165",
-            "pilot_code": "玉165",
-            "flight_code": "",
-            "source_cols": [
-              27
-            ],
-            "source_row": 30
           }
         ]
       }
     ],
+    "note_start_col": 64,
+    "event_right_x": 1041.0,
     "raw_ocr_lines": [
       {
         "row": 0,
         "col": 6,
+        "col_start": 5,
+        "col_end": 7,
+        "core_col_start": 5,
+        "core_col_end": 6,
         "x": 188.0,
+        "x_min": 173.0,
+        "x_max": 203.0,
         "y": 10.0,
         "text": "12:00",
         "score": 0.9849883913993835
@@ -2606,7 +2778,13 @@
       {
         "row": 0,
         "col": 12,
+        "col_start": 11,
+        "col_end": 13,
+        "core_col_start": 11,
+        "core_col_end": 12,
         "x": 273.5,
+        "x_min": 258.0,
+        "x_max": 289.0,
         "y": 10.0,
         "text": "13:00",
         "score": 0.9681013822555542
@@ -2614,7 +2792,13 @@
       {
         "row": 0,
         "col": 18,
+        "col_start": 17,
+        "col_end": 19,
+        "core_col_start": 17,
+        "core_col_end": 18,
         "x": 360.5,
+        "x_min": 345.0,
+        "x_max": 376.0,
         "y": 10.0,
         "text": "14:00",
         "score": 0.9515209197998047
@@ -2622,7 +2806,13 @@
       {
         "row": 0,
         "col": 23,
+        "col_start": 23,
+        "col_end": 24,
+        "core_col_start": 23,
+        "core_col_end": 23,
         "x": 447.5,
+        "x_min": 432.0,
+        "x_max": 463.0,
         "y": 10.5,
         "text": "15:00",
         "score": 0.9721847772598267
@@ -2630,7 +2820,13 @@
       {
         "row": 0,
         "col": 29,
+        "col_start": 28,
+        "col_end": 30,
+        "core_col_start": 28,
+        "core_col_end": 29,
         "x": 534.5,
+        "x_min": 519.0,
+        "x_max": 550.0,
         "y": 10.5,
         "text": "16:00",
         "score": 0.9722323417663574
@@ -2638,7 +2834,13 @@
       {
         "row": 0,
         "col": 35,
+        "col_start": 34,
+        "col_end": 36,
+        "core_col_start": 34,
+        "core_col_end": 35,
         "x": 620.5,
+        "x_min": 605.0,
+        "x_max": 636.0,
         "y": 10.5,
         "text": "17:00",
         "score": 0.9796261787414551
@@ -2646,7 +2848,13 @@
       {
         "row": 0,
         "col": 41,
+        "col_start": 39,
+        "col_end": 42,
+        "core_col_start": 40,
+        "core_col_end": 41,
         "x": 706.5,
+        "x_min": 691.0,
+        "x_max": 722.0,
         "y": 10.5,
         "text": "18:00",
         "score": 0.984096348285675
@@ -2654,7 +2862,13 @@
       {
         "row": 0,
         "col": 46,
+        "col_start": 45,
+        "col_end": 47,
+        "core_col_start": 45,
+        "core_col_end": 46,
         "x": 793.5,
+        "x_min": 778.0,
+        "x_max": 809.0,
         "y": 10.0,
         "text": "19:00",
         "score": 0.9828465580940247
@@ -2662,7 +2876,13 @@
       {
         "row": 0,
         "col": 52,
+        "col_start": 50,
+        "col_end": 53,
+        "core_col_start": 51,
+        "core_col_end": 52,
         "x": 880.0,
+        "x_min": 864.0,
+        "x_max": 896.0,
         "y": 10.0,
         "text": "20100",
         "score": 0.9188286662101746
@@ -2670,7 +2890,13 @@
       {
         "row": 0,
         "col": 58,
+        "col_start": 56,
+        "col_end": 59,
+        "core_col_start": 57,
+        "core_col_end": 58,
         "x": 966.5,
+        "x_min": 951.0,
+        "x_max": 982.0,
         "y": 10.0,
         "text": "21:00",
         "score": 0.9687760472297668
@@ -2678,7 +2904,13 @@
       {
         "row": 0,
         "col": 64,
+        "col_start": 63,
+        "col_end": 65,
+        "core_col_start": 63,
+        "core_col_end": 64,
         "x": 1053.5,
+        "x_min": 1038.0,
+        "x_max": 1069.0,
         "y": 10.5,
         "text": "22:00",
         "score": 0.9836753010749817
@@ -2686,7 +2918,13 @@
       {
         "row": 0,
         "col": 70,
+        "col_start": 69,
+        "col_end": 71,
+        "core_col_start": 69,
+        "core_col_end": 70,
         "x": 1140.5,
+        "x_min": 1125.0,
+        "x_max": 1156.0,
         "y": 10.5,
         "text": "23:00",
         "score": 0.9599682092666626
@@ -2694,7 +2932,13 @@
       {
         "row": 1,
         "col": 38,
+        "col_start": 3,
+        "col_end": 72,
+        "core_col_start": 16,
+        "core_col_end": 60,
         "x": 664.5,
+        "x_min": 146.0,
+        "x_max": 1183.0,
         "y": 27.5,
         "text": "01020300600102030050010203010500102030000102030080010203008001020300500102030500102030080010203006001020300500102030050",
         "score": 0.7427031993865967
@@ -2702,7 +2946,13 @@
       {
         "row": 2,
         "col": 13,
+        "col_start": 11,
+        "col_end": 15,
+        "core_col_start": 11,
+        "core_col_end": 14,
         "x": 289.0,
+        "x_min": 262.0,
+        "x_max": 316.0,
         "y": 50.5,
         "text": "秦",
         "score": 0.5760272741317749
@@ -2710,7 +2960,13 @@
       {
         "row": 2,
         "col": 19,
+        "col_start": 16,
+        "col_end": 22,
+        "core_col_start": 17,
+        "core_col_end": 21,
         "x": 379.5,
+        "x_min": 338.0,
+        "x_max": 421.0,
         "y": 50.5,
         "text": "指挥:国",
         "score": 0.6225365400314331
@@ -2718,7 +2974,13 @@
       {
         "row": 2,
         "col": 25,
+        "col_start": 23,
+        "col_end": 28,
+        "core_col_start": 23,
+        "core_col_end": 27,
         "x": 482.0,
+        "x_min": 435.0,
+        "x_max": 529.0,
         "y": 50.5,
         "text": "电韦章",
         "score": 0.3909246027469635
@@ -2726,7 +2988,13 @@
       {
         "row": 3,
         "col": 1,
+        "col_start": 0,
+        "col_end": 2,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 73.0,
+        "x_min": 47.0,
+        "x_max": 99.0,
         "y": 62.5,
         "text": "至梅1号",
         "score": 0.8472040891647339
@@ -2734,7 +3002,13 @@
       {
         "row": 3,
         "col": 11,
+        "col_start": 6,
+        "col_end": 15,
+        "core_col_start": 8,
+        "core_col_end": 14,
         "x": 259.5,
+        "x_min": 191.0,
+        "x_max": 328.0,
         "y": 75.5,
         "text": "主见习章",
         "score": 0.6730254292488098
@@ -2742,7 +3016,13 @@
       {
         "row": 4,
         "col": 73,
+        "col_start": 73,
+        "col_end": 73,
+        "core_col_start": 73,
+        "core_col_end": 73,
         "x": 1213.5,
+        "x_min": 1195.0,
+        "x_max": 1232.0,
         "y": 92.5,
         "text": "姓名",
         "score": 0.9976223707199097
@@ -2750,7 +3030,13 @@
       {
         "row": 3,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1271.0,
+        "x_min": 1253.0,
+        "x_max": 1289.0,
         "y": 85.0,
         "text": "代字",
         "score": 0.9917973279953003
@@ -2758,7 +3044,13 @@
       {
         "row": 4,
         "col": 1,
+        "col_start": 0,
+        "col_end": 2,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.5,
+        "x_min": 47.0,
+        "x_max": 98.0,
         "y": 101.0,
         "text": "至德7号",
         "score": 0.8650370836257935
@@ -2766,7 +3058,13 @@
       {
         "row": 4,
         "col": 15,
+        "col_start": 14,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 324.5,
+        "x_min": 313.0,
+        "x_max": 336.0,
         "y": 102.5,
         "text": "管",
         "score": 0.9072774052619934
@@ -2774,7 +3072,13 @@
       {
         "row": 4,
         "col": 35,
+        "col_start": 35,
+        "col_end": 35,
+        "core_col_start": 35,
+        "core_col_end": 35,
         "x": 626.0,
+        "x_min": 620.0,
+        "x_max": 632.0,
         "y": 94.0,
         "text": "V",
         "score": 0.5002279877662659
@@ -2782,7 +3086,13 @@
       {
         "row": 4,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1271.0,
+        "x_min": 1253.0,
+        "x_max": 1289.0,
         "y": 101.0,
         "text": "代号",
         "score": 0.9975169897079468
@@ -2790,7 +3100,13 @@
       {
         "row": 5,
         "col": 1,
+        "col_start": 0,
+        "col_end": 2,
+        "core_col_start": 0,
+        "core_col_end": 1,
         "x": 72.5,
+        "x_min": 46.0,
+        "x_max": 99.0,
         "y": 126.5,
         "text": "至梅9号",
         "score": 0.8425918221473694
@@ -2798,7 +3114,13 @@
       {
         "row": 5,
         "col": 19,
+        "col_start": 11,
+        "col_end": 26,
+        "core_col_start": 14,
+        "core_col_end": 23,
         "x": 380.5,
+        "x_min": 270.0,
+        "x_max": 491.0,
         "y": 128.0,
         "text": "50:刘技间见习除",
         "score": 0.5302899479866028
@@ -2806,7 +3128,13 @@
       {
         "row": 6,
         "col": 1,
+        "col_start": 0,
+        "col_end": 2,
+        "core_col_start": 0,
+        "core_col_end": 2,
         "x": 72.5,
+        "x_min": 45.0,
+        "x_max": 100.0,
         "y": 151.0,
         "text": "元兴",
         "score": 0.9936854839324951
@@ -2814,7 +3142,13 @@
       {
         "row": 6,
         "col": 7,
+        "col_start": 7,
+        "col_end": 8,
+        "core_col_start": 7,
+        "core_col_end": 8,
         "x": 210.5,
+        "x_min": 200.0,
+        "x_max": 221.0,
         "y": 150.5,
         "text": "指",
         "score": 0.9901719689369202
@@ -2822,7 +3156,13 @@
       {
         "row": 7,
         "col": 0,
+        "col_start": 0,
+        "col_end": 0,
+        "core_col_start": 0,
+        "core_col_end": 0,
         "x": 28.5,
+        "x_min": 14.0,
+        "x_max": 43.0,
         "y": 175.5,
         "text": "机型",
         "score": 0.9180631637573242
@@ -2830,7 +3170,13 @@
       {
         "row": 7,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 71.0,
+        "x_min": 56.0,
+        "x_max": 86.0,
         "y": 175.5,
         "text": "机号",
         "score": 0.9492367506027222
@@ -2838,7 +3184,13 @@
       {
         "row": 7,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 115.0,
+        "x_min": 93.0,
+        "x_max": 137.0,
         "y": 175.5,
         "text": "二次代码",
         "score": 0.9769574403762817
@@ -2846,7 +3198,13 @@
       {
         "row": 8,
         "col": 12,
+        "col_start": 11,
+        "col_end": 13,
+        "core_col_start": 12,
+        "core_col_end": 13,
         "x": 281.5,
+        "x_min": 271.0,
+        "x_max": 292.0,
         "y": 193.5,
         "text": "SD",
         "score": 0.5575035810470581
@@ -2854,7 +3212,13 @@
       {
         "row": 8,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 20,
         "x": 389.0,
+        "x_min": 375.0,
+        "x_max": 403.0,
         "y": 192.0,
         "text": "147",
         "score": 0.8822134137153625
@@ -2862,7 +3226,13 @@
       {
         "row": 8,
         "col": 36,
+        "col_start": 33,
+        "col_end": 39,
+        "core_col_start": 34,
+        "core_col_end": 38,
         "x": 645.5,
+        "x_min": 602.0,
+        "x_max": 689.0,
         "y": 192.5,
         "text": "CQY-06B10-70",
         "score": 0.5796737670898438
@@ -2870,7 +3240,13 @@
       {
         "row": 8,
         "col": 50,
+        "col_start": 47,
+        "col_end": 53,
+        "core_col_start": 48,
+        "core_col_end": 52,
         "x": 863.0,
+        "x_min": 819.0,
+        "x_max": 907.0,
         "y": 193.0,
         "text": "CO-D400-70",
         "score": 0.49718809127807617
@@ -2878,7 +3254,13 @@
       {
         "row": 8,
         "col": 23,
+        "col_start": 21,
+        "col_end": 23,
+        "core_col_start": 22,
+        "core_col_end": 23,
         "x": 432.5,
+        "x_min": 415.0,
+        "x_max": 450.0,
         "y": 203.0,
         "text": "郑807",
         "score": 0.9036038517951965
@@ -2886,7 +3268,13 @@
       {
         "row": 8,
         "col": 40,
+        "col_start": 38,
+        "col_end": 42,
+        "core_col_start": 39,
+        "core_col_end": 41,
         "x": 700.25,
+        "x_min": 673.0,
+        "x_max": 728.0,
         "y": 203.0,
         "text": "8850",
         "score": 0.6917238831520081
@@ -2894,7 +3282,13 @@
       {
         "row": 8,
         "col": 54,
+        "col_start": 53,
+        "col_end": 56,
+        "core_col_start": 54,
+        "core_col_end": 55,
         "x": 922.0,
+        "x_min": 902.0,
+        "x_max": 942.0,
         "y": 203.25,
         "text": "苑13",
         "score": 0.7193109393119812
@@ -2902,7 +3296,13 @@
       {
         "row": 8,
         "col": 67,
+        "col_start": 64,
+        "col_end": 69,
+        "core_col_start": 65,
+        "core_col_end": 68,
         "x": 1096.5,
+        "x_min": 1067.0,
+        "x_max": 1126.0,
         "y": 196.0,
         "text": "课目注释",
         "score": 0.9943770170211792
@@ -2910,7 +3310,13 @@
       {
         "row": 8,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1252.0,
+        "x_max": 1293.0,
         "y": 196.5,
         "text": "宫850",
         "score": 0.891864538192749
@@ -2918,7 +3324,13 @@
       {
         "row": 9,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.5,
+        "x_min": 64.0,
+        "x_max": 81.0,
         "y": 214.0,
         "text": "60",
         "score": 0.9871939420700073
@@ -2926,7 +3338,13 @@
       {
         "row": 9,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.0,
+        "x_min": 102.0,
+        "x_max": 130.0,
         "y": 213.5,
         "text": "0750",
         "score": 0.9784512519836426
@@ -2934,7 +3352,13 @@
       {
         "row": 9,
         "col": 12,
+        "col_start": 11,
+        "col_end": 13,
+        "core_col_start": 12,
+        "core_col_end": 13,
         "x": 283.5,
+        "x_min": 268.0,
+        "x_max": 299.0,
         "y": 213.0,
         "text": "9",
         "score": 0.49581924080848694
@@ -2942,7 +3366,13 @@
       {
         "row": 9,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 395.0,
+        "x_min": 376.0,
+        "x_max": 414.0,
         "y": 217.5,
         "text": "B",
         "score": 0.3383365571498871
@@ -2950,7 +3380,13 @@
       {
         "row": 9,
         "col": 36,
+        "col_start": 35,
+        "col_end": 37,
+        "core_col_start": 35,
+        "core_col_end": 36,
         "x": 635.5,
+        "x_min": 620.0,
+        "x_max": 651.0,
         "y": 213.0,
         "text": "60T",
         "score": 0.7257847785949707
@@ -2958,7 +3394,13 @@
       {
         "row": 9,
         "col": 50,
+        "col_start": 49,
+        "col_end": 51,
+        "core_col_start": 49,
+        "core_col_end": 50,
         "x": 853.5,
+        "x_min": 838.0,
+        "x_max": 869.0,
         "y": 213.5,
         "text": "6.0T",
         "score": 0.5491568446159363
@@ -2966,7 +3408,13 @@
       {
         "row": 9,
         "col": 53,
+        "col_start": 53,
+        "col_end": 53,
+        "core_col_start": 53,
+        "core_col_end": 53,
         "x": 901.0,
+        "x_min": 897.0,
+        "x_max": 905.0,
         "y": 206.5,
         "text": "T",
         "score": 0.13899803161621094
@@ -2974,7 +3422,13 @@
       {
         "row": 9,
         "col": 62,
+        "col_start": 61,
+        "col_end": 63,
+        "core_col_start": 62,
+        "core_col_end": 63,
         "x": 1032.5,
+        "x_min": 1022.0,
+        "x_max": 1043.0,
         "y": 216.0,
         "text": "SD",
         "score": 0.9937493205070496
@@ -2982,7 +3436,13 @@
       {
         "row": 9,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.0,
+        "x_min": 1251.0,
+        "x_max": 1293.0,
         "y": 216.0,
         "text": "郑807",
         "score": 0.9991618394851685
@@ -2990,7 +3450,13 @@
       {
         "row": 11,
         "col": 13,
+        "col_start": 11,
+        "col_end": 15,
+        "core_col_start": 12,
+        "core_col_end": 14,
         "x": 291.5,
+        "x_min": 266.0,
+        "x_max": 317.0,
         "y": 253.0,
         "text": "500B",
         "score": 0.5878413915634155
@@ -2998,7 +3464,13 @@
       {
         "row": 11,
         "col": 37,
+        "col_start": 33,
+        "col_end": 40,
+        "core_col_start": 35,
+        "core_col_end": 39,
         "x": 651.0,
+        "x_min": 600.0,
+        "x_max": 702.0,
         "y": 255.0,
         "text": "CQY P0",
         "score": 0.3172629773616791
@@ -3006,23 +3478,41 @@
       {
         "row": 10,
         "col": 62,
+        "col_start": 61,
+        "col_end": 63,
+        "core_col_start": 61,
+        "core_col_end": 63,
         "x": 1032.5,
+        "x_min": 1019.0,
+        "x_max": 1046.0,
         "y": 236.0,
-        "text": "SWP",
+        "text": "STP",
         "score": 0.84176105260849
       },
       {
         "row": 10,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.5,
+        "x_min": 1252.0,
+        "x_max": 1295.0,
         "y": 236.0,
-        "text": "雁809",
+        "text": "胜809.",
         "score": 0.957126259803772
       },
       {
         "row": 11,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 394.0,
+        "x_min": 376.0,
+        "x_max": 412.0,
         "y": 253.0,
         "text": "10-70",
         "score": 0.4874005913734436
@@ -3030,7 +3520,13 @@
       {
         "row": 11,
         "col": 23,
+        "col_start": 21,
+        "col_end": 23,
+        "core_col_start": 22,
+        "core_col_end": 23,
         "x": 433.5,
+        "x_min": 415.0,
+        "x_max": 452.0,
         "y": 262.0,
         "text": "836",
         "score": 0.803188145160675
@@ -3038,7 +3534,13 @@
       {
         "row": 11,
         "col": 41,
+        "col_start": 39,
+        "col_end": 42,
+        "core_col_start": 40,
+        "core_col_end": 42,
         "x": 707.25,
+        "x_min": 686.0,
+        "x_max": 729.0,
         "y": 261.0,
         "text": "货7",
         "score": 0.7650511264801025
@@ -3046,15 +3548,27 @@
       {
         "row": 11,
         "col": 55,
+        "col_start": 54,
+        "col_end": 56,
+        "core_col_start": 54,
+        "core_col_end": 56,
         "x": 928.0,
+        "x_min": 909.0,
+        "x_max": 947.0,
         "y": 262.0,
-        "text": "货827",
+        "text": "黄827",
         "score": 0.7448309659957886
       },
       {
         "row": 11,
         "col": 62,
+        "col_start": 61,
+        "col_end": 63,
+        "core_col_start": 62,
+        "core_col_end": 63,
         "x": 1033.0,
+        "x_min": 1019.0,
+        "x_max": 1047.0,
         "y": 255.0,
         "text": "CQY",
         "score": 0.8613583445549011
@@ -3062,7 +3576,13 @@
       {
         "row": 11,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 256.0,
         "text": "苑813",
         "score": 0.994805097579956
@@ -3070,7 +3590,13 @@
       {
         "row": 12,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.0,
+        "x_min": 63.0,
+        "x_max": 81.0,
         "y": 272.5,
         "text": "51",
         "score": 0.8806508779525757
@@ -3078,7 +3604,13 @@
       {
         "row": 12,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.5,
+        "x_min": 103.0,
+        "x_max": 130.0,
         "y": 273.0,
         "text": "0751",
         "score": 0.6634939312934875
@@ -3086,7 +3618,13 @@
       {
         "row": 12,
         "col": 13,
+        "col_start": 11,
+        "col_end": 14,
+        "core_col_start": 12,
+        "core_col_end": 13,
         "x": 286.5,
+        "x_min": 270.0,
+        "x_max": 303.0,
         "y": 270.0,
         "text": "9",
         "score": 0.7094891667366028
@@ -3094,7 +3632,13 @@
       {
         "row": 12,
         "col": 16,
+        "col_start": 15,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 330.5,
+        "x_min": 324.0,
+        "x_max": 337.0,
         "y": 273.0,
         "text": "k",
         "score": 0.31861281394958496
@@ -3102,7 +3646,13 @@
       {
         "row": 12,
         "col": 35,
+        "col_start": 34,
+        "col_end": 36,
+        "core_col_start": 35,
+        "core_col_end": 36,
         "x": 632.0,
+        "x_min": 616.0,
+        "x_max": 648.0,
         "y": 271.5,
         "text": "6.67",
         "score": 0.7468368411064148
@@ -3110,7 +3660,13 @@
       {
         "row": 12,
         "col": 50,
+        "col_start": 48,
+        "col_end": 51,
+        "core_col_start": 49,
+        "core_col_end": 50,
         "x": 851.5,
+        "x_min": 835.0,
+        "x_max": 868.0,
         "y": 271.0,
         "text": "6",
         "score": 0.6438187956809998
@@ -3118,7 +3674,13 @@
       {
         "row": 12,
         "col": 62,
+        "col_start": 61,
+        "col_end": 63,
+        "core_col_start": 62,
+        "core_col_end": 63,
         "x": 1033.5,
+        "x_min": 1023.0,
+        "x_max": 1044.0,
         "y": 274.5,
         "text": "GC",
         "score": 0.9961197972297668
@@ -3126,7 +3688,13 @@
       {
         "row": 12,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.5,
+        "x_min": 1252.0,
+        "x_max": 1295.0,
         "y": 275.0,
         "text": "贾831",
         "score": 0.9950476288795471
@@ -3134,7 +3702,13 @@
       {
         "row": 13,
         "col": 0,
+        "col_start": 0,
+        "col_end": 0,
+        "core_col_start": 0,
+        "core_col_end": 0,
         "x": 29.0,
+        "x_min": 14.0,
+        "x_max": 44.0,
         "y": 301.0,
         "text": "XX5",
         "score": 0.6507599353790283
@@ -3142,7 +3716,13 @@
       {
         "row": 13,
         "col": 62,
+        "col_start": 61,
+        "col_end": 63,
+        "core_col_start": 62,
+        "core_col_end": 63,
         "x": 1033.0,
+        "x_min": 1023.0,
+        "x_max": 1043.0,
         "y": 294.0,
         "text": "MF",
         "score": 0.6823294758796692
@@ -3150,7 +3730,13 @@
       {
         "row": 13,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1274.0,
+        "x_min": 1253.0,
+        "x_max": 1295.0,
         "y": 295.0,
         "text": "825",
         "score": 0.9975103735923767
@@ -3158,7 +3744,13 @@
       {
         "row": 14,
         "col": 13,
+        "col_start": 11,
+        "col_end": 14,
+        "core_col_start": 12,
+        "core_col_end": 14,
         "x": 291.0,
+        "x_min": 269.0,
+        "x_max": 313.0,
         "y": 309.5,
         "text": "SDOB",
         "score": 0.5494465231895447
@@ -3166,7 +3758,13 @@
       {
         "row": 14,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 392.0,
+        "x_min": 372.0,
+        "x_max": 412.0,
         "y": 309.0,
         "text": "247",
         "score": 0.7575958371162415
@@ -3174,7 +3772,13 @@
       {
         "row": 14,
         "col": 37,
+        "col_start": 34,
+        "col_end": 40,
+        "core_col_start": 35,
+        "core_col_end": 39,
         "x": 651.5,
+        "x_min": 607.0,
+        "x_max": 696.0,
         "y": 310.5,
         "text": "CQY-O1B00-79",
         "score": 0.6457900404930115
@@ -3182,7 +3786,13 @@
       {
         "row": 14,
         "col": 23,
+        "col_start": 21,
+        "col_end": 23,
+        "core_col_start": 22,
+        "core_col_end": 23,
         "x": 431.5,
+        "x_min": 413.0,
+        "x_max": 450.0,
         "y": 320.5,
         "text": "高835",
         "score": 0.8370559811592102
@@ -3190,15 +3800,27 @@
       {
         "row": 14,
         "col": 41,
+        "col_start": 40,
+        "col_end": 42,
+        "core_col_start": 40,
+        "core_col_end": 42,
         "x": 713.0,
+        "x_min": 693.0,
+        "x_max": 733.0,
         "y": 320.0,
-        "text": "形812-",
+        "text": "彤812-",
         "score": 0.7162493467330933
       },
       {
         "row": 14,
         "col": 50,
+        "col_start": 48,
+        "col_end": 52,
+        "core_col_start": 49,
+        "core_col_end": 51,
         "x": 855.5,
+        "x_min": 828.0,
+        "x_max": 883.0,
         "y": 310.5,
         "text": "CQY-O5B",
         "score": 0.7900697588920593
@@ -3206,7 +3828,13 @@
       {
         "row": 14,
         "col": 53,
+        "col_start": 51,
+        "col_end": 54,
+        "core_col_start": 52,
+        "core_col_end": 53,
         "x": 895.5,
+        "x_min": 878.0,
+        "x_max": 913.0,
         "y": 312.0,
         "text": "0079",
         "score": 0.7370176911354065
@@ -3214,7 +3842,13 @@
       {
         "row": 14,
         "col": 55,
+        "col_start": 54,
+        "col_end": 56,
+        "core_col_start": 54,
+        "core_col_end": 56,
         "x": 931.0,
+        "x_min": 911.0,
+        "x_max": 951.0,
         "y": 320.5,
         "text": "821",
         "score": 0.9585030674934387
@@ -3222,15 +3856,27 @@
       {
         "row": 14,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.5,
+        "x_min": 1252.0,
+        "x_max": 1295.0,
         "y": 314.0,
-        "text": "形812",
+        "text": "彤812",
         "score": 0.9762834906578064
       },
       {
         "row": 15,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.0,
+        "x_min": 63.0,
+        "x_max": 81.0,
         "y": 330.5,
         "text": "日",
         "score": 0.3391910493373871
@@ -3238,7 +3884,13 @@
       {
         "row": 15,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.0,
+        "x_min": 101.0,
+        "x_max": 131.0,
         "y": 330.5,
         "text": "0762",
         "score": 0.883892834186554
@@ -3246,7 +3898,13 @@
       {
         "row": 15,
         "col": 13,
+        "col_start": 11,
+        "col_end": 14,
+        "core_col_start": 12,
+        "core_col_end": 13,
         "x": 286.5,
+        "x_min": 269.0,
+        "x_max": 304.0,
         "y": 330.5,
         "text": "25",
         "score": 0.30174291133880615
@@ -3254,7 +3912,13 @@
       {
         "row": 15,
         "col": 16,
+        "col_start": 15,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 330.5,
+        "x_min": 324.0,
+        "x_max": 337.0,
         "y": 332.0,
         "text": "b",
         "score": 0.3946229815483093
@@ -3262,7 +3926,13 @@
       {
         "row": 15,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 394.0,
+        "x_min": 375.0,
+        "x_max": 413.0,
         "y": 335.0,
         "text": "B",
         "score": 0.296138197183609
@@ -3270,7 +3940,13 @@
       {
         "row": 15,
         "col": 36,
+        "col_start": 35,
+        "col_end": 37,
+        "core_col_start": 35,
+        "core_col_end": 36,
         "x": 636.0,
+        "x_min": 621.0,
+        "x_max": 651.0,
         "y": 331.0,
         "text": "6.07",
         "score": 0.8182202577590942
@@ -3278,7 +3954,13 @@
       {
         "row": 15,
         "col": 50,
+        "col_start": 49,
+        "col_end": 51,
+        "core_col_start": 49,
+        "core_col_end": 50,
         "x": 854.0,
+        "x_min": 839.0,
+        "x_max": 869.0,
         "y": 331.5,
         "text": "6.07",
         "score": 0.8167805075645447
@@ -3286,7 +3968,13 @@
       {
         "row": 15,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.5,
+        "x_min": 1252.0,
+        "x_max": 1295.0,
         "y": 333.5,
         "text": "潘851",
         "score": 0.9880825877189636
@@ -3294,7 +3982,13 @@
       {
         "row": 16,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1274.0,
+        "x_min": 1253.0,
+        "x_max": 1295.0,
         "y": 353.5,
         "text": "832",
         "score": 0.9987120032310486
@@ -3302,7 +3996,13 @@
       {
         "row": 17,
         "col": 13,
+        "col_start": 11,
+        "col_end": 14,
+        "core_col_start": 12,
+        "core_col_end": 14,
         "x": 288.0,
+        "x_min": 267.0,
+        "x_max": 309.0,
         "y": 368.0,
         "text": "50-028",
         "score": 0.6309866905212402
@@ -3310,7 +4010,13 @@
       {
         "row": 17,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 394.0,
+        "x_min": 373.0,
+        "x_max": 415.0,
         "y": 369.0,
         "text": "147",
         "score": 0.7974977493286133
@@ -3318,7 +4024,13 @@
       {
         "row": 17,
         "col": 23,
+        "col_start": 21,
+        "col_end": 23,
+        "core_col_start": 22,
+        "core_col_end": 23,
         "x": 433.0,
+        "x_min": 414.0,
+        "x_max": 452.0,
         "y": 378.5,
         "text": "837-",
         "score": 0.8730051517486572
@@ -3326,7 +4038,13 @@
       {
         "row": 17,
         "col": 37,
+        "col_start": 34,
+        "col_end": 40,
+        "core_col_start": 35,
+        "core_col_end": 39,
         "x": 659.0,
+        "x_min": 617.0,
+        "x_max": 701.0,
         "y": 369.0,
         "text": "CQY-p0-",
         "score": 0.42006275057792664
@@ -3334,15 +4052,27 @@
       {
         "row": 18,
         "col": 41,
+        "col_start": 40,
+        "col_end": 43,
+        "core_col_start": 41,
+        "core_col_end": 42,
         "x": 719.0,
+        "x_min": 699.0,
+        "x_max": 739.0,
         "y": 380.0,
-        "text": "期825-",
+        "text": "嘎825-",
         "score": 0.9231675863265991
       },
       {
         "row": 17,
         "col": 50,
+        "col_start": 48,
+        "col_end": 52,
+        "core_col_start": 49,
+        "core_col_end": 52,
         "x": 863.0,
+        "x_min": 834.0,
+        "x_max": 892.0,
         "y": 370.5,
         "text": "CQY-05B",
         "score": 0.5643242001533508
@@ -3350,7 +4080,13 @@
       {
         "row": 17,
         "col": 53,
+        "col_start": 52,
+        "col_end": 54,
+        "core_col_start": 52,
+        "core_col_end": 54,
         "x": 900.5,
+        "x_min": 882.0,
+        "x_max": 919.0,
         "y": 372.5,
         "text": "0p-7",
         "score": 0.5468437075614929
@@ -3358,7 +4094,13 @@
       {
         "row": 18,
         "col": 55,
+        "col_start": 54,
+        "col_end": 57,
+        "core_col_start": 55,
+        "core_col_end": 56,
         "x": 936.5,
+        "x_min": 918.0,
+        "x_max": 955.0,
         "y": 381.0,
         "text": "825",
         "score": 0.9934460520744324
@@ -3366,15 +4108,27 @@
       {
         "row": 17,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.0,
+        "x_min": 1252.0,
+        "x_max": 1294.0,
         "y": 374.0,
-        "text": "博823",
+        "text": "彭823",
         "score": 0.9880250692367554
       },
       {
         "row": 18,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.0,
+        "x_min": 62.0,
+        "x_max": 82.0,
         "y": 390.0,
         "text": "74",
         "score": 0.8031554818153381
@@ -3382,7 +4136,13 @@
       {
         "row": 18,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.5,
+        "x_min": 103.0,
+        "x_max": 130.0,
         "y": 390.0,
         "text": "0753",
         "score": 0.7868545055389404
@@ -3390,7 +4150,13 @@
       {
         "row": 18,
         "col": 12,
+        "col_start": 11,
+        "col_end": 14,
+        "core_col_start": 12,
+        "core_col_end": 13,
         "x": 284.5,
+        "x_min": 267.0,
+        "x_max": 302.0,
         "y": 389.0,
         "text": "2",
         "score": 0.15155455470085144
@@ -3398,7 +4164,13 @@
       {
         "row": 18,
         "col": 16,
+        "col_start": 15,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 329.5,
+        "x_min": 323.0,
+        "x_max": 336.0,
         "y": 390.0,
         "text": "k",
         "score": 0.24032431840896606
@@ -3406,7 +4178,13 @@
       {
         "row": 18,
         "col": 20,
+        "col_start": 19,
+        "col_end": 21,
+        "core_col_start": 19,
+        "core_col_end": 21,
         "x": 395.0,
+        "x_min": 376.0,
+        "x_max": 414.0,
         "y": 394.0,
         "text": "B",
         "score": 0.6453089118003845
@@ -3414,7 +4192,13 @@
       {
         "row": 18,
         "col": 36,
+        "col_start": 35,
+        "col_end": 37,
+        "core_col_start": 36,
+        "core_col_end": 37,
         "x": 642.5,
+        "x_min": 629.0,
+        "x_max": 656.0,
         "y": 390.0,
         "text": "4.0",
         "score": 0.7065227627754211
@@ -3422,7 +4206,13 @@
       {
         "row": 18,
         "col": 50,
+        "col_start": 49,
+        "col_end": 51,
+        "core_col_start": 49,
+        "core_col_end": 51,
         "x": 860.0,
+        "x_min": 845.0,
+        "x_max": 875.0,
         "y": 390.5,
         "text": "5o",
         "score": 0.3640128970146179
@@ -3430,7 +4220,13 @@
       {
         "row": 18,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 392.0,
         "text": "飞826",
         "score": 0.9946668148040771
@@ -3438,7 +4234,13 @@
       {
         "row": 19,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1271.5,
+        "x_min": 1249.0,
+        "x_max": 1294.0,
         "y": 412.0,
         "text": "黄827",
         "score": 0.9494708776473999
@@ -3446,7 +4248,13 @@
       {
         "row": 20,
         "col": 12,
+        "col_start": 10,
+        "col_end": 14,
+        "core_col_start": 11,
+        "core_col_end": 14,
         "x": 282.0,
+        "x_min": 251.0,
+        "x_max": 313.0,
         "y": 428.5,
         "text": "（)",
         "score": 0.4783792793750763
@@ -3454,7 +4262,13 @@
       {
         "row": 20,
         "col": 23,
+        "col_start": 22,
+        "col_end": 23,
+        "core_col_start": 23,
+        "core_col_end": 23,
         "x": 438.0,
+        "x_min": 427.0,
+        "x_max": 449.0,
         "y": 429.5,
         "text": "103",
         "score": 0.7271809577941895
@@ -3462,23 +4276,41 @@
       {
         "row": 20,
         "col": 24,
+        "col_start": 23,
+        "col_end": 26,
+        "core_col_start": 24,
+        "core_col_end": 25,
         "x": 470.5,
+        "x_min": 452.0,
+        "x_max": 489.0,
         "y": 430.5,
-        "text": "盘185",
+        "text": "冯185",
         "score": 0.8114725947380066
       },
       {
         "row": 20,
         "col": 36,
+        "col_start": 33,
+        "col_end": 38,
+        "core_col_start": 34,
+        "core_col_end": 37,
         "x": 633.0,
+        "x_min": 602.0,
+        "x_max": 664.0,
         "y": 428.5,
-        "text": "AI(伴轨)",
+        "text": "MF(伴航)",
         "score": 0.4022079408168793
       },
       {
         "row": 20,
         "col": 42,
+        "col_start": 41,
+        "col_end": 43,
+        "core_col_start": 42,
+        "core_col_end": 42,
         "x": 727.0,
+        "x_min": 719.0,
+        "x_max": 735.0,
         "y": 430.0,
         "text": "03",
         "score": 0.802777111530304
@@ -3486,7 +4318,13 @@
       {
         "row": 20,
         "col": 44,
+        "col_start": 43,
+        "col_end": 45,
+        "core_col_start": 43,
+        "core_col_end": 45,
         "x": 761.25,
+        "x_min": 741.0,
+        "x_max": 781.0,
         "y": 428.0,
         "text": "光180",
         "score": 0.982370913028717
@@ -3494,7 +4332,13 @@
       {
         "row": 21,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 72.0,
+        "x_min": 59.0,
+        "x_max": 85.0,
         "y": 448.0,
         "text": "374",
         "score": 0.8683555722236633
@@ -3502,7 +4346,13 @@
       {
         "row": 21,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 115.5,
+        "x_min": 101.0,
+        "x_max": 130.0,
         "y": 447.5,
         "text": "0701",
         "score": 0.6865706443786621
@@ -3510,7 +4360,13 @@
       {
         "row": 21,
         "col": 11,
+        "col_start": 10,
+        "col_end": 12,
+        "core_col_start": 10,
+        "core_col_end": 12,
         "x": 267.5,
+        "x_min": 251.0,
+        "x_max": 284.0,
         "y": 448.5,
         "text": "0.65T",
         "score": 0.916427493095398
@@ -3518,7 +4374,13 @@
       {
         "row": 21,
         "col": 16,
+        "col_start": 15,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 333.5,
+        "x_min": 326.0,
+        "x_max": 341.0,
         "y": 447.5,
         "text": "南",
         "score": 0.18939945101737976
@@ -3526,7 +4388,13 @@
       {
         "row": 21,
         "col": 19,
+        "col_start": 18,
+        "col_end": 19,
+        "core_col_start": 19,
+        "core_col_end": 19,
         "x": 377.0,
+        "x_min": 370.0,
+        "x_max": 384.0,
         "y": 447.0,
         "text": "自",
         "score": 0.06802859902381897
@@ -3534,7 +4402,13 @@
       {
         "row": 21,
         "col": 23,
+        "col_start": 21,
+        "col_end": 23,
+        "core_col_start": 22,
+        "core_col_end": 23,
         "x": 435.5,
+        "x_min": 415.0,
+        "x_max": 456.0,
         "y": 443.5,
         "text": "414",
         "score": 0.7196239829063416
@@ -3542,7 +4416,13 @@
       {
         "row": 21,
         "col": 24,
+        "col_start": 23,
+        "col_end": 26,
+        "core_col_start": 23,
+        "core_col_end": 25,
         "x": 469.0,
+        "x_min": 449.0,
+        "x_max": 489.0,
         "y": 445.0,
         "text": "豪182",
         "score": 0.9337934255599976
@@ -3550,7 +4430,13 @@
       {
         "row": 21,
         "col": 35,
+        "col_start": 33,
+        "col_end": 36,
+        "core_col_start": 34,
+        "core_col_end": 35,
         "x": 620.0,
+        "x_min": 602.0,
+        "x_max": 638.0,
         "y": 447.0,
         "text": "0.55T",
         "score": 0.9908205270767212
@@ -3558,7 +4444,13 @@
       {
         "row": 21,
         "col": 37,
+        "col_start": 36,
+        "col_end": 37,
+        "core_col_start": 37,
+        "core_col_end": 37,
         "x": 652.5,
+        "x_min": 646.0,
+        "x_max": 659.0,
         "y": 447.0,
         "text": "厦",
         "score": 0.16620005667209625
@@ -3566,7 +4458,13 @@
       {
         "row": 21,
         "col": 39,
+        "col_start": 38,
+        "col_end": 40,
+        "core_col_start": 39,
+        "core_col_end": 39,
         "x": 684.0,
+        "x_min": 675.0,
+        "x_max": 693.0,
         "y": 448.0,
         "text": "马",
         "score": 0.6844938397407532
@@ -3574,7 +4472,13 @@
       {
         "row": 21,
         "col": 42,
+        "col_start": 41,
+        "col_end": 43,
+        "core_col_start": 41,
+        "core_col_end": 43,
         "x": 727.5,
+        "x_min": 710.0,
+        "x_max": 745.0,
         "y": 446.0,
         "text": "44",
         "score": 0.6789593696594238
@@ -3582,7 +4486,13 @@
       {
         "row": 21,
         "col": 44,
+        "col_start": 43,
+        "col_end": 45,
+        "core_col_start": 44,
+        "core_col_end": 45,
         "x": 761.5,
+        "x_min": 743.0,
+        "x_max": 780.0,
         "y": 444.5,
         "text": "汤191",
         "score": 0.9962276816368103
@@ -3590,7 +4500,13 @@
       {
         "row": 21,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1250.0,
+        "x_max": 1295.0,
         "y": 450.0,
         "text": "森153",
         "score": 0.9966645836830139
@@ -3598,7 +4514,13 @@
       {
         "row": 23,
         "col": 0,
+        "col_start": 0,
+        "col_end": 0,
+        "core_col_start": 0,
+        "core_col_end": 0,
         "x": 30.5,
+        "x_min": 14.0,
+        "x_max": 47.0,
         "y": 476.0,
         "text": "XXS",
         "score": 0.6405467987060547
@@ -3606,7 +4528,13 @@
       {
         "row": 22,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1273.0,
+        "x_min": 1251.0,
+        "x_max": 1295.0,
         "y": 469.0,
         "text": "光180",
         "score": 0.9970503449440002
@@ -3614,15 +4542,27 @@
       {
         "row": 23,
         "col": 49,
+        "col_start": 47,
+        "col_end": 52,
+        "core_col_start": 48,
+        "core_col_end": 51,
         "x": 850.0,
+        "x_min": 817.0,
+        "x_max": 883.0,
         "y": 485.5,
-        "text": "M（件秋)",
+        "text": "MF(伴航)",
         "score": 0.5472460985183716
       },
       {
         "row": 23,
         "col": 56,
+        "col_start": 55,
+        "col_end": 57,
+        "core_col_start": 56,
+        "core_col_end": 56,
         "x": 945.0,
+        "x_min": 935.0,
+        "x_max": 955.0,
         "y": 488.0,
         "text": "03",
         "score": 0.8808093070983887
@@ -3630,7 +4570,13 @@
       {
         "row": 23,
         "col": 58,
+        "col_start": 57,
+        "col_end": 60,
+        "core_col_start": 58,
+        "core_col_end": 59,
         "x": 979.5,
+        "x_min": 960.0,
+        "x_max": 999.0,
         "y": 486.5,
         "text": "光180",
         "score": 0.9876958131790161
@@ -3638,7 +4584,13 @@
       {
         "row": 23,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 488.0,
         "text": "182",
         "score": 0.9963827729225159
@@ -3646,7 +4598,13 @@
       {
         "row": 24,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 73.5,
+        "x_min": 61.0,
+        "x_max": 86.0,
         "y": 505.5,
         "text": "376",
         "score": 0.9810217022895813
@@ -3654,7 +4612,13 @@
       {
         "row": 24,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 117.5,
+        "x_min": 104.0,
+        "x_max": 131.0,
         "y": 505.0,
         "text": "0702",
         "score": 0.8553113341331482
@@ -3662,7 +4626,13 @@
       {
         "row": 24,
         "col": 49,
+        "col_start": 47,
+        "col_end": 50,
+        "core_col_start": 48,
+        "core_col_end": 49,
         "x": 838.5,
+        "x_min": 821.0,
+        "x_max": 856.0,
         "y": 507.0,
         "text": "0.55T",
         "score": 0.9834067225456238
@@ -3670,7 +4640,13 @@
       {
         "row": 24,
         "col": 51,
+        "col_start": 51,
+        "col_end": 51,
+        "core_col_start": 51,
+        "core_col_end": 51,
         "x": 873.0,
+        "x_min": 866.0,
+        "x_max": 880.0,
         "y": 505.5,
         "text": "星",
         "score": 0.23406192660331726
@@ -3678,7 +4654,13 @@
       {
         "row": 24,
         "col": 53,
+        "col_start": 53,
+        "col_end": 54,
+        "core_col_start": 53,
+        "core_col_end": 53,
         "x": 902.5,
+        "x_min": 894.0,
+        "x_max": 911.0,
         "y": 505.0,
         "text": "马",
         "score": 0.7244996428489685
@@ -3686,7 +4668,13 @@
       {
         "row": 24,
         "col": 56,
+        "col_start": 55,
+        "col_end": 57,
+        "core_col_start": 55,
+        "core_col_end": 57,
         "x": 943.5,
+        "x_min": 926.0,
+        "x_max": 961.0,
         "y": 503.0,
         "text": "44",
         "score": 0.44376710057258606
@@ -3694,7 +4682,13 @@
       {
         "row": 24,
         "col": 58,
+        "col_start": 57,
+        "col_end": 60,
+        "core_col_start": 58,
+        "core_col_end": 59,
         "x": 979.0,
+        "x_min": 961.0,
+        "x_max": 997.0,
         "y": 501.5,
         "text": "豪18",
         "score": 0.6248019337654114
@@ -3702,15 +4696,27 @@
       {
         "row": 24,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.0,
+        "x_min": 1250.0,
+        "x_max": 1294.0,
         "y": 507.0,
-        "text": "猛185",
+        "text": "冯185",
         "score": 0.9592951536178589
       },
       {
         "row": 25,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 526.0,
         "text": "汤191",
         "score": 0.9988990426063538
@@ -3718,7 +4724,13 @@
       {
         "row": 26,
         "col": 7,
+        "col_start": 6,
+        "col_end": 8,
+        "core_col_start": 7,
+        "core_col_end": 8,
         "x": 209.5,
+        "x_min": 197.0,
+        "x_max": 222.0,
         "y": 542.0,
         "text": "CC",
         "score": 0.6162144541740417
@@ -3726,7 +4738,13 @@
       {
         "row": 26,
         "col": 24,
+        "col_start": 22,
+        "col_end": 27,
+        "core_col_start": 23,
+        "core_col_end": 26,
         "x": 469.0,
+        "x_min": 424.0,
+        "x_max": 514.0,
         "y": 551.5,
         "text": "1",
         "score": 0.5421112179756165
@@ -3734,7 +4752,13 @@
       {
         "row": 26,
         "col": 23,
+        "col_start": 23,
+        "col_end": 24,
+        "core_col_start": 23,
+        "core_col_end": 24,
         "x": 449.75,
+        "x_min": 429.0,
+        "x_max": 471.0,
         "y": 544.0,
         "text": "1030",
         "score": 0.6454183459281921
@@ -3742,7 +4766,13 @@
       {
         "row": 26,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 544.0,
         "text": "玉165",
         "score": 0.994320273399353
@@ -3750,7 +4780,13 @@
       {
         "row": 27,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 73.5,
+        "x_min": 64.0,
+        "x_max": 83.0,
         "y": 562.0,
         "text": "07",
         "score": 0.6677312850952148
@@ -3758,7 +4794,13 @@
       {
         "row": 27,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.5,
+        "x_min": 103.0,
+        "x_max": 130.0,
         "y": 562.0,
         "text": "0703",
         "score": 0.7112225294113159
@@ -3766,7 +4808,13 @@
       {
         "row": 27,
         "col": 7,
+        "col_start": 7,
+        "col_end": 8,
+        "core_col_start": 7,
+        "core_col_end": 8,
         "x": 213.5,
+        "x_min": 200.0,
+        "x_max": 227.0,
         "y": 561.0,
         "text": "32T",
         "score": 0.7285645008087158
@@ -3774,7 +4822,13 @@
       {
         "row": 27,
         "col": 15,
+        "col_start": 15,
+        "col_end": 15,
+        "core_col_start": 15,
+        "core_col_end": 15,
         "x": 321.5,
+        "x_min": 315.0,
+        "x_max": 328.0,
         "y": 563.5,
         "text": "忠",
         "score": 0.44250473380088806
@@ -3782,7 +4836,13 @@
       {
         "row": 27,
         "col": 19,
+        "col_start": 19,
+        "col_end": 20,
+        "core_col_start": 19,
+        "core_col_end": 20,
         "x": 385.5,
+        "x_min": 379.0,
+        "x_max": 392.0,
         "y": 563.5,
         "text": "春",
         "score": 0.4219127297401428
@@ -3790,7 +4850,13 @@
       {
         "row": 27,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1271.5,
+        "x_min": 1250.0,
+        "x_max": 1293.0,
         "y": 562.0,
         "text": "韩171",
         "score": 0.9988617897033691
@@ -3798,7 +4864,13 @@
       {
         "row": 28,
         "col": 74,
+        "col_start": 74,
+        "col_end": 74,
+        "core_col_start": 74,
+        "core_col_end": 74,
         "x": 1272.5,
+        "x_min": 1251.0,
+        "x_max": 1294.0,
         "y": 581.0,
         "text": "说176",
         "score": 0.9970759153366089
@@ -3806,7 +4878,13 @@
       {
         "row": 29,
         "col": 10,
+        "col_start": 9,
+        "col_end": 11,
+        "core_col_start": 10,
+        "core_col_end": 11,
         "x": 252.0,
+        "x_min": 239.0,
+        "x_max": 265.0,
         "y": 599.0,
         "text": "cc",
         "score": 0.35660111904144287
@@ -3814,7 +4892,13 @@
       {
         "row": 29,
         "col": 25,
+        "col_start": 24,
+        "col_end": 27,
+        "core_col_start": 25,
+        "core_col_end": 26,
         "x": 486.75,
+        "x_min": 470.0,
+        "x_max": 504.0,
         "y": 600.75,
         "text": "hoho",
         "score": 0.5959535837173462
@@ -3822,7 +4906,13 @@
       {
         "row": 29,
         "col": 28,
+        "col_start": 27,
+        "col_end": 30,
+        "core_col_start": 28,
+        "core_col_end": 29,
         "x": 528.5,
+        "x_min": 509.0,
+        "x_max": 548.0,
         "y": 600.0,
         "text": "说176",
         "score": 0.9943732619285583
@@ -3830,7 +4920,13 @@
       {
         "row": 30,
         "col": 0,
+        "col_start": 0,
+        "col_end": 0,
+        "core_col_start": 0,
+        "core_col_end": 0,
         "x": 29.5,
+        "x_min": 12.0,
+        "x_max": 47.0,
         "y": 618.0,
         "text": "XXA",
         "score": 0.979221761226654
@@ -3838,7 +4934,13 @@
       {
         "row": 30,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 73.0,
+        "x_min": 63.0,
+        "x_max": 83.0,
         "y": 618.0,
         "text": "10",
         "score": 0.7156918048858643
@@ -3846,7 +4948,13 @@
       {
         "row": 30,
         "col": 2,
+        "col_start": 2,
+        "col_end": 2,
+        "core_col_start": 2,
+        "core_col_end": 2,
         "x": 116.5,
+        "x_min": 103.0,
+        "x_max": 130.0,
         "y": 618.0,
         "text": "0705",
         "score": 0.983996570110321
@@ -3854,7 +4962,13 @@
       {
         "row": 30,
         "col": 10,
+        "col_start": 9,
+        "col_end": 11,
+        "core_col_start": 10,
+        "core_col_end": 11,
         "x": 255.5,
+        "x_min": 239.0,
+        "x_max": 272.0,
         "y": 616.5,
         "text": "3π",
         "score": 0.6413321495056152
@@ -3862,7 +4976,13 @@
       {
         "row": 30,
         "col": 16,
+        "col_start": 15,
+        "col_end": 16,
+        "core_col_start": 15,
+        "core_col_end": 16,
         "x": 331.0,
+        "x_min": 322.0,
+        "x_max": 340.0,
         "y": 618.5,
         "text": "1",
         "score": 0.07645748555660248
@@ -3870,7 +4990,13 @@
       {
         "row": 30,
         "col": 20,
+        "col_start": 19,
+        "col_end": 20,
+        "core_col_start": 20,
+        "core_col_end": 20,
         "x": 391.5,
+        "x_min": 385.0,
+        "x_max": 398.0,
         "y": 620.0,
         "text": "体",
         "score": 0.0865010991692543
@@ -3878,7 +5004,13 @@
       {
         "row": 30,
         "col": 27,
+        "col_start": 25,
+        "col_end": 30,
+        "core_col_start": 26,
+        "core_col_end": 29,
         "x": 511.5,
+        "x_min": 475.0,
+        "x_max": 548.0,
         "y": 615.0,
         "text": "本150",
         "score": 0.6793736219406128
@@ -3886,7 +5018,13 @@
       {
         "row": 33,
         "col": 1,
+        "col_start": 1,
+        "col_end": 1,
+        "core_col_start": 1,
+        "core_col_end": 1,
         "x": 73.0,
+        "x_min": 58.0,
+        "x_max": 88.0,
         "y": 673.5,
         "text": "09",
         "score": 0.8256291151046753
