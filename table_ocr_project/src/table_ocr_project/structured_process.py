@@ -13,7 +13,7 @@ from .semantic_extractors import (
     extract_title_fields,
 )
 from .structured_main_table import extract_structured_main_table
-from .structured_report import render_structured_report
+from .structured_report import render_structured_report_xml
 from .text_utils import normalize_text
 
 
@@ -88,8 +88,12 @@ def run_structured_ocr(
         'main_table': main_table,
         'bottom': bottom,
     }
+
     dump_json(result, output_dir / 'ocr_result.json')
-    (output_dir / 'report.txt').write_text(render_structured_report(result), encoding='utf-8')
+    (output_dir / 'report.xml').write_text(
+        render_structured_report_xml(result),
+        encoding='utf-8'
+    )
     return result
 
 

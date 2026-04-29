@@ -839,27 +839,7 @@
         "secondary_code": "0750",
         "name": "",
         "code_name": "郑807",
-        "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "15:00",
-            "display_time": "13:30~15:00",
-            "text": "9 B",
-            "remark": "9 B",
-            "pilot_codes": [
-              "郑807"
-            ],
-            "pilot_code": "郑807",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              13,
-              19,
-              21
-            ],
-            "source_row": 9
-          }
-        ],
+        "events": [],
         "source_group": 1
       },
       {
@@ -880,25 +860,6 @@
         "name": "",
         "code_name": "苑813",
         "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "15:00",
-            "display_time": "13:30~15:00",
-            "text": "B 10-70",
-            "remark": "B 10-70",
-            "pilot_codes": [
-              "苑813"
-            ],
-            "pilot_code": "苑813",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              14,
-              19,
-              21
-            ],
-            "source_row": 11
-          },
           {
             "start_time": "17:20",
             "end_time": "18:30",
@@ -945,27 +906,7 @@
         "secondary_code": "0751",
         "name": "",
         "code_name": "贾831",
-        "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "14:10",
-            "display_time": "13:30~14:10",
-            "text": "9 k",
-            "remark": "9 k",
-            "pilot_codes": [
-              "贾831"
-            ],
-            "pilot_code": "贾831",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              13,
-              15,
-              16
-            ],
-            "source_row": 12
-          }
-        ],
+        "events": [],
         "source_group": 2
       },
       {
@@ -1026,8 +967,8 @@
           },
           {
             "start_time": "19:40",
-            "end_time": "20:20",
-            "display_time": "19:40~20:20",
+            "end_time": "20:00",
+            "display_time": "19:40~20:00",
             "text": "CQY -O5B 0079",
             "remark": "CQY -O5B 0079",
             "pilot_codes": [
@@ -1074,23 +1015,6 @@
         "name": "",
         "code_name": "彭823",
         "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "13:50",
-            "display_time": "13:30~13:50",
-            "text": "50-",
-            "remark": "50-",
-            "pilot_codes": [
-              "彭823"
-            ],
-            "pilot_code": "彭823",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              14
-            ],
-            "source_row": 17
-          },
           {
             "start_time": "17:20",
             "end_time": "18:00",
@@ -1608,27 +1532,7 @@
             "secondary_code": "0750",
             "name": "",
             "code_name": "郑807",
-            "events": [
-              {
-                "start_time": "13:30",
-                "end_time": "15:00",
-                "display_time": "13:30~15:00",
-                "text": "9 B",
-                "remark": "9 B",
-                "pilot_codes": [
-                  "郑807"
-                ],
-                "pilot_code": "郑807",
-                "flight_code": "",
-                "source_cols": [
-                  12,
-                  13,
-                  19,
-                  21
-                ],
-                "source_row": 9
-              }
-            ],
+            "events": [],
             "source_group": 1
           },
           {
@@ -1643,25 +1547,6 @@
           }
         ],
         "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "15:00",
-            "display_time": "13:30~15:00",
-            "text": "9 B",
-            "remark": "9 B",
-            "pilot_codes": [
-              "郑807"
-            ],
-            "pilot_code": "郑807",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              13,
-              19,
-              21
-            ],
-            "source_row": 9
-          },
           {
             "start_time": "13:30",
             "end_time": "15:20",
@@ -1741,25 +1626,6 @@
             "code_name": "苑813",
             "events": [
               {
-                "start_time": "13:30",
-                "end_time": "15:00",
-                "display_time": "13:30~15:00",
-                "text": "B 10-70",
-                "remark": "B 10-70",
-                "pilot_codes": [
-                  "苑813"
-                ],
-                "pilot_code": "苑813",
-                "flight_code": "",
-                "source_cols": [
-                  12,
-                  14,
-                  19,
-                  21
-                ],
-                "source_row": 11
-              },
-              {
                 "start_time": "17:20",
                 "end_time": "18:30",
                 "display_time": "17:20~18:30",
@@ -1805,27 +1671,7 @@
             "secondary_code": "0751",
             "name": "",
             "code_name": "贾831",
-            "events": [
-              {
-                "start_time": "13:30",
-                "end_time": "14:10",
-                "display_time": "13:30~14:10",
-                "text": "9 k",
-                "remark": "9 k",
-                "pilot_codes": [
-                  "贾831"
-                ],
-                "pilot_code": "贾831",
-                "flight_code": "",
-                "source_cols": [
-                  12,
-                  13,
-                  15,
-                  16
-                ],
-                "source_row": 12
-              }
-            ],
+            "events": [],
             "source_group": 2
           },
           {
@@ -1840,44 +1686,6 @@
           }
         ],
         "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "14:10",
-            "display_time": "13:30~14:10",
-            "text": "9 k",
-            "remark": "9 k",
-            "pilot_codes": [
-              "贾831"
-            ],
-            "pilot_code": "贾831",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              13,
-              15,
-              16
-            ],
-            "source_row": 12
-          },
-          {
-            "start_time": "13:30",
-            "end_time": "15:00",
-            "display_time": "13:30~15:00",
-            "text": "B 10-70",
-            "remark": "B 10-70",
-            "pilot_codes": [
-              "苑813"
-            ],
-            "pilot_code": "苑813",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              14,
-              19,
-              21
-            ],
-            "source_row": 11
-          },
           {
             "start_time": "17:20",
             "end_time": "18:30",
@@ -1975,8 +1783,8 @@
               },
               {
                 "start_time": "19:40",
-                "end_time": "20:20",
-                "display_time": "19:40~20:20",
+                "end_time": "20:00",
+                "display_time": "19:40~20:00",
                 "text": "CQY -O5B 0079",
                 "remark": "CQY -O5B 0079",
                 "pilot_codes": [
@@ -2057,8 +1865,8 @@
           },
           {
             "start_time": "19:40",
-            "end_time": "20:20",
-            "display_time": "19:40~20:20",
+            "end_time": "20:00",
+            "display_time": "19:40~20:00",
             "text": "CQY -O5B 0079",
             "remark": "CQY -O5B 0079",
             "pilot_codes": [
@@ -2095,23 +1903,6 @@
             "name": "",
             "code_name": "彭823",
             "events": [
-              {
-                "start_time": "13:30",
-                "end_time": "13:50",
-                "display_time": "13:30~13:50",
-                "text": "50-",
-                "remark": "50-",
-                "pilot_codes": [
-                  "彭823"
-                ],
-                "pilot_code": "彭823",
-                "flight_code": "",
-                "source_cols": [
-                  12,
-                  14
-                ],
-                "source_row": 17
-              },
               {
                 "start_time": "17:20",
                 "end_time": "18:00",
@@ -2172,23 +1963,6 @@
           }
         ],
         "events": [
-          {
-            "start_time": "13:30",
-            "end_time": "13:50",
-            "display_time": "13:30~13:50",
-            "text": "50-",
-            "remark": "50-",
-            "pilot_codes": [
-              "彭823"
-            ],
-            "pilot_code": "彭823",
-            "flight_code": "",
-            "source_cols": [
-              12,
-              14
-            ],
-            "source_row": 17
-          },
           {
             "start_time": "17:20",
             "end_time": "18:00",
@@ -2414,10 +2188,10 @@
             "text": "MF(伴航) (伴航) 0.55T 44",
             "remark": "MF(伴航) (伴航) 0.55T 44",
             "pilot_codes": [
-              "光180",
-              "汤191"
+              "汤191",
+              "光180"
             ],
-            "pilot_code": "光180、汤191",
+            "pilot_code": "汤191、光180",
             "flight_code": "MF",
             "source_cols": [
               34,
