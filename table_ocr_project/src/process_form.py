@@ -12,6 +12,11 @@ if str(CURRENT_DIR) not in sys.path:
     sys.path.insert(0, str(CURRENT_DIR))
 
 from table_ocr_project.structured_process import run_process_form_workflow
+from table_ocr_project.semantic_extractors import (
+    DEFAULT_OCR_CANDIDATE_MODE,
+    STRICT_OCR_CANDIDATE_MODE,
+    available_ocr_candidate_modes,
+)
 
 IMPORTS_DONE = time.perf_counter()
 
@@ -41,12 +46,30 @@ def main() -> None:
         action='store_true',
         help='Print coarse timing information for the structured workflow.',
     )
+    parser.add_argument(
+        '--strict-ocr-candidates',
+        action='store_true',
+        help='Use the legacy multi-candidate OCR strategy for title/remark/bottom.',
+    )
+    parser.add_argument(
+        '--ocr-candidate-mode',
+        choices=available_ocr_candidate_modes(),
+        default=None,
+        help='Internal OCR candidate strategy override. Defaults to the validated fast mode.',
+    )
     args = parser.parse_args()
     args_parsed = time.perf_counter()
     if args.save_cells and not args.debug_output:
         parser.error('--save-cells requires --debug-output')
+    if args.strict_ocr_candidates and args.ocr_candidate_mode:
+        parser.error('--strict-ocr-candidates cannot be used with --ocr-candidate-mode')
 
     profile = {} if args.profile else None
+    ocr_candidate_mode = (
+        STRICT_OCR_CANDIDATE_MODE
+        if args.strict_ocr_candidates
+        else (args.ocr_candidate_mode or DEFAULT_OCR_CANDIDATE_MODE)
+    )
 
     workflow_start = time.perf_counter()
     meta, result = run_process_form_workflow(
@@ -58,6 +81,7 @@ def main() -> None:
         debug_output=args.debug_output,
         save_cells=args.save_cells,
         profile=profile,
+        ocr_candidate_mode=ocr_candidate_mode,
     )
     workflow_done = time.perf_counter()
 
@@ -66,11 +90,12 @@ def main() -> None:
     print(f"Cells: {len(meta['cells'])}")
     print(f"Debug images: {'enabled' if args.debug_output else 'disabled'}")
     print(f"Cell images: {'enabled' if args.save_cells else 'disabled'}")
+    print(f"OCR candidate mode: {ocr_candidate_mode}")
     print(f"JSON: {Path(args.output_dir) / 'ocr_result.json'}")
     print(f"XML report: {Path(args.output_dir) / 'report.xml'}")
     print(f"Main records: {len(result.get('main_table', {}).get('structured_records', []))}")
     if profile is not None:
-        stage_total = sum(profile.values())
+        stage_total = sum(value for key, value in profile.items() if not key.startswith('ocr_calls_'))
         workflow_total = workflow_done - workflow_start
         script_total_before_profile = time.perf_counter() - SCRIPT_START
         print('Profile:')
@@ -79,8 +104,11 @@ def main() -> None:
         print(f"  workflow_total: {workflow_total:.3f}s")
         print(f"  workflow_profiled_stages_total: {stage_total:.3f}s")
         print(f"  workflow_unprofiled: {max(0.0, workflow_total - stage_total):.3f}s")
-        for key, seconds in profile.items():
-            print(f"  {key}: {seconds:.3f}s")
+        for key, value in profile.items():
+            if key.startswith('ocr_calls_'):
+                print(f"  {key}: {int(value)}")
+            else:
+                print(f"  {key}: {value:.3f}s")
         print(f"  script_total_before_profile_print: {script_total_before_profile:.3f}s")
 
 

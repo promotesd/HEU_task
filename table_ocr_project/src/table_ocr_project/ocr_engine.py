@@ -38,11 +38,14 @@ class PaddleOCREngine:
 
     def __init__(self, lang: str = "ch") -> None:
         os.environ.setdefault("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK", "True")
+        os.environ.setdefault("MPLCONFIGDIR", "/tmp/table_ocr_mplconfig")
+        os.makedirs(os.environ["MPLCONFIGDIR"], exist_ok=True)
 
         from paddleocr import PaddleOCR
 
         self.backend = "paddleocr"
         self.lang = lang
+        self.ocr_call_count = 0
         self.ocr = PaddleOCR(
             lang=lang,
             use_doc_orientation_classify=False,
@@ -179,6 +182,7 @@ class PaddleOCREngine:
         return [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]
 
     def ocr_region(self, image: np.ndarray, preprocess: bool = True) -> List[OCRLine]:
+        self.ocr_call_count += 1
         img = preprocess_region_for_ocr(image) if preprocess else image
         img = self._ensure_bgr_uint8(img)
 

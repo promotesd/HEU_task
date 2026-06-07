@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Sequence
+from typing import Any, Dict, List, Sequence, Tuple
 
 import cv2
 import numpy as np
@@ -14,6 +14,51 @@ from .text_utils import (
     normalize_time_string,
     search_time_after_label,
 )
+
+OCRVariant = Tuple[str, float | None]
+OCRCandidateStrategy = Dict[str, Sequence[OCRVariant]]
+
+STRICT_OCR_CANDIDATE_MODE = 'strict'
+DEFAULT_OCR_CANDIDATE_MODE = 'fast'
+
+OCR_CANDIDATE_STRATEGIES: Dict[str, OCRCandidateStrategy] = {
+    'strict': {
+        'box': [('preprocess', None), ('raw', None), ('enhanced', 2.0), ('enhanced', 3.0)],
+        'lines': [('preprocess', None), ('raw', None), ('enhanced', 2.0)],
+    },
+    'box_no_scale3': {
+        'box': [('preprocess', None), ('raw', None), ('enhanced', 2.0)],
+        'lines': [('preprocess', None), ('raw', None), ('enhanced', 2.0)],
+    },
+    'box_preprocess_raw': {
+        'box': [('preprocess', None), ('raw', None)],
+        'lines': [('preprocess', None), ('raw', None), ('enhanced', 2.0)],
+    },
+    'lines_1pass': {
+        'box': [('preprocess', None), ('raw', None), ('enhanced', 2.0), ('enhanced', 3.0)],
+        'lines': [('preprocess', None)],
+    },
+    'box_1pass': {
+        'box': [('preprocess', None)],
+        'lines': [('preprocess', None), ('raw', None), ('enhanced', 2.0)],
+    },
+    'fast': {
+        'box': [('preprocess', None)],
+        'lines': [('preprocess', None)],
+    },
+}
+
+
+def available_ocr_candidate_modes() -> List[str]:
+    return sorted(OCR_CANDIDATE_STRATEGIES)
+
+
+def _candidate_strategy(mode: str | None) -> OCRCandidateStrategy:
+    if not mode:
+        mode = DEFAULT_OCR_CANDIDATE_MODE
+    if mode not in OCR_CANDIDATE_STRATEGIES:
+        raise ValueError(f'Unsupported OCR candidate mode: {mode}')
+    return OCR_CANDIDATE_STRATEGIES[mode]
 
 
 def _crop(image: np.ndarray, box: Sequence[int]) -> np.ndarray:
@@ -83,53 +128,58 @@ def _ocr_box(
     box: Sequence[int],
     preprocess: bool = True,
     prefer_keywords: Sequence[str] | None = None,
+    candidate_mode: str | None = None,
 ) -> str:
     crop = _crop(image, box)
     if crop.size == 0:
         return ''
 
     candidates: List[str] = []
+    strategy = _candidate_strategy(candidate_mode)
 
-    try:
-        candidates.append(normalize_text(engine.ocr_region_text(crop, preprocess=preprocess)))
-    except Exception:
-        pass
-
-    try:
-        candidates.append(normalize_text(engine.ocr_region_text(_ensure_bgr(crop), preprocess=False)))
-    except Exception:
-        pass
-
-    try:
-        candidates.append(normalize_text(engine.ocr_region_text(_enhance_region_for_ocr(crop, 2.0), preprocess=False)))
-    except Exception:
-        pass
-
-    try:
-        candidates.append(normalize_text(engine.ocr_region_text(_enhance_region_for_ocr(crop, 3.0), preprocess=False)))
-    except Exception:
-        pass
+    for variant, scale in strategy['box']:
+        try:
+            if variant == 'preprocess':
+                candidates.append(normalize_text(engine.ocr_region_text(crop, preprocess=preprocess)))
+            elif variant == 'raw':
+                candidates.append(normalize_text(engine.ocr_region_text(_ensure_bgr(crop), preprocess=False)))
+            elif variant == 'enhanced':
+                candidates.append(normalize_text(engine.ocr_region_text(_enhance_region_for_ocr(crop, float(scale or 2.0)), preprocess=False)))
+        except Exception:
+            pass
 
     return _best_text(candidates, prefer_keywords=prefer_keywords)
 
 
-def _ocr_lines_box(engine: Any, image: np.ndarray, box: Sequence[int], preprocess: bool = True) -> List[Dict[str, Any]]:
+def _ocr_lines_box(
+    engine: Any,
+    image: np.ndarray,
+    box: Sequence[int],
+    preprocess: bool = True,
+    candidate_mode: str | None = None,
+) -> List[Dict[str, Any]]:
     crop = _crop(image, box)
     if crop.size == 0:
         return []
 
-    variants = [
-        (crop, preprocess),
-        (_ensure_bgr(crop), False),
-        (_enhance_region_for_ocr(crop, 2.0), False),
-    ]
-
+    strategy = _candidate_strategy(candidate_mode)
     best_lines: List[Dict[str, Any]] = []
     best_score = -1
 
-    for variant, pp in variants:
+    for variant, scale in strategy['lines']:
         try:
-            lines = [line.to_dict() for line in engine.ocr_region(variant, preprocess=pp)]
+            if variant == 'preprocess':
+                img = crop
+                pp = preprocess
+            elif variant == 'raw':
+                img = _ensure_bgr(crop)
+                pp = False
+            elif variant == 'enhanced':
+                img = _enhance_region_for_ocr(crop, float(scale or 2.0))
+                pp = False
+            else:
+                continue
+            lines = [line.to_dict() for line in engine.ocr_region(img, preprocess=pp)]
             text = ' '.join(flatten_region_lines(lines))
             score = _text_score(text)
             if score > best_score:
@@ -252,7 +302,13 @@ def _extract_title_candidate_from_lines(lines: List[Dict[str, Any]]) -> str:
     return candidates[0]
 
 
-def extract_title_fields(aligned: np.ndarray, config: Dict[str, Any], engine: Any, lexicon: Dict[str, List[str]]) -> Dict[str, Any]:
+def extract_title_fields(
+    aligned: np.ndarray,
+    config: Dict[str, Any],
+    engine: Any,
+    lexicon: Dict[str, List[str]],
+    candidate_mode: str | None = None,
+) -> Dict[str, Any]:
     semantic = config['semantic']['title_fields']
     title_box = config['regions']['title']
     title_img = crop_by_box(aligned, tuple(title_box))
@@ -261,6 +317,7 @@ def extract_title_fields(aligned: np.ndarray, config: Dict[str, Any], engine: An
         title_img,
         (0, 0, title_img.shape[1], title_img.shape[0]),
         preprocess=True,
+        candidate_mode=candidate_mode,
     ) if title_img.size > 0 else []
 
     full_text = ' '.join(flatten_region_lines(title_lines))
@@ -268,22 +325,26 @@ def extract_title_fields(aligned: np.ndarray, config: Dict[str, Any], engine: An
     confidentiality_raw = _ocr_box(
         engine, aligned, semantic['confidentiality'],
         preprocess=True,
-        prefer_keywords=lexicon.get('labels', ['内部', '秘密', '机密'])
+        prefer_keywords=lexicon.get('labels', ['内部', '秘密', '机密']),
+        candidate_mode=candidate_mode,
     )
     title_raw = _ocr_box(
         engine, aligned, semantic['title_text'],
         preprocess=True,
-        prefer_keywords=['计划']
+        prefer_keywords=['计划'],
+        candidate_mode=candidate_mode,
     )
     astro_raw = _ocr_box(
         engine, aligned, semantic['astronomical_times'],
         preprocess=True,
-        prefer_keywords=['天亮时刻', '天黑时刻', '日出时刻', '日没时刻', '月出时刻', '月没时刻']
+        prefer_keywords=['天亮时刻', '天黑时刻', '日出时刻', '日没时刻', '月出时刻', '月没时刻'],
+        candidate_mode=candidate_mode,
     )
     approved_raw = _ocr_box(
         engine, aligned, semantic['approved'],
         preprocess=True,
-        prefer_keywords=['批准']
+        prefer_keywords=['批准'],
+        candidate_mode=candidate_mode,
     )
 
     confidentiality = _clean_label_residue(confidentiality_raw, ['批准', '计划', '日期'])
@@ -347,7 +408,13 @@ def extract_title_fields(aligned: np.ndarray, config: Dict[str, Any], engine: An
     }
 
 
-def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: Any, lexicon: Dict[str, List[str]]) -> Dict[str, Any]:
+def extract_remark_fields(
+    aligned: np.ndarray,
+    config: Dict[str, Any],
+    engine: Any,
+    lexicon: Dict[str, List[str]],
+    candidate_mode: str | None = None,
+) -> Dict[str, Any]:
     semantic = config['semantic']['remark_fields']
     remark_box = config['regions']['remark']
     remark_img = crop_by_box(aligned, tuple(remark_box))
@@ -356,6 +423,7 @@ def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
         remark_img,
         (0, 0, remark_img.shape[1], remark_img.shape[0]),
         preprocess=True,
+        candidate_mode=candidate_mode,
     ) if remark_img.size > 0 else []
 
     full_text = ' '.join(flatten_region_lines(remark_lines))
@@ -363,12 +431,14 @@ def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
     title_text = _ocr_box(
         engine, aligned, semantic['title'],
         preprocess=True,
-        prefer_keywords=['备注']
+        prefer_keywords=['备注'],
+        candidate_mode=candidate_mode,
     )
     occupancy_text = _ocr_box(
         engine, aligned, semantic['occupancy_time'],
         preprocess=True,
-        prefer_keywords=['占场时间']
+        prefer_keywords=['占场时间'],
+        candidate_mode=candidate_mode,
     )
 
     occupancy_time = search_time_after_label(occupancy_text or full_text, '占场时间')
@@ -384,7 +454,14 @@ def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
     for row_box in row_boxes:
         row_result: Dict[str, Any] = {}
         for col_name, box in zip(col_names, row_box):
-            text = _ocr_box(engine, aligned, box, preprocess=True, prefer_keywords=[col_name])
+            text = _ocr_box(
+                engine,
+                aligned,
+                box,
+                preprocess=True,
+                prefer_keywords=[col_name],
+                candidate_mode=candidate_mode,
+            )
             row_result[col_name] = _clean_training_cell(col_name, text, lexicon)
 
         if not any(v for v in row_result.values()):
@@ -402,7 +479,8 @@ def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
     total_text = _ocr_box(
         engine, aligned, semantic['total'],
         preprocess=True,
-        prefer_keywords=['合计']
+        prefer_keywords=['合计'],
+        candidate_mode=candidate_mode,
     )
     total_value = _clean_label_residue(total_text, ['合计'])
 
@@ -417,17 +495,43 @@ def extract_remark_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
     }
 
 
-def extract_bottom_fields(aligned: np.ndarray, config: Dict[str, Any], engine: Any, lexicon: Dict[str, List[str]]) -> Dict[str, Any]:
+def extract_bottom_fields(
+    aligned: np.ndarray,
+    config: Dict[str, Any],
+    engine: Any,
+    lexicon: Dict[str, List[str]],
+    candidate_mode: str | None = None,
+) -> Dict[str, Any]:
     semantic = config['semantic']['bottom_fields']
     bottom_box = config['regions']['bottom']
     bottom_img = crop_by_box(aligned, tuple(bottom_box))
-    bottom_lines = _ocr_lines_box(engine, bottom_img, (0, 0, bottom_img.shape[1], bottom_img.shape[0]), preprocess=True) if bottom_img.size > 0 else []
+    bottom_lines = _ocr_lines_box(
+        engine,
+        bottom_img,
+        (0, 0, bottom_img.shape[1], bottom_img.shape[0]),
+        preprocess=True,
+        candidate_mode=candidate_mode,
+    ) if bottom_img.size > 0 else []
     full_text = ' '.join(flatten_region_lines(bottom_lines))
 
     def parse_line(key: str) -> Dict[str, str]:
         row_cfg = semantic[key]
-        captain_text = _ocr_box(engine, aligned, row_cfg['队长'], preprocess=True, prefer_keywords=['队长'])
-        pc_text = _ocr_box(engine, aligned, row_cfg['政治委员'], preprocess=True, prefer_keywords=['政治委员'])
+        captain_text = _ocr_box(
+            engine,
+            aligned,
+            row_cfg['队长'],
+            preprocess=True,
+            prefer_keywords=['队长'],
+            candidate_mode=candidate_mode,
+        )
+        pc_text = _ocr_box(
+            engine,
+            aligned,
+            row_cfg['政治委员'],
+            preprocess=True,
+            prefer_keywords=['政治委员'],
+            candidate_mode=candidate_mode,
+        )
 
         captain_text = correct_with_lexicon(_clean_label_residue(captain_text, ['队长']), lexicon, 'names') or _clean_label_residue(captain_text, ['队长'])
         pc_text = correct_with_lexicon(_clean_label_residue(pc_text, ['政治委员']), lexicon, 'names') or _clean_label_residue(pc_text, ['政治委员'])
@@ -447,4 +551,11 @@ def extract_bottom_fields(aligned: np.ndarray, config: Dict[str, Any], engine: A
     }
 
 
-__all__ = ['extract_title_fields', 'extract_remark_fields', 'extract_bottom_fields']
+__all__ = [
+    'DEFAULT_OCR_CANDIDATE_MODE',
+    'STRICT_OCR_CANDIDATE_MODE',
+    'available_ocr_candidate_modes',
+    'extract_title_fields',
+    'extract_remark_fields',
+    'extract_bottom_fields',
+]

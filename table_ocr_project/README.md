@@ -35,6 +35,7 @@ table_ocr_project/
 │   └── output/
 └── src/
     ├── build_template_config.py
+    ├── ablation_profile.py
     ├── process_form.py
     ├── run.sh
     └── table_ocr_project/
@@ -57,6 +58,8 @@ table_ocr_project/
 
 - `src/build_template_config.py`
   从一张清晰模板图自动生成 `template_config.json`。
+- `src/ablation_profile.py`
+  对语义区 OCR 候选策略做保守消融，比较耗时和输出一致性。
 - `src/process_form.py`
   当前推荐入口。默认走快速模式，跳过中间图片落盘，只输出 `metadata.json`、`ocr_result.json` 和 `report.xml`。
 - `src/run.sh`
@@ -160,6 +163,30 @@ python src/process_form.py \
 ```
 
 `--profile` 会输出启动/import、参数解析、workflow 总耗时、已统计阶段合计、workflow 未覆盖耗时，以及对齐、裁切、OCR、报告写入等阶段耗时。
+
+默认语义区 OCR 使用已在 `sample.jpeg` 上消融验证通过的 `fast` 候选策略，减少重复 OCR 调用。该策略已验证与旧版多候选模式的 `ocr_result.json` 和 `report.xml` 输出一致；语义区 OCR 调用数从 197 次降到 50 次，整张图总 OCR 调用数为 51 次。
+
+当前服务器环境下，`sample.jpeg` 默认模式连续 3 次独立进程运行平均约 `18.4s`，最慢约 `18.6s`。如果需要恢复旧版多候选 OCR 路径进行复核，可以加：
+
+```bash
+python src/process_form.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-dir data/output/process_structured \
+  --lexicon config/domain_lexicon_demo.json \
+  --strict-ocr-candidates \
+  --profile
+```
+
+如需重新做候选策略消融，可以运行：
+
+```bash
+python src/ablation_profile.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-root /tmp/table_ocr_ablation \
+  --lexicon config/domain_lexicon_demo.json
+```
 
 
 
