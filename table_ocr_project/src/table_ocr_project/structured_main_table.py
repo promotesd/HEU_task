@@ -4,6 +4,8 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
+import numpy as np
+
 from .pipeline import read_image
 from .text_utils import best_fuzzy_match, correct_with_lexicon, normalize_text
 
@@ -665,10 +667,11 @@ class XXSStrategy(BaseStrategy):
             prev = merged[-1]
             gap = _time_to_minutes(str(ev['start_time'])) - _time_to_minutes(str(prev['end_time']))
             pairish = any(tok in str(prev.get('remark', '')) for tok in ['MF', '0.55T', '0.65T', '103']) or any(tok in str(ev.get('remark', '')) for tok in ['MF', '0.55T', '0.65T', '103'])
-            prev_codes = set(prev.get('pilot_codes', []))
-            cur_codes = set(ev.get('pilot_codes', []))
-            if gap <= 30 and pairish and len(prev_codes | cur_codes) <= 2:
-                prev['pilot_codes'] = _dedupe_preserve_order(list(prev_codes | cur_codes))
+            merged_codes = _dedupe_preserve_order(
+                list(prev.get('pilot_codes', [])) + list(ev.get('pilot_codes', []))
+            )
+            if gap <= 30 and pairish and len(merged_codes) <= 2:
+                prev['pilot_codes'] = merged_codes
                 prev['pilot_code'] = '、'.join(prev['pilot_codes'])
                 prev['start_time'] = _minutes_to_time(min(_time_to_minutes(str(prev['start_time'])), _time_to_minutes(str(ev['start_time']))))
                 prev['end_time'] = _minutes_to_time(max(_time_to_minutes(str(prev['end_time'])), _time_to_minutes(str(ev['end_time']))))
@@ -764,12 +767,12 @@ def _strategy_for_aircraft(aircraft_type: str, lexicon: Dict[str, List[str]], sl
 
 
 def extract_structured_main_table(
-    main_table_img_path: str | Path,
+    main_table_img_path: str | Path | np.ndarray,
     config: Dict[str, Any],
     engine: Any,
     lexicon: Dict[str, List[str]],
 ) -> Dict[str, Any]:
-    main_table_img = read_image(main_table_img_path)
+    main_table_img = main_table_img_path if isinstance(main_table_img_path, np.ndarray) else read_image(main_table_img_path)
     ocr_lines = engine.ocr_region(main_table_img, preprocess=False)
 
     x_lines = config['grid']['x_lines']

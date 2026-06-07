@@ -11,5 +11,4 @@ __all__ = [
     'structured_process',
     'structured_report',
     'text_utils',
-    'narrative',
 ]

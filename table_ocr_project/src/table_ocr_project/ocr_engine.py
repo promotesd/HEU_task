@@ -8,7 +8,7 @@ from typing import Any, Dict, List
 import cv2
 import numpy as np
 
-from .preprocess import preprocess_cell_for_ocr, preprocess_region_for_ocr
+from .preprocess import preprocess_region_for_ocr
 from .text_utils import normalize_text
 
 
@@ -229,28 +229,3 @@ class PaddleOCREngine:
             ),
         )
         return " ".join([line.text for line in lines]).strip()
-
-    def ocr_cell(self, image: np.ndarray, remove_lines: bool = True) -> Dict[str, Any]:
-        img = preprocess_cell_for_ocr(image, remove_lines=remove_lines)
-        img = self._ensure_bgr_uint8(img)
-
-        payload = self._predict_one(img)
-
-        rec_texts = self._safe_list(payload.get("rec_texts", []))
-        rec_scores = self._safe_list(payload.get("rec_scores", []))
-
-        texts = [normalize_text(str(t)) for t in rec_texts if normalize_text(str(t))]
-        text = " ".join(texts).strip()
-
-        vals = []
-        for s in rec_scores:
-            try:
-                vals.append(float(s))
-            except Exception:
-                pass
-        score = float(sum(vals) / len(vals)) if vals else 0.0
-
-        return {
-            "text": text,
-            "score": score,
-        }

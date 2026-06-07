@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import re
+import time
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, MutableMapping, Tuple
+
+import numpy as np
 
 from .config_utils import dump_json, load_json
 from .ocr_engine import PaddleOCREngine
-from .pipeline import process_image_with_fixed_template, read_image
+from .pipeline import process_image_with_fixed_template_in_memory, read_image
 from .semantic_extractors import (
     extract_bottom_fields,
     extract_remark_fields,
@@ -31,6 +34,11 @@ def _load_lexicon(lexicon_path: str | Path | None) -> Dict[str, List[str]]:
     if not resolved:
         return {}
     return load_json(resolved)
+
+
+def _add_profile_time(profile: MutableMapping[str, float] | None, key: str, start: float) -> None:
+    if profile is not None:
+        profile[key] = profile.get(key, 0.0) + (time.perf_counter() - start)
 
 
 def _repair_title_times(title: Dict[str, Any]) -> Dict[str, Any]:
@@ -69,17 +77,40 @@ def run_structured_ocr(
     output_dir: str | Path,
     lexicon_path: str | Path | None = None,
     lang: str = 'ch',
+    aligned: np.ndarray | None = None,
+    main_table_img: np.ndarray | None = None,
+    config: Dict[str, Any] | None = None,
+    profile: MutableMapping[str, float] | None = None,
 ) -> Dict[str, Any]:
-    config = load_json(config_path)
+    t0 = time.perf_counter()
+    if config is None:
+        config = load_json(config_path)
     output_dir = Path(output_dir)
-    aligned = read_image(output_dir / 'aligned.png')
+    if aligned is None:
+        aligned = read_image(output_dir / 'aligned.png')
     lexicon = _load_lexicon(lexicon_path)
+    _add_profile_time(profile, 'prepare_ocr_inputs', t0)
 
+    t0 = time.perf_counter()
     engine = PaddleOCREngine(lang=lang)
+    _add_profile_time(profile, 'init_ocr_engine', t0)
+
+    t0 = time.perf_counter()
     title = _repair_title_times(extract_title_fields(aligned, config, engine, lexicon))
+    _add_profile_time(profile, 'ocr_title', t0)
+
+    t0 = time.perf_counter()
     remark = extract_remark_fields(aligned, config, engine, lexicon)
+    _add_profile_time(profile, 'ocr_remark', t0)
+
+    t0 = time.perf_counter()
     bottom = extract_bottom_fields(aligned, config, engine, lexicon)
-    main_table = extract_structured_main_table(output_dir / 'main_table.png', config, engine, lexicon)
+    _add_profile_time(profile, 'ocr_bottom', t0)
+
+    t0 = time.perf_counter()
+    main_table_source = main_table_img if main_table_img is not None else output_dir / 'main_table.png'
+    main_table = extract_structured_main_table(main_table_source, config, engine, lexicon)
+    _add_profile_time(profile, 'ocr_main_table', t0)
 
     result = {
         'input_image': str(Path(input_path).resolve()),
@@ -89,11 +120,16 @@ def run_structured_ocr(
         'bottom': bottom,
     }
 
+    t0 = time.perf_counter()
     dump_json(result, output_dir / 'ocr_result.json')
+    _add_profile_time(profile, 'write_json', t0)
+
+    t0 = time.perf_counter()
     (output_dir / 'report.xml').write_text(
         render_structured_report_xml(result),
         encoding='utf-8'
     )
+    _add_profile_time(profile, 'write_report', t0)
     return result
 
 
@@ -103,18 +139,29 @@ def run_process_form_workflow(
     output_dir: str | Path,
     lexicon_path: str | Path | None = None,
     lang: str = 'ch',
+    debug_output: bool = False,
+    save_cells: bool = False,
+    profile: MutableMapping[str, float] | None = None,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
-    meta = process_image_with_fixed_template(
+    artifacts = process_image_with_fixed_template_in_memory(
         image_path=image_path,
         config_path=config_path,
         output_dir=output_dir,
+        save_debug_outputs=debug_output,
+        save_cells=save_cells,
+        profile=profile,
     )
+    meta = artifacts['metadata']
     result = run_structured_ocr(
         input_path=image_path,
         config_path=config_path,
         output_dir=output_dir,
         lexicon_path=lexicon_path,
         lang=lang,
+        aligned=artifacts['aligned'],
+        main_table_img=artifacts['crops']['main_table'],
+        config=artifacts['config'],
+        profile=profile,
     )
     return meta, result
 

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import shutil
+import time
 from pathlib import Path
-from typing import Any, Dict, List, Sequence, Tuple
+from typing import Any, Dict, List, MutableMapping, Sequence, Tuple
 
 import cv2
 import numpy as np
@@ -10,17 +12,17 @@ from .alignment import align_image_to_template
 from .config_utils import dump_json, ensure_dir, load_json
 from .grid import build_cells_from_grid, draw_grid_debug, extract_grid_lines
 from .layout import build_layout_from_template, crop_by_box, draw_layout_debug
-from .narrative import render_report
-from .ocr_engine import PaddleOCREngine
-from .semantic_extractors import (
-    extract_bottom_fields,
-    extract_main_table,
-    extract_remark_fields,
-    extract_title_fields,
-)
 
 
-BBox = Tuple[int, int, int, int]
+DEBUG_IMAGE_NAMES = [
+    'aligned.png',
+    'title.png',
+    'main_table.png',
+    'remark.png',
+    'bottom.png',
+    'main_table_grid_debug.png',
+]
+LEGACY_STRUCTURED_OUTPUT_NAMES = ['report.txt']
 
 
 def read_image(path: str | Path) -> np.ndarray:
@@ -36,6 +38,25 @@ def save_image(path: str | Path, image: np.ndarray) -> None:
     ok = cv2.imwrite(str(path), image)
     if not ok:
         raise RuntimeError(f'Failed to write image: {path}')
+
+
+def _add_profile_time(profile: MutableMapping[str, float] | None, key: str, start: float) -> None:
+    if profile is not None:
+        profile[key] = profile.get(key, 0.0) + (time.perf_counter() - start)
+
+
+def _cleanup_fast_outputs(output_dir: Path, keep_debug_outputs: bool, keep_cells: bool) -> None:
+    for name in LEGACY_STRUCTURED_OUTPUT_NAMES:
+        path = output_dir / name
+        if path.exists():
+            path.unlink()
+    if not keep_debug_outputs:
+        for name in DEBUG_IMAGE_NAMES:
+            path = output_dir / name
+            if path.exists():
+                path.unlink()
+    if not keep_cells:
+        shutil.rmtree(output_dir / 'cells', ignore_errors=True)
 
 
 def _clip_box(box: Sequence[int], width: int, height: int) -> List[int]:
@@ -159,17 +180,24 @@ def bootstrap_template_config(
     return config
 
 
-def process_image_with_fixed_template(
+def process_image_with_fixed_template_in_memory(
     image_path: str | Path,
     config_path: str | Path,
     output_dir: str | Path,
+    save_debug_outputs: bool = False,
+    save_cells: bool = False,
+    profile: MutableMapping[str, float] | None = None,
 ) -> Dict[str, Any]:
+    t0 = time.perf_counter()
     config = load_json(config_path)
     output_dir = ensure_dir(output_dir)
     template = read_image(config['template']['image_path'])
     image = read_image(image_path)
+    _cleanup_fast_outputs(output_dir, keep_debug_outputs=save_debug_outputs, keep_cells=save_cells)
+    _add_profile_time(profile, 'load_inputs', t0)
 
     align_cfg = config.get('alignment', {})
+    t0 = time.perf_counter()
     align_res = align_image_to_template(
         image,
         template,
@@ -178,35 +206,57 @@ def process_image_with_fixed_template(
         ransac_thresh=float(align_cfg.get('ransac_thresh', 5.0)),
     )
     aligned = align_res.aligned
-    save_image(output_dir / 'aligned.png', aligned)
+    _add_profile_time(profile, 'alignment', t0)
 
     regions = config['regions']
     crops: Dict[str, np.ndarray] = {}
+    t0 = time.perf_counter()
     for name in ['title', 'main_table', 'remark', 'bottom']:
         crop = crop_by_box(aligned, tuple(regions[name]))
         crops[name] = crop
-        save_image(output_dir / f'{name}.png', crop)
+    _add_profile_time(profile, 'crop_regions', t0)
 
     x_lines = config['grid']['x_lines']
     y_lines = config['grid']['y_lines']
-    save_image(output_dir / 'main_table_grid_debug.png', draw_grid_debug(crops['main_table'], x_lines, y_lines))
 
+    t0 = time.perf_counter()
     cells = build_cells_from_grid(x_lines, y_lines)
-    cells_dir = ensure_dir(output_dir / 'cells')
     cell_meta: List[Dict[str, Any]] = []
     for cell in cells:
         row = int(cell['row'])
         col = int(cell['col'])
         x1, y1, x2, y2 = cell['bbox']
-        crop = crops['main_table'][y1:y2, x1:x2]
         filename = f'r{row:03d}_c{col:03d}.png'
-        save_image(cells_dir / filename, crop)
-        cell_meta.append({
+        item = {
             'row': row,
             'col': col,
             'bbox_in_main_table': [x1, y1, x2, y2],
-            'file': str((Path('cells') / filename).as_posix()),
-        })
+        }
+        if save_cells:
+            item['file'] = str((Path('cells') / filename).as_posix())
+        cell_meta.append(item)
+    _add_profile_time(profile, 'metadata_build', t0)
+
+    if save_debug_outputs:
+        t0 = time.perf_counter()
+        save_image(output_dir / 'aligned.png', aligned)
+        for name, crop in crops.items():
+            save_image(output_dir / f'{name}.png', crop)
+        save_image(output_dir / 'main_table_grid_debug.png', draw_grid_debug(crops['main_table'], x_lines, y_lines))
+        _add_profile_time(profile, 'write_debug_images', t0)
+
+    if save_cells:
+        t0 = time.perf_counter()
+        shutil.rmtree(output_dir / 'cells', ignore_errors=True)
+        cells_dir = ensure_dir(output_dir / 'cells')
+        for cell in cells:
+            row = int(cell['row'])
+            col = int(cell['col'])
+            x1, y1, x2, y2 = cell['bbox']
+            crop = crops['main_table'][y1:y2, x1:x2]
+            filename = f'r{row:03d}_c{col:03d}.png'
+            save_image(cells_dir / filename, crop)
+        _add_profile_time(profile, 'write_cell_images', t0)
 
     meta = {
         'input_image': str(Path(image_path).resolve()),
@@ -225,46 +275,12 @@ def process_image_with_fixed_template(
         },
         'cells': cell_meta,
     }
+    t0 = time.perf_counter()
     dump_json(meta, output_dir / 'metadata.json')
-    return meta
-
-
-def _load_lexicon(lexicon_path: str | Path | None) -> Dict[str, List[str]]:
-    if not lexicon_path:
-        return {}
-    return load_json(lexicon_path)
-
-
-def run_full_pipeline(
-    image_path: str | Path,
-    config_path: str | Path,
-    output_dir: str | Path,
-    lexicon_path: str | Path | None = None,
-    lang: str = 'ch',
-) -> Dict[str, Any]:
-    output_dir = ensure_dir(output_dir)
-    meta = process_image_with_fixed_template(image_path=image_path, config_path=config_path, output_dir=output_dir)
-    config = load_json(config_path)
-    aligned = read_image(output_dir / 'aligned.png')
-    lexicon = _load_lexicon(lexicon_path)
-    engine = PaddleOCREngine(lang=lang)
-
-    title = extract_title_fields(aligned, config, engine, lexicon)
-    remark = extract_remark_fields(aligned, config, engine, lexicon)
-    bottom = extract_bottom_fields(aligned, config, engine, lexicon)
-    main_table = extract_main_table(aligned, config, engine, Path(output_dir), lexicon)
-
-    result = {
-        'input_image': str(Path(image_path).resolve()),
-        'title': title,
-        'remark': remark,
-        'bottom': bottom,
-        'main_table': main_table,
+    _add_profile_time(profile, 'write_metadata', t0)
+    return {
+        'config': config,
+        'aligned': aligned,
+        'crops': crops,
         'metadata': meta,
     }
-    result['text_report'] = render_report(result)
-
-    dump_json(result, Path(output_dir) / 'ocr_result.json')
-    with open(Path(output_dir) / 'report.txt', 'w', encoding='utf-8') as f:
-        f.write(result['text_report'])
-    return result

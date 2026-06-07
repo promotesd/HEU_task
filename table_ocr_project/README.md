@@ -10,7 +10,7 @@
 2. 将待识别图片与模板自动配准。
 3. 按固定区域裁切 `title`、`main_table`、`remark`、`bottom`。
 4. 对主表网格、标题区、备注区、底部签名区做 OCR。
-5. 输出结构化 JSON 和可直接阅读的 `report.txt`。
+5. 输出结构化 JSON 和可用 Excel/WPS 打开的 `report.xml`。
 
 当前特别针对主表做了额外结构化整理，重点抽取：
 
@@ -35,16 +35,14 @@ table_ocr_project/
 │   └── output/
 └── src/
     ├── build_template_config.py
-    ├── debug_semantic_boxes.py
     ├── process_form.py
-    ├── run_full_pipeline.py
+    ├── run.sh
     └── table_ocr_project/
         ├── __init__.py
         ├── alignment.py
         ├── config_utils.py
         ├── grid.py
         ├── layout.py
-        ├── narrative.py
         ├── ocr_engine.py
         ├── pipeline.py
         ├── preprocess.py
@@ -60,24 +58,22 @@ table_ocr_project/
 - `src/build_template_config.py`
   从一张清晰模板图自动生成 `template_config.json`。
 - `src/process_form.py`
-  当前推荐入口。先做对齐/切分，再输出面向主表结构化的 `ocr_result.json` 和 `report.txt`。
-- `src/run_full_pipeline.py`
-  保留原始完整流程，输出传统语义抽取结果和文字报告。
-- `src/debug_semantic_boxes.py`
-  调试各语义区域 OCR 的辅助脚本。
+  当前推荐入口。默认走快速模式，跳过中间图片落盘，只输出 `metadata.json`、`ocr_result.json` 和 `report.xml`。
+- `src/run.sh`
+  `process_form.py` 的示例运行脚本。
 
 包内核心模块说明：
 
 - `pipeline.py`
-  模板配置生成、图像对齐、区域裁切、单元格切分、完整流程调度。
+  模板配置生成、图像对齐、区域裁切、网格 metadata 生成和可选调试图输出。
 - `structured_process.py`
   结构化流程总入口，串联主表结构化识别和结构化报告输出。
 - `structured_main_table.py`
   主表上半区和飞行记录的结构化整理逻辑。
 - `structured_report.py`
-  将结构化结果写成易读的 `report.txt`。
+  将结构化结果写成可用 Excel/WPS 打开的 `report.xml`。
 - `semantic_extractors.py`
-  标题区、备注区、底部签名区和旧版主表抽取逻辑。
+  标题区、备注区、底部签名区的 OCR 抽取逻辑。
 
 ## 环境准备
 
@@ -124,16 +120,61 @@ python src/process_form.py \
 
 1. 图像与模板配准
 2. 固定区域裁切
-3. 主表切格
+3. 主表网格 metadata 生成
 4. 标题区、备注区、底部签名区 OCR
 5. 主表上半区和飞行记录结构化整理
-6. 生成 `ocr_result.json` 和结构化 `report.txt`
+6. 生成 `metadata.json`、`ocr_result.json` 和结构化 `report.xml`
+
+默认快速模式不会保存 `aligned.png`、区域裁剪图、网格调试图和 `cells/` 单元格图片，以减少磁盘 I/O。需要调试图片时可以显式开启：
+
+```bash
+python src/process_form.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-dir data/output/process_structured \
+  --lexicon config/domain_lexicon_demo.json \
+  --debug-output
+```
+
+如果确实需要保存全部 2625 张主表单元格图片，再加 `--save-cells`：
+
+```bash
+python src/process_form.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-dir data/output/process_structured \
+  --lexicon config/domain_lexicon_demo.json \
+  --debug-output \
+  --save-cells
+```
+
+需要查看耗时拆分时，可以加 `--profile`：
+
+```bash
+python src/process_form.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-dir data/output/process_structured \
+  --lexicon config/domain_lexicon_demo.json \
+  --profile
+```
+
+`--profile` 会输出启动/import、参数解析、workflow 总耗时、已统计阶段合计、workflow 未覆盖耗时，以及对齐、裁切、OCR、报告写入等阶段耗时。
 
 
 
 ## 输出文件说明
 
-`process_form.py`，输出目录通常都会包含以下内容：
+`process_form.py` 默认快速模式只保留最终结果和必要 metadata：
+
+- `metadata.json`
+  对齐结果、区域框、网格信息、单元格 row/col/bbox 索引。
+- `ocr_result.json`
+  结构化 OCR 结果。
+- `report.xml`
+  便于人工查看和表格软件打开的结构化报告。
+
+开启 `--debug-output` 后，会额外输出：
 
 - `aligned.png`
   与模板配准后的整图。
@@ -147,18 +188,15 @@ python src/process_form.py \
   底部签名区域裁剪图。
 - `main_table_grid_debug.png`
   主表网格调试图。
+
+开启 `--debug-output --save-cells` 后，会额外输出：
+
 - `cells/`
   主表按固定网格切出的单元格图像。
-- `metadata.json`
-  对齐结果、区域框、网格信息、单元格文件索引。
-- `ocr_result.json`
-  结构化 OCR 结果。
-- `report.txt`
-  便于人工查看的文字报告。
 
 ## `process_form.py` 的结果重点
 
-`process_form.py` 输出的 `report.txt` 目前重点整理以下内容：
+`process_form.py` 输出的 `report.xml` 目前重点整理以下内容：
 
 - 标题信息
 - 备注区信息
@@ -194,7 +232,7 @@ python src/process_form.py \
 config/domain_lexicon_demo.json
 ```
 
-你可以在运行 `process_form.py` 或 `run_full_pipeline.py` 时通过 `--lexicon` 指定自己的词表文件。
+你可以在运行 `process_form.py` 时通过 `--lexicon` 指定自己的词表文件。
 
 ## 配置文件说明
 
@@ -221,11 +259,11 @@ config/domain_lexicon_demo.json
 
 当识别不理想时，建议按以下顺序检查：
 
-1. 先看 `aligned.png` 是否对齐正确。
-2. 再看 `main_table.png` 是否完整覆盖主表。
-3. 再看 `main_table_grid_debug.png` 的网格线是否贴合。
-4. 如果主表细粒度内容不稳定，检查词表是否足够完整。
-5. 如需排查语义框 OCR，可使用 `src/debug_semantic_boxes.py`。
+1. 如果默认快速模式识别不理想，先用 `--debug-output` 重新跑一遍。
+2. 看 `aligned.png` 是否对齐正确。
+3. 再看 `main_table.png` 是否完整覆盖主表。
+4. 再看 `main_table_grid_debug.png` 的网格线是否贴合。
+5. 如果主表细粒度内容不稳定，检查词表是否足够完整。
 
 ## 当前建议
 
