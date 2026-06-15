@@ -720,38 +720,7 @@ class XX5Strategy(BaseStrategy):
             if not marker and len(ev.get('pilot_codes', [])) == 1 and remark in {'', '-', '5o', '5O'} and start < _time_to_minutes('19:20'):
                 continue
             out.append(ev)
-        return self._snap_dense_plan_events(out)
-
-    def _snap_dense_plan_events(self, events: Sequence[Event]) -> List[Event]:
-        snapped: List[Event] = []
-        for ev in events:
-            ev = dict(ev)
-            start = _time_to_minutes(str(ev.get('start_time', '')))
-            if start < _time_to_minutes('16:00'):
-                ev['start_time'] = '13:30'
-                ev['end_time'] = '15:10'
-                if not ev.get('flight_code'):
-                    ev['flight_code'] = 'SD'
-                if not ev.get('remark') or ev.get('remark') == ev.get('flight_code'):
-                    ev['remark'] = ev.get('flight_code') or 'SD'
-            elif start < _time_to_minutes('19:20'):
-                ev['start_time'] = '17:30'
-                if _time_to_minutes(str(ev.get('end_time', ''))) < _time_to_minutes('18:10'):
-                    ev['end_time'] = '18:15'
-                elif _time_to_minutes(str(ev.get('end_time', ''))) > _time_to_minutes('18:25'):
-                    ev['end_time'] = '18:20'
-                if not ev.get('flight_code'):
-                    ev['flight_code'] = 'CQY'
-            else:
-                ev['start_time'] = '20:00' if start < _time_to_minutes('20:00') else ev['start_time']
-                if _time_to_minutes(str(ev.get('end_time', ''))) < _time_to_minutes('20:45'):
-                    ev['end_time'] = '20:50'
-                if not ev.get('flight_code'):
-                    ev['flight_code'] = 'CQY'
-            ev['text'] = str(ev.get('remark') or ev.get('text') or '')
-            ev = self.finalize_event(ev) or ev
-            snapped.append(ev)
-        return snapped
+        return out
 
     def finalize_group(self, events: Sequence[Event], aircraft_type: str) -> List[Event]:
         return [

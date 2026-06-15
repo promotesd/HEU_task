@@ -185,7 +185,7 @@
           <Data ss:Type="String">至德1号</Data>
         </Cell>
         <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
-          <Data ss:Type="String">秦；指挥:国；电韦章 I 主见习章</Data>
+          <Data ss:Type="String">XX:秦;副指挥:王;见习:志 黄;XX:王;见习:黄</Data>
         </Cell>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="20">
@@ -201,7 +201,7 @@
           <Data ss:Type="String">至德9号</Data>
         </Cell>
         <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
-          <Data ss:Type="String">SO:刘夜间见习徐</Data>
+          <Data ss:Type="String">SO:刘、徐、李;夜间见习:徐</Data>
         </Cell>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="20">
@@ -1071,7 +1071,7 @@
           <Data ss:Type="String">1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">13:30~15:10</Data>
+          <Data ss:Type="String">13:30~15:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">郑807</Data>
@@ -1103,7 +1103,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:20</Data>
+          <Data ss:Type="String">17:10~18:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">宫850</Data>
@@ -1135,14 +1135,12 @@
           <Data ss:Type="String">3</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">20:00~20:50</Data>
+          <Data ss:Type="String">19:30~20:40</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">苑813</Data>
         </Cell>
-        <Cell ss:StyleID="s_cell_center" ss:Index="8">
-          <Data ss:Type="String">CQY</Data>
-        </Cell>
+        <Cell ss:StyleID="s_cell_center" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9">
           <Data ss:Type="String">CO-D -70</Data>
         </Cell>
@@ -1167,7 +1165,7 @@
           <Data ss:Type="String">1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:20</Data>
+          <Data ss:Type="String">17:20~18:30</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">苑813</Data>
@@ -1204,9 +1202,7 @@
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">黄827</Data>
         </Cell>
-        <Cell ss:StyleID="s_cell_center" ss:Index="8">
-          <Data ss:Type="String">CQY</Data>
-        </Cell>
+        <Cell ss:StyleID="s_cell_center" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9"/>
         <Cell ss:StyleID="s_small" ss:Index="10">
           <Data ss:Type="String">/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/input/sample.jpeg</Data>
@@ -1229,7 +1225,7 @@
           <Data ss:Type="String">1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">13:30~15:10</Data>
+          <Data ss:Type="String">13:30~15:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">高835</Data>
@@ -1261,7 +1257,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:20</Data>
+          <Data ss:Type="String">17:20~18:30</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">彤812</Data>
@@ -1293,7 +1289,7 @@
           <Data ss:Type="String">3</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">20:00~20:50</Data>
+          <Data ss:Type="String">19:40~20:00</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">彤812</Data>
@@ -1325,10 +1321,10 @@
           <Data ss:Type="String">1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:15</Data>
+          <Data ss:Type="String">17:20~18:00</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">博823</Data>
+          <Data ss:Type="String">彭823</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8">
           <Data ss:Type="String">CQY</Data>
@@ -1357,10 +1353,10 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">20:00~20:50</Data>
+          <Data ss:Type="String">19:40~20:30</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">博823</Data>
+          <Data ss:Type="String">彭823</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8">
           <Data ss:Type="String">CQY</Data>

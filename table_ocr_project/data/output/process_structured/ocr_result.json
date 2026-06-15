@@ -774,8 +774,8 @@
         "events": [
           {
             "start_time": "13:30",
-            "end_time": "15:10",
-            "display_time": "13:30~15:10",
+            "end_time": "15:20",
+            "display_time": "13:30~15:20",
             "text": "SD",
             "remark": "SD",
             "pilot_codes": [
@@ -792,9 +792,9 @@
             "source_row": 8
           },
           {
-            "start_time": "17:30",
+            "start_time": "17:10",
             "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "display_time": "17:10~18:20",
             "text": "CQY -06B10-70",
             "remark": "CQY -06B10-70",
             "pilot_codes": [
@@ -811,16 +811,16 @@
             "source_row": 8
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:30",
+            "end_time": "20:40",
+            "display_time": "19:30~20:40",
             "text": "CO-D -70",
             "remark": "CO-D -70",
             "pilot_codes": [
               "苑813"
             ],
             "pilot_code": "苑813",
-            "flight_code": "CQY",
+            "flight_code": "",
             "source_cols": [
               48,
               52,
@@ -861,9 +861,9 @@
         "code_name": "苑813",
         "events": [
           {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
             "text": "CQY P0 货7",
             "remark": "CQY P0 货7",
             "pilot_codes": [
@@ -889,7 +889,7 @@
               "黄827"
             ],
             "pilot_code": "黄827",
-            "flight_code": "CQY",
+            "flight_code": "",
             "source_cols": [
               54,
               56
@@ -929,8 +929,8 @@
         "events": [
           {
             "start_time": "13:30",
-            "end_time": "15:10",
-            "display_time": "13:30~15:10",
+            "end_time": "15:20",
+            "display_time": "13:30~15:20",
             "text": "SD OB",
             "remark": "SD OB",
             "pilot_codes": [
@@ -947,9 +947,9 @@
             "source_row": 14
           },
           {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
             "text": "CQY -O1B00-79",
             "remark": "CQY -O1B00-79",
             "pilot_codes": [
@@ -966,9 +966,9 @@
             "source_row": 14
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:40",
+            "end_time": "20:00",
+            "display_time": "19:40~20:00",
             "text": "CQY -O5B 0079",
             "remark": "CQY -O5B 0079",
             "pilot_codes": [
@@ -1016,9 +1016,9 @@
         "code_name": "博823",
         "events": [
           {
-            "start_time": "17:30",
-            "end_time": "18:15",
-            "display_time": "17:30~18:15",
+            "start_time": "17:20",
+            "end_time": "18:00",
+            "display_time": "17:20~18:00",
             "text": "CQY -p0-",
             "remark": "CQY -p0-",
             "pilot_codes": [
@@ -1033,9 +1033,9 @@
             "source_row": 17
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:40",
+            "end_time": "20:30",
+            "display_time": "19:40~20:30",
             "text": "CQY -05B 0p-7",
             "remark": "CQY -05B 0p-7",
             "pilot_codes": [
@@ -1467,8 +1467,8 @@
             "events": [
               {
                 "start_time": "13:30",
-                "end_time": "15:10",
-                "display_time": "13:30~15:10",
+                "end_time": "15:20",
+                "display_time": "13:30~15:20",
                 "text": "SD",
                 "remark": "SD",
                 "pilot_codes": [
@@ -1485,9 +1485,9 @@
                 "source_row": 8
               },
               {
-                "start_time": "17:30",
+                "start_time": "17:10",
                 "end_time": "18:20",
-                "display_time": "17:30~18:20",
+                "display_time": "17:10~18:20",
                 "text": "CQY -06B10-70",
                 "remark": "CQY -06B10-70",
                 "pilot_codes": [
@@ -1504,16 +1504,16 @@
                 "source_row": 8
               },
               {
-                "start_time": "20:00",
-                "end_time": "20:50",
-                "display_time": "20:00~20:50",
+                "start_time": "19:30",
+                "end_time": "20:40",
+                "display_time": "19:30~20:40",
                 "text": "CO-D -70",
                 "remark": "CO-D -70",
                 "pilot_codes": [
                   "苑813"
                 ],
                 "pilot_code": "苑813",
-                "flight_code": "CQY",
+                "flight_code": "",
                 "source_cols": [
                   48,
                   52,
@@ -1549,8 +1549,8 @@
         "raw_events": [
           {
             "start_time": "13:30",
-            "end_time": "15:10",
-            "display_time": "13:30~15:10",
+            "end_time": "15:20",
+            "display_time": "13:30~15:20",
             "text": "SD",
             "remark": "SD",
             "pilot_codes": [
@@ -1567,9 +1567,9 @@
             "source_row": 8
           },
           {
-            "start_time": "17:30",
+            "start_time": "17:10",
             "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "display_time": "17:10~18:20",
             "text": "CQY -06B10-70",
             "remark": "CQY -06B10-70",
             "pilot_codes": [
@@ -1586,16 +1586,16 @@
             "source_row": 8
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:30",
+            "end_time": "20:40",
+            "display_time": "19:30~20:40",
             "text": "CO-D -70",
             "remark": "CO-D -70",
             "pilot_codes": [
               "苑813"
             ],
             "pilot_code": "苑813",
-            "flight_code": "CQY",
+            "flight_code": "",
             "source_cols": [
               48,
               52,
@@ -1685,9 +1685,9 @@
             "code_name": "苑813",
             "events": [
               {
-                "start_time": "17:30",
-                "end_time": "18:20",
-                "display_time": "17:30~18:20",
+                "start_time": "17:20",
+                "end_time": "18:30",
+                "display_time": "17:20~18:30",
                 "text": "CQY P0 货7",
                 "remark": "CQY P0 货7",
                 "pilot_codes": [
@@ -1713,7 +1713,7 @@
                   "黄827"
                 ],
                 "pilot_code": "黄827",
-                "flight_code": "CQY",
+                "flight_code": "",
                 "source_cols": [
                   54,
                   56
@@ -1746,9 +1746,9 @@
         ],
         "raw_events": [
           {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
             "text": "CQY P0 货7",
             "remark": "CQY P0 货7",
             "pilot_codes": [
@@ -1774,7 +1774,7 @@
               "黄827"
             ],
             "pilot_code": "黄827",
-            "flight_code": "CQY",
+            "flight_code": "",
             "source_cols": [
               54,
               56
@@ -1859,8 +1859,8 @@
             "events": [
               {
                 "start_time": "13:30",
-                "end_time": "15:10",
-                "display_time": "13:30~15:10",
+                "end_time": "15:20",
+                "display_time": "13:30~15:20",
                 "text": "SD OB",
                 "remark": "SD OB",
                 "pilot_codes": [
@@ -1877,9 +1877,9 @@
                 "source_row": 14
               },
               {
-                "start_time": "17:30",
-                "end_time": "18:20",
-                "display_time": "17:30~18:20",
+                "start_time": "17:20",
+                "end_time": "18:30",
+                "display_time": "17:20~18:30",
                 "text": "CQY -O1B00-79",
                 "remark": "CQY -O1B00-79",
                 "pilot_codes": [
@@ -1896,9 +1896,9 @@
                 "source_row": 14
               },
               {
-                "start_time": "20:00",
-                "end_time": "20:50",
-                "display_time": "20:00~20:50",
+                "start_time": "19:40",
+                "end_time": "20:00",
+                "display_time": "19:40~20:00",
                 "text": "CQY -O5B 0079",
                 "remark": "CQY -O5B 0079",
                 "pilot_codes": [
@@ -1941,8 +1941,8 @@
         "raw_events": [
           {
             "start_time": "13:30",
-            "end_time": "15:10",
-            "display_time": "13:30~15:10",
+            "end_time": "15:20",
+            "display_time": "13:30~15:20",
             "text": "SD OB",
             "remark": "SD OB",
             "pilot_codes": [
@@ -1959,9 +1959,9 @@
             "source_row": 14
           },
           {
-            "start_time": "17:30",
-            "end_time": "18:20",
-            "display_time": "17:30~18:20",
+            "start_time": "17:20",
+            "end_time": "18:30",
+            "display_time": "17:20~18:30",
             "text": "CQY -O1B00-79",
             "remark": "CQY -O1B00-79",
             "pilot_codes": [
@@ -1978,9 +1978,9 @@
             "source_row": 14
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:40",
+            "end_time": "20:00",
+            "display_time": "19:40~20:00",
             "text": "CQY -O5B 0079",
             "remark": "CQY -O5B 0079",
             "pilot_codes": [
@@ -2077,9 +2077,9 @@
             "code_name": "博823",
             "events": [
               {
-                "start_time": "17:30",
-                "end_time": "18:15",
-                "display_time": "17:30~18:15",
+                "start_time": "17:20",
+                "end_time": "18:00",
+                "display_time": "17:20~18:00",
                 "text": "CQY -p0-",
                 "remark": "CQY -p0-",
                 "pilot_codes": [
@@ -2094,9 +2094,9 @@
                 "source_row": 17
               },
               {
-                "start_time": "20:00",
-                "end_time": "20:50",
-                "display_time": "20:00~20:50",
+                "start_time": "19:40",
+                "end_time": "20:30",
+                "display_time": "19:40~20:30",
                 "text": "CQY -05B 0p-7",
                 "remark": "CQY -05B 0p-7",
                 "pilot_codes": [
@@ -2137,9 +2137,9 @@
         ],
         "raw_events": [
           {
-            "start_time": "17:30",
-            "end_time": "18:15",
-            "display_time": "17:30~18:15",
+            "start_time": "17:20",
+            "end_time": "18:00",
+            "display_time": "17:20~18:00",
             "text": "CQY -p0-",
             "remark": "CQY -p0-",
             "pilot_codes": [
@@ -2154,9 +2154,9 @@
             "source_row": 17
           },
           {
-            "start_time": "20:00",
-            "end_time": "20:50",
-            "display_time": "20:00~20:50",
+            "start_time": "19:40",
+            "end_time": "20:30",
+            "display_time": "19:40~20:30",
             "text": "CQY -05B 0p-7",
             "remark": "CQY -05B 0p-7",
             "pilot_codes": [
