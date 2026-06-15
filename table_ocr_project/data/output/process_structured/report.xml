@@ -184,7 +184,7 @@
         <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德1号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2">
+        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
           <Data ss:Type="String">秦；指挥:国；电韦章 I 主见习章</Data>
         </Cell>
       </Row>
@@ -192,7 +192,7 @@
         <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德7号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2">
+        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
           <Data ss:Type="String">管</Data>
         </Cell>
       </Row>
@@ -200,7 +200,7 @@
         <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德9号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2">
+        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
           <Data ss:Type="String">SO:刘夜间见习徐</Data>
         </Cell>
       </Row>
@@ -208,7 +208,7 @@
         <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">元兴</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2">
+        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
           <Data ss:Type="String">指</Data>
         </Cell>
       </Row>
