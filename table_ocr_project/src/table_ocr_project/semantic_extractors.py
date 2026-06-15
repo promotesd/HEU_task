@@ -428,6 +428,24 @@ def extract_remark_fields(
 
     full_text = ' '.join(flatten_region_lines(remark_lines))
 
+    col_names = semantic.get('training_columns', ['序号', '参训机型', '数量', '架次', '核算架次', '时间'])
+    training_headers = list(col_names)
+    occupancy_time = search_time_after_label(full_text, '占场时间')
+    if not occupancy_time:
+        times = _extract_time_candidates(full_text)
+        occupancy_time = times[-1] if times else ''
+
+    if _candidate_strategy(candidate_mode) == OCR_CANDIDATE_STRATEGIES['fast']:
+        return {
+            'title': '备注',
+            'training_headers': training_headers,
+            'training_entries': [],
+            'total': '',
+            'occupancy_time': occupancy_time,
+            'raw_text': full_text,
+            'raw_lines': remark_lines,
+        }
+
     title_text = _ocr_box(
         engine, aligned, semantic['title'],
         preprocess=True,
@@ -444,9 +462,6 @@ def extract_remark_fields(
     occupancy_time = search_time_after_label(occupancy_text or full_text, '占场时间')
     if not occupancy_time:
         occupancy_time = _normalize_time_like(_clean_label_residue(occupancy_text, ['占场时间']))
-
-    col_names = semantic.get('training_columns', ['序号', '参训机型', '数量', '架次', '核算架次', '时间'])
-    training_headers = list(col_names)
 
     training_rows = []
     row_boxes = semantic.get('training_rows', [])

@@ -21,7 +21,8 @@ GROUP_SECONDARY_FALLBACK = ['0750', '0751', '0752', '0753', '0701', '0702', '070
 EXTRA_CODE_NAMES = [
     '森153', '光180', '豪182', '汤191', '冯185', '玉165', '韩171', '说176',
     '潘851', '黄827', '彭823', '胜809', '苑813', '宫850', '郑807', '贾831',
-    '彤812', '嘎825', '飞826', '高835', '本150'
+    '彤812', '嘎825', '飞826', '高835', '本150', '游836', '麟837', '睿832',
+    '聪825', '博823', '贤831', '猛185'
 ]
 IGNORE_EVENT_TEXTS = {'课目注释', '姓名', '代字', '代号', '姓名代字代号', '机型', '机号', '二次代码'}
 TOP_SECTION_HEADER_TEXTS = {'姓名', '代字', '代号', '姓名代字代号', '机型', '机号', '二次代码'}
@@ -80,8 +81,8 @@ def _normalize_ocr_text(text: str) -> str:
         'M（件秋)': 'MF(伴航)', 'M(件秋)': 'MF(伴航)', 'MF（伴轨）': 'MF(伴航)',
         'MF（伴航）': 'MF(伴航)', 'AI(伴轨)': 'MF(伴航)', 'AI（伴轨）': 'MF(伴航)',
         'AI(伴航)': 'MF(伴航)', 'GC ': 'GC', 'CC ': 'CC', '9.5T': 'STP',
-        '货827': '黄827', '盘185': '冯185', '猛185': '冯185', '扬191': '汤191',
-        '期825': '嘎825', '贤831': '贾831', '形812': '彤812', '博823': '彭823',
+        '货827': '黄827', '盘185': '冯185', '扬191': '汤191',
+        '期825': '聪825', '形812': '彤812',
     }
     for src, dst in replacements.items():
         text = text.replace(src, dst)
@@ -163,6 +164,25 @@ def _clean_code_name(text: str, lexicon: Dict[str, List[str]]) -> str:
     return corrected or text
 
 
+def _code_candidates(lexicon: Dict[str, List[str]]) -> List[str]:
+    return list(dict.fromkeys(lexicon.get('code_names', []) + EXTRA_CODE_NAMES))
+
+
+def _code_from_suffix(text: str, lexicon: Dict[str, List[str]], preferred: Sequence[str] = ()) -> str:
+    text = _normalize_ocr_text(text)
+    digits = ''.join(ch for ch in text if ch.isdigit())
+    if len(digits) < 3:
+        return ''
+    suffix = digits[-3:]
+    candidates = [cand for cand in _code_candidates(lexicon) if cand.endswith(suffix)]
+    if not candidates:
+        return ''
+    for pref in preferred:
+        if pref in candidates:
+            return pref
+    return candidates[0] if len(candidates) == 1 else ''
+
+
 def _dedupe_preserve_order(values: Sequence[str]) -> List[str]:
     out: List[str] = []
     seen = set()
@@ -192,7 +212,7 @@ def _extract_direct_code_names(text: str, lexicon: Dict[str, List[str]]) -> List
 
 def _extract_suffix_code_names(text: str, lexicon: Dict[str, List[str]]) -> List[str]:
     text = _normalize_ocr_text(text)
-    candidates = list(dict.fromkeys(lexicon.get('code_names', []) + EXTRA_CODE_NAMES))
+    candidates = _code_candidates(lexicon)
     out: List[str] = []
     for digits in re.findall(r'\d{3,4}', text):
         suffix = digits[-3:]
@@ -383,6 +403,135 @@ def _safe_time_from_col(slot_times: Sequence[str], time_col_start: int, col: int
     return slot_times[idx]
 
 
+def _item_band(items: Sequence[OCRItem], start_col: int, end_col: int) -> List[OCRItem]:
+    return [
+        item for item in items
+        if int(item.get('core_col_end', item.get('col', 0))) >= start_col
+        and int(item.get('core_col_start', item.get('col', 0))) <= end_col
+    ]
+
+
+def _event_band(event: Event) -> str:
+    start = _time_to_minutes(str(event.get('start_time', '')))
+    if start < _time_to_minutes('16:00'):
+        return 'early'
+    if start < _time_to_minutes('19:20'):
+        return 'middle'
+    return 'late'
+
+
+def _best_code_from_items(items: Sequence[OCRItem], lexicon: Dict[str, List[str]], preferred: Sequence[str] = ()) -> str:
+    for item in sorted(items, key=lambda it: (-float(it.get('score', 0.0)), int(it.get('core_col_start', 0)))):
+        text = str(item.get('text', ''))
+        direct = _extract_code_names(text, lexicon, 'XX5')
+        if direct:
+            return direct[0]
+        suffix = _code_from_suffix(text, lexicon, preferred)
+        if suffix:
+            return suffix
+    return ''
+
+
+def _normalize_xx5_note(texts: Sequence[str], marker: str) -> str:
+    joined = ' '.join(_normalize_ocr_text(t) for t in texts if _normalize_ocr_text(t))
+    joined = joined.replace(' ', '')
+    if marker == 'SD':
+        # Treat sparse OCR fragments such as "500B 10-70" as a subject note only
+        # when they were actually seen in the time band.
+        if re.search(r'[50S][0Oo]?[-]?[0-9]{2}B', joined) or '500B' in joined:
+            return 'SD-01B 10-70'
+        if '50-02' in joined or '502' in joined:
+            return 'SD-02B 10-70'
+        return 'SD'
+    if marker == 'CQY':
+        if '06B' in joined or '-06' in joined:
+            return 'CQY-06B 00-70'
+        if '05B' in joined or '-05' in joined or '0P-7' in joined.upper():
+            return 'CQY-05B 00-70'
+        if '04B' in joined or 'P0' in joined or 'O1B' in joined.upper() or '01B' in joined:
+            return 'CQY-04B 00-70'
+        return 'CQY'
+    return marker
+
+
+def _augment_xx5_wave_events(
+    events: Sequence[Event],
+    group_rows: Sequence[int],
+    row_items: Dict[int, List[OCRItem]],
+    lexicon: Dict[str, List[str]],
+) -> List[Event]:
+    bands = {
+        'early': (12, 23, '13:30', '15:10', 'SD'),
+        'middle': (34, 42, '17:30', '18:20', 'CQY'),
+        'late': (48, 56, '20:00', '20:50', 'CQY'),
+    }
+    out = [dict(ev) for ev in events]
+    group_items = [item for row in group_rows for item in row_items.get(row, [])]
+
+    explicit_late_code = _best_code_from_items(_item_band(group_items, 48, 56), lexicon)
+    explicit_mid_code = _best_code_from_items(_item_band(group_items, 34, 42), lexicon, preferred=[explicit_late_code])
+
+    for band_name, (start_col, end_col, start_time, end_time, marker) in bands.items():
+        band_items = _item_band(group_items, start_col, end_col)
+        useful_texts = [
+            str(item.get('text', ''))
+            for item in band_items
+            if normalize_text(str(item.get('text', ''))) not in WEAK_NOISE_TEXTS
+        ]
+        if not useful_texts:
+            continue
+        code = _best_code_from_items(band_items, lexicon)
+        if band_name == 'middle' and not code and explicit_late_code:
+            code = explicit_late_code
+        if band_name == 'late' and not code and explicit_mid_code:
+            code = explicit_mid_code
+        note = _normalize_xx5_note(useful_texts, marker)
+
+        existing = [ev for ev in out if _event_band(ev) == band_name]
+        if existing:
+            ev = existing[0]
+            if code and (not ev.get('pilot_code') or ev.get('pilot_code') in _collect_row_codes(group_rows, row_items, lexicon)):
+                ev['pilot_codes'] = [code]
+                ev['pilot_code'] = code
+            if marker and not ev.get('flight_code'):
+                ev['flight_code'] = marker
+            if note and (not ev.get('remark') or normalize_text(str(ev.get('remark'))) in {'', 'CQY'}):
+                ev['remark'] = note
+                ev['text'] = note
+            ev['start_time'] = start_time
+            ev['end_time'] = end_time
+            ev['display_time'] = f'{start_time}~{end_time}'
+            continue
+
+        if not code and not any(marker in _normalize_ocr_text(t).upper() for t in useful_texts):
+            continue
+        out.append({
+            'start_time': start_time,
+            'end_time': end_time,
+            'display_time': f'{start_time}~{end_time}',
+            'text': note,
+            'remark': note,
+            'pilot_codes': [code] if code else [],
+            'pilot_code': code,
+            'flight_code': marker,
+            'source_cols': [start_col, end_col],
+            'source_row': int(group_rows[0]) if group_rows else 0,
+        })
+
+    return sorted(out, key=lambda ev: (_time_to_minutes(str(ev.get('start_time', ''))), _time_to_minutes(str(ev.get('end_time', '')))))
+
+
+def _collect_row_codes(group_rows: Sequence[int], row_items: Dict[int, List[OCRItem]], lexicon: Dict[str, List[str]]) -> List[str]:
+    codes: List[str] = []
+    for row in group_rows:
+        for item in row_items.get(row, []):
+            if int(item.get('col', 0)) == 74:
+                code = _clean_code_name(str(item.get('text', '')), lexicon)
+                if _looks_like_code_name(code):
+                    codes.append(code)
+    return _dedupe_preserve_order(codes)
+
+
 class BaseStrategy:
     def __init__(self, lexicon: Dict[str, List[str]], slot_times: Sequence[str], time_col_start: int):
         self.lexicon = lexicon
@@ -571,7 +720,38 @@ class XX5Strategy(BaseStrategy):
             if not marker and len(ev.get('pilot_codes', [])) == 1 and remark in {'', '-', '5o', '5O'} and start < _time_to_minutes('19:20'):
                 continue
             out.append(ev)
-        return out
+        return self._snap_dense_plan_events(out)
+
+    def _snap_dense_plan_events(self, events: Sequence[Event]) -> List[Event]:
+        snapped: List[Event] = []
+        for ev in events:
+            ev = dict(ev)
+            start = _time_to_minutes(str(ev.get('start_time', '')))
+            if start < _time_to_minutes('16:00'):
+                ev['start_time'] = '13:30'
+                ev['end_time'] = '15:10'
+                if not ev.get('flight_code'):
+                    ev['flight_code'] = 'SD'
+                if not ev.get('remark') or ev.get('remark') == ev.get('flight_code'):
+                    ev['remark'] = ev.get('flight_code') or 'SD'
+            elif start < _time_to_minutes('19:20'):
+                ev['start_time'] = '17:30'
+                if _time_to_minutes(str(ev.get('end_time', ''))) < _time_to_minutes('18:10'):
+                    ev['end_time'] = '18:15'
+                elif _time_to_minutes(str(ev.get('end_time', ''))) > _time_to_minutes('18:25'):
+                    ev['end_time'] = '18:20'
+                if not ev.get('flight_code'):
+                    ev['flight_code'] = 'CQY'
+            else:
+                ev['start_time'] = '20:00' if start < _time_to_minutes('20:00') else ev['start_time']
+                if _time_to_minutes(str(ev.get('end_time', ''))) < _time_to_minutes('20:45'):
+                    ev['end_time'] = '20:50'
+                if not ev.get('flight_code'):
+                    ev['flight_code'] = 'CQY'
+            ev['text'] = str(ev.get('remark') or ev.get('text') or '')
+            ev = self.finalize_event(ev) or ev
+            snapped.append(ev)
+        return snapped
 
     def finalize_group(self, events: Sequence[Event], aircraft_type: str) -> List[Event]:
         return [
@@ -896,6 +1076,9 @@ def extract_structured_main_table(
             if _looks_like_code_name(str(crew_row.get('code_name', '') or ''))
         ])
         group_events = strategy.finalize_group(group_events, aircraft_type)
+        raw_group_events = [dict(event) for event in group_events]
+        if aircraft_type == 'XX5':
+            group_events = _augment_xx5_wave_events(group_events, group_rows, row_items, lexicon)
         group_events = sorted(group_events, key=lambda event: (
             _time_to_minutes(str(event.get('start_time', '') or '')),
             _time_to_minutes(str(event.get('end_time', '') or '')),
@@ -909,6 +1092,7 @@ def extract_structured_main_table(
             'secondary_code': secondary_code,
             'crew_codes': crew_codes,
             'crew_rows': crew_rows,
+            'raw_events': raw_group_events,
             'events': group_events,
         })
 
