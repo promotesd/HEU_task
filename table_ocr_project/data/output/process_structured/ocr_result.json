@@ -1082,7 +1082,7 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "name": "",
-        "code_name": "猛185",
+        "code_name": "",
         "events": [
           {
             "start_time": "13:20",
@@ -1388,7 +1388,7 @@
         "aircraft_no": "10",
         "secondary_code": "0705",
         "name": "",
-        "code_name": "说176",
+        "code_name": "",
         "events": [
           {
             "start_time": "13:10",
@@ -1420,7 +1420,7 @@
         "aircraft_no": "10",
         "secondary_code": "0705",
         "name": "",
-        "code_name": "本150",
+        "code_name": "",
         "events": [
           {
             "start_time": "13:10",
@@ -2236,7 +2236,6 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "crew_codes": [
-          "猛185",
           "森153",
           "光180"
         ],
@@ -2247,7 +2246,7 @@
             "aircraft_no": "374",
             "secondary_code": "0701",
             "name": "",
-            "code_name": "猛185",
+            "code_name": "",
             "events": [
               {
                 "start_time": "13:20",
@@ -2752,10 +2751,7 @@
         "aircraft_type": "XXA",
         "aircraft_no": "10",
         "secondary_code": "0705",
-        "crew_codes": [
-          "说176",
-          "本150"
-        ],
+        "crew_codes": [],
         "crew_rows": [
           {
             "grid_row": 29,
@@ -2763,7 +2759,7 @@
             "aircraft_no": "10",
             "secondary_code": "0705",
             "name": "",
-            "code_name": "说176",
+            "code_name": "",
             "events": [
               {
                 "start_time": "13:10",
@@ -2795,7 +2791,7 @@
             "aircraft_no": "10",
             "secondary_code": "0705",
             "name": "",
-            "code_name": "本150",
+            "code_name": "",
             "events": [
               {
                 "start_time": "13:10",

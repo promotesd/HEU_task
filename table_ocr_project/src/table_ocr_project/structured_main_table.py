@@ -1016,11 +1016,6 @@ def extract_structured_main_table(
             row_events = strategy.row_events(event_items, code_name, aircraft_type)
             group_events.extend(row_events)
 
-            if not code_name:
-                strong_codes = _dedupe_preserve_order([code for ev in row_events for code in ev.get('pilot_codes', []) if code])
-                if strong_codes:
-                    code_name = strong_codes[0]
-
             if not code_name and not row_events:
                 continue
             crew_row = {

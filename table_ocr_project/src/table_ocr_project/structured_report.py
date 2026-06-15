@@ -334,8 +334,9 @@ def _collect_code_column_values(result: Dict[str, Any]) -> List[str]:
     for record in records:
         for crew_row in record.get('crew_rows', []) or []:
             code_name = _clean_text(crew_row.get('code_name'))
-            if code_name:
-                values.append(code_name)
+            values.append(code_name)
+    while values and not values[-1]:
+        values.pop()
     return values
 
 
@@ -523,7 +524,7 @@ def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any], *, enable
     # 1行：08:40
     # blank_note_rows行：大块空白区域
 
-    min_layout_rows = 23 if enable_hardcoded_rules and '' in code_column_values else 0
+    min_layout_rows = 23 if '' in code_column_values else 0
     data_row_count = max(len(flat_rows), len(code_column_values), remark_rows_needed, min_layout_rows)
 
     for i in range(data_row_count):
