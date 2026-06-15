@@ -419,7 +419,7 @@ def _build_top_section_rows(table: ET.Element, main: Dict[str, Any], *, enable_h
                 if enable_hardcoded_rules
                 else _clean_top_detail_text(raw_line_text)
             )
-            _add_cell(row, label, col=1, style_id='s_label', merge_across=1)
+            _add_cell(row, label, col=1, style_id='s_label')
             _add_cell(row, line_text or '未清晰识别', col=2, style_id='s_value', merge_across=10)
         else:
             _add_cell(row, '', col=1, style_id='s_cell', merge_across=11)
