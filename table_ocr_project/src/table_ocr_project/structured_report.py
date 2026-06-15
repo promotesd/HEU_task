@@ -408,7 +408,7 @@ def _build_top_section_rows(table: ET.Element, main: Dict[str, Any], *, enable_h
     top_section = main.get('top_section', []) or []
     top_rows = max(len(top_section), 1)
     for i in range(top_rows):
-        row = _add_row(table, height=20)
+        row = _add_row(table, height=32)
         if i < len(top_section):
             entry = top_section[i]
             label = _clean_text(entry.get('label'), '未识别')
@@ -420,7 +420,7 @@ def _build_top_section_rows(table: ET.Element, main: Dict[str, Any], *, enable_h
                 else _clean_top_detail_text(raw_line_text)
             )
             _add_cell(row, label, col=1, style_id='s_label')
-            _add_cell(row, line_text or '未清晰识别', col=2, style_id='s_value', merge_across=10)
+            _add_cell(row, line_text or '未清晰识别', col=2, style_id='s_value')
         else:
             _add_cell(row, '', col=1, style_id='s_cell', merge_across=11)
 
@@ -435,7 +435,7 @@ def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any], *, enable
     # 13: 空列
     # 14-22: 备注区
     _add_columns(table, [
-        55, 65, 60, 70, 60, 85, 115, 85, 190,
+        55, 260, 60, 70, 60, 85, 115, 85, 190,
         20,
         80, 80,
         20,
