@@ -185,7 +185,7 @@
           <Data ss:Type="String">至德1号</Data>
         </Cell>
         <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
-          <Data ss:Type="String">XX:秦;副指挥:王;见习:志 黄;XX:王;见习:黄</Data>
+          <Data ss:Type="String">秦；指挥:国；电韦章 I 主见习章</Data>
         </Cell>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="20">
@@ -201,7 +201,7 @@
           <Data ss:Type="String">至德9号</Data>
         </Cell>
         <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
-          <Data ss:Type="String">SO:刘、徐、李;夜间见习:徐</Data>
+          <Data ss:Type="String">SO:刘夜间见习徐</Data>
         </Cell>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="20">
@@ -326,7 +326,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:15</Data>
+          <Data ss:Type="String">17:30~18:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">宫850</Data>
@@ -335,7 +335,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-06B 00-70</Data>
+          <Data ss:Type="String">CQY -06B10-70</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">郑807</Data>
@@ -366,7 +366,7 @@
           <Data ss:Type="String">3</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">20:00~20:45</Data>
+          <Data ss:Type="String">20:00~20:50</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">苑813</Data>
@@ -375,7 +375,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-04B 00-70</Data>
+          <Data ss:Type="String">CO-D -70</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">胜809</Data>
@@ -446,7 +446,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:30~18:15</Data>
+          <Data ss:Type="String">17:30~18:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">黄827</Data>
@@ -455,7 +455,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-04B 00-70</Data>
+          <Data ss:Type="String">CQY P0 货7</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">贤831</Data>
@@ -495,7 +495,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-05B 00-70</Data>
+          <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">聪825</Data>
@@ -535,7 +535,7 @@
           <Data ss:Type="String">SD</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">SD-01B 10-70</Data>
+          <Data ss:Type="String">SD OB</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">彤812</Data>
@@ -575,7 +575,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-04B 00-70</Data>
+          <Data ss:Type="String">CQY -O1B00-79</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">潘851</Data>
@@ -606,7 +606,7 @@
           <Data ss:Type="String">3</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">20:05~20:50</Data>
+          <Data ss:Type="String">20:00~20:50</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">彤812</Data>
@@ -615,7 +615,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-05B 00-70</Data>
+          <Data ss:Type="String">CQY -O5B 0079</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">睿832</Data>
@@ -676,7 +676,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:35~18:20</Data>
+          <Data ss:Type="String">17:30~18:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">聪825</Data>
@@ -685,7 +685,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-04B 00-70</Data>
+          <Data ss:Type="String">CQY -p0-</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">飞826</Data>
@@ -709,7 +709,7 @@
           <Data ss:Type="String">3</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">19:40~20:30</Data>
+          <Data ss:Type="String">20:00~20:50</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">聪825</Data>
@@ -718,7 +718,7 @@
           <Data ss:Type="String">CQY</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">CQY-05B 00-70</Data>
+          <Data ss:Type="String">CQY -05B 0p-7</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">黄827</Data>
@@ -742,18 +742,18 @@
           <Data ss:Type="String">1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">13:20~15:30</Data>
+          <Data ss:Type="String">13:10~15:40</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">豪182、猛185</Data>
+          <Data ss:Type="String">豪182、冯185</Data>
         </Cell>
-        <Cell ss:StyleID="s_cell_center" ss:Index="8">
-          <Data ss:Type="String">MF</Data>
-        </Cell>
+        <Cell ss:StyleID="s_cell_center" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">MF(伴航) 0.65T</Data>
+          <Data ss:Type="String">0.65T 414 （) 103</Data>
         </Cell>
-        <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1"/>
+        <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
+          <Data ss:Type="String">冯185</Data>
+        </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="14" ss:MergeAcross="8"/>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="28">
@@ -773,7 +773,7 @@
           <Data ss:Type="String">2</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="6">
-          <Data ss:Type="String">17:20~18:50</Data>
+          <Data ss:Type="String">17:10~19:00</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
           <Data ss:Type="String">汤191、光180</Data>
@@ -782,7 +782,7 @@
           <Data ss:Type="String">MF</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">MF(伴航) 0.55T</Data>
+          <Data ss:Type="String">MF(伴航) (伴航) 0.55T 44</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">森153</Data>
@@ -815,7 +815,7 @@
           <Data ss:Type="String">MF</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">MF(伴航) 0.55T</Data>
+          <Data ss:Type="String">MF(伴航) (伴航) 0.55T 44</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">光180</Data>
@@ -842,13 +842,13 @@
           <Data ss:Type="String">12:40~15:50</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">玉165、韩171</Data>
+          <Data ss:Type="String">玉165</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8">
-          <Data ss:Type="String">GC</Data>
+          <Data ss:Type="String">CC</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">GC 10-30</Data>
+          <Data ss:Type="String">CC 1</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">豪182</Data>
@@ -875,13 +875,13 @@
           <Data ss:Type="String">13:10~16:20</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">说176、森153</Data>
+          <Data ss:Type="String">说176</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8">
-          <Data ss:Type="String">GC</Data>
+          <Data ss:Type="String">CC</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="9">
-          <Data ss:Type="String">GC 10-30</Data>
+          <Data ss:Type="String">CC</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
           <Data ss:Type="String">猛185</Data>
@@ -958,7 +958,9 @@
         <Cell ss:StyleID="s_cell" ss:Index="7"/>
         <Cell ss:StyleID="s_cell" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9"/>
-        <Cell ss:StyleID="s_cell" ss:Index="11" ss:MergeAcross="1"/>
+        <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
+          <Data ss:Type="String">说176</Data>
+        </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="14" ss:MergeAcross="8"/>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="28">
@@ -971,7 +973,9 @@
         <Cell ss:StyleID="s_cell" ss:Index="7"/>
         <Cell ss:StyleID="s_cell" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9"/>
-        <Cell ss:StyleID="s_cell" ss:Index="11" ss:MergeAcross="1"/>
+        <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
+          <Data ss:Type="String">本150</Data>
+        </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="14" ss:MergeAcross="8"/>
       </Row>
       <Row ss:AutoFitHeight="0" ss:Height="34">

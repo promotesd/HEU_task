@@ -57,6 +57,11 @@ def main() -> None:
         default=None,
         help='Internal OCR candidate strategy override. Defaults to the validated fast mode.',
     )
+    parser.add_argument(
+        '--enable-hardcoded-rules',
+        action='store_true',
+        help='Enable hardcoded/prior report normalization rules for comparison. Disabled by default for baseline testing.',
+    )
     args = parser.parse_args()
     args_parsed = time.perf_counter()
     if args.save_cells and not args.debug_output:
@@ -82,6 +87,7 @@ def main() -> None:
         save_cells=args.save_cells,
         profile=profile,
         ocr_candidate_mode=ocr_candidate_mode,
+        enable_hardcoded_rules=args.enable_hardcoded_rules,
     )
     workflow_done = time.perf_counter()
 
@@ -91,6 +97,7 @@ def main() -> None:
     print(f"Debug images: {'enabled' if args.debug_output else 'disabled'}")
     print(f"Cell images: {'enabled' if args.save_cells else 'disabled'}")
     print(f"OCR candidate mode: {ocr_candidate_mode}")
+    print(f"Hardcoded rules: {'enabled' if args.enable_hardcoded_rules else 'disabled'}")
     print(f"JSON: {Path(args.output_dir) / 'ocr_result.json'}")
     print(f"XML report: {Path(args.output_dir) / 'report.xml'}")
     print(f"Main records: {len(result.get('main_table', {}).get('structured_records', []))}")

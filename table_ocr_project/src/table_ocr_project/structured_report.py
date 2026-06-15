@@ -168,10 +168,10 @@ def _add_worksheet_options(ws: ET.Element) -> None:
     ET.SubElement(options, 'ProtectScenarios').text = 'False'
 
 
-def _flatten_events(result: Dict[str, Any]) -> List[Dict[str, Any]]:
+def _flatten_events(result: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> List[Dict[str, Any]]:
     main = result.get('main_table', {}) or {}
     records = main.get('structured_records', []) or []
-    return _flatten_record_events(records, event_key='events')
+    return _flatten_record_events(records, event_key='events', enable_hardcoded_rules=enable_hardcoded_rules)
 
 
 def _flatten_raw_events(result: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -180,7 +180,12 @@ def _flatten_raw_events(result: Dict[str, Any]) -> List[Dict[str, Any]]:
     return _flatten_record_events(records, event_key='raw_events')
 
 
-def _flatten_record_events(records: Sequence[Dict[str, Any]], event_key: str = 'events') -> List[Dict[str, Any]]:
+def _flatten_record_events(
+    records: Sequence[Dict[str, Any]],
+    event_key: str = 'events',
+    *,
+    enable_hardcoded_rules: bool = False,
+) -> List[Dict[str, Any]]:
     flat_rows: List[Dict[str, Any]] = []
 
     for record_index, record in enumerate(records, start=1):
@@ -202,7 +207,11 @@ def _flatten_record_events(records: Sequence[Dict[str, Any]], event_key: str = '
             continue
 
         for event_index, event in enumerate(events, start=1):
-            event_view = _normalize_report_event(record, event, event_index) if event_key == 'events' else dict(event)
+            event_view = (
+                _normalize_hardcoded_report_event(record, event, event_index)
+                if enable_hardcoded_rules and event_key == 'events'
+                else dict(event)
+            )
             pilot_code = _show(event_view.get('pilot_code'))
             if event_key == 'raw_events' and pilot_code == '博823':
                 pilot_code = '彭823'
@@ -235,12 +244,11 @@ def _set_event_view(event: Dict[str, Any], *, time: str | None = None, pilot: st
     return out
 
 
-def _normalize_xx5_report_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
+def _normalize_xx5_hardcoded_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
     aircraft_no = _clean_text(record.get('aircraft_no'))
     raw = _clean_text(event.get('text'))
     pilot = _clean_text(event.get('pilot_code'))
     code = _clean_text(event.get('flight_code')) or ('SD' if event_index == 1 else 'CQY')
-
     times = {
         '60': ['13:30~15:10', '17:30~18:15', '20:00~20:45'],
         '61': ['13:30~15:10', '17:30~18:15', '20:00~20:50'],
@@ -255,24 +263,17 @@ def _normalize_xx5_report_event(record: Dict[str, Any], event: Dict[str, Any], e
     }
     idx = event_index - 1
     if aircraft_no in times and 0 <= idx < len(times[aircraft_no]):
-        # Only normalize the note when the OCR has put this event in the expected wave
-        # or has seen a matching fragment in the band.
-        note = notes[aircraft_no][idx]
         fragment = raw.upper().replace(' ', '')
         if event_index == 1 and ('SD' in fragment or 'OB' in fragment or '500B' in fragment or '50-02' in fragment or code == 'SD'):
-            raw = note
-            code = 'SD'
-        elif event_index == 2 and ('CQY' in fragment or 'P0' in fragment or 'O1B' in fragment or '06B' in fragment or code == 'CQY'):
-            raw = note
-            code = 'CQY'
-        elif event_index == 3 and ('CQY' in fragment or '05B' in fragment or 'CO-D' in fragment or code == 'CQY'):
-            raw = note
-            code = 'CQY'
-        return _set_event_view(event, time=times[aircraft_no][idx], pilot=pilot, code=code, text=raw)
-    return event
+            return _set_event_view(event, time=times[aircraft_no][idx], pilot=pilot, code='SD', text=notes[aircraft_no][idx])
+        if event_index == 2 and ('CQY' in fragment or 'P0' in fragment or 'O1B' in fragment or '06B' in fragment or code == 'CQY'):
+            return _set_event_view(event, time=times[aircraft_no][idx], pilot=pilot, code='CQY', text=notes[aircraft_no][idx])
+        if event_index == 3 and ('CQY' in fragment or '05B' in fragment or 'CO-D' in fragment or code == 'CQY'):
+            return _set_event_view(event, time=times[aircraft_no][idx], pilot=pilot, code='CQY', text=notes[aircraft_no][idx])
+    return dict(event)
 
 
-def _normalize_xxs_report_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
+def _normalize_xxs_hardcoded_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
     aircraft_no = _clean_text(record.get('aircraft_no'))
     raw = _clean_text(event.get('text'))
     if aircraft_no == '374' and '0.65T' in raw:
@@ -281,10 +282,10 @@ def _normalize_xxs_report_event(record: Dict[str, Any], event: Dict[str, Any], e
         return _set_event_view(event, time='17:20~18:50', pilot='汤191、光180', code='MF', text='MF(伴航) 0.55T')
     if aircraft_no == '376' and '0.55T' in raw:
         return _set_event_view(event, time='19:30~21:20', pilot='豪182、光180', code='MF', text='MF(伴航) 0.55T')
-    return event
+    return dict(event)
 
 
-def _normalize_xxa_report_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
+def _normalize_xxa_hardcoded_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
     aircraft_no = _clean_text(record.get('aircraft_no'))
     raw = _clean_text(event.get('text'))
     code = _clean_text(event.get('flight_code'))
@@ -292,27 +293,27 @@ def _normalize_xxa_report_event(record: Dict[str, Any], event: Dict[str, Any], e
         return _set_event_view(event, time='12:40~15:50', pilot='玉165、韩171', code='GC', text='GC 10-30')
     if aircraft_no == '10' and (code in {'CC', 'GC'} or 'hoho' in raw or '10' in raw):
         return _set_event_view(event, time='13:10~16:20', pilot='说176、森153', code='GC', text='GC 10-30')
-    return event
-
-
-def _normalize_report_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
-    aircraft_type = _clean_text(record.get('aircraft_type'))
-    if aircraft_type == 'XX5':
-        return _normalize_xx5_report_event(record, event, event_index)
-    if aircraft_type == 'XXS':
-        return _normalize_xxs_report_event(record, event, event_index)
-    if aircraft_type == 'XXA':
-        return _normalize_xxa_report_event(record, event, event_index)
     return dict(event)
 
 
-def _report_view_rows(result: Dict[str, Any]) -> List[Dict[str, Any]]:
-    return _flatten_events(result)
+def _normalize_hardcoded_report_event(record: Dict[str, Any], event: Dict[str, Any], event_index: int) -> Dict[str, Any]:
+    aircraft_type = _clean_text(record.get('aircraft_type'))
+    if aircraft_type == 'XX5':
+        return _normalize_xx5_hardcoded_event(record, event, event_index)
+    if aircraft_type == 'XXS':
+        return _normalize_xxs_hardcoded_event(record, event, event_index)
+    if aircraft_type == 'XXA':
+        return _normalize_xxa_hardcoded_event(record, event, event_index)
+    return dict(event)
 
 
-def _report_code_column_values(result: Dict[str, Any]) -> List[str]:
+def _report_view_rows(result: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> List[Dict[str, Any]]:
+    return _flatten_events(result, enable_hardcoded_rules=enable_hardcoded_rules)
+
+
+def _report_code_column_values(result: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> List[str]:
     values = _collect_code_column_values(result)
-    if len(values) >= 12 and '森153' in values[12:]:
+    if enable_hardcoded_rules and len(values) >= 12 and '森153' in values[12:]:
         xx5_values = values[:12]
         tail = values[values.index('森153'):]
         cleaned_tail: List[str] = []
@@ -377,7 +378,7 @@ def _clean_top_detail_text(text: str) -> str:
     return text
 
 
-def _infer_top_detail_from_evidence(label: str, text: str) -> str:
+def _infer_hardcoded_top_detail(label: str, text: str) -> str:
     label = _clean_text(label)
     text = _clean_top_detail_text(text)
     compact = text.replace(' ', '').replace('|', '')
@@ -400,7 +401,7 @@ def _infer_top_detail_from_evidence(label: str, text: str) -> str:
     return text
 
 
-def _build_top_section_rows(table: ET.Element, main: Dict[str, Any]) -> None:
+def _build_top_section_rows(table: ET.Element, main: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> None:
     row = _add_row(table, height=22)
     _add_cell(row, '顶部编组信息', col=1, style_id='s_section', merge_across=11)
 
@@ -412,14 +413,19 @@ def _build_top_section_rows(table: ET.Element, main: Dict[str, Any]) -> None:
             entry = top_section[i]
             label = _clean_text(entry.get('label'), '未识别')
             lines = entry.get('lines', []) or []
-            line_text = _infer_top_detail_from_evidence(label, ' | '.join([_clean_text(x) for x in lines if _clean_text(x)]))
+            raw_line_text = ' | '.join([_clean_text(x) for x in lines if _clean_text(x)])
+            line_text = (
+                _infer_hardcoded_top_detail(label, raw_line_text)
+                if enable_hardcoded_rules
+                else _clean_top_detail_text(raw_line_text)
+            )
             _add_cell(row, label, col=1, style_id='s_label', merge_across=1)
             _add_cell(row, line_text or '未清晰识别', col=2, style_id='s_value', merge_across=10)
         else:
             _add_cell(row, '', col=1, style_id='s_cell', merge_across=11)
 
 
-def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any]) -> None:
+def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> None:
     ws = ET.SubElement(root, 'Worksheet', {'ss:Name': '报告视图'})
     table = ET.SubElement(ws, 'Table')
 
@@ -471,7 +477,7 @@ def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any]) -> None:
     _add_row(table, height=12)
 
     # 顶部编组信息，删除原来右上那块备注
-    _build_top_section_rows(table, main)
+    _build_top_section_rows(table, main, enable_hardcoded_rules=enable_hardcoded_rules)
 
     _add_row(table, height=12)
 
@@ -502,8 +508,8 @@ def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any]) -> None:
     # 备注区第一行：一、参训
     _add_cell(row, '一、参训', col=14, style_id='s_label', merge_across=8)
 
-    flat_rows = _report_view_rows(result)
-    code_column_values = _report_code_column_values(result)
+    flat_rows = _report_view_rows(result, enable_hardcoded_rules=enable_hardcoded_rules)
+    code_column_values = _report_code_column_values(result, enable_hardcoded_rules=enable_hardcoded_rules)
     remark_entries = _remark_entries(remark)
 
     training_count = max(len(remark_entries), 6)   # 参训至少保留6行
@@ -517,7 +523,7 @@ def _build_report_view_sheet(root: ET.Element, result: Dict[str, Any]) -> None:
     # 1行：08:40
     # blank_note_rows行：大块空白区域
 
-    min_layout_rows = 23 if '' in code_column_values else 0
+    min_layout_rows = 23 if enable_hardcoded_rules and '' in code_column_values else 0
     data_row_count = max(len(flat_rows), len(code_column_values), remark_rows_needed, min_layout_rows)
 
     for i in range(data_row_count):
@@ -672,10 +678,10 @@ def _build_data_sheet(root: ET.Element, result: Dict[str, Any]) -> None:
     _add_worksheet_options(ws)
 
 
-def render_structured_report_xml(result: Dict[str, Any]) -> str:
+def render_structured_report_xml(result: Dict[str, Any], *, enable_hardcoded_rules: bool = False) -> str:
     root = _build_root()
     _add_styles(root)
-    _build_report_view_sheet(root, result)
+    _build_report_view_sheet(root, result, enable_hardcoded_rules=enable_hardcoded_rules)
     _build_data_sheet(root, result)
     return _pretty_xml(root)
 

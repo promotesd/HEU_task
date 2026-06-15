@@ -98,6 +98,7 @@ def run_structured_ocr(
     config: Dict[str, Any] | None = None,
     profile: MutableMapping[str, float] | None = None,
     ocr_candidate_mode: str = DEFAULT_OCR_CANDIDATE_MODE,
+    enable_hardcoded_rules: bool = False,
 ) -> Dict[str, Any]:
     t0 = time.perf_counter()
     if config is None:
@@ -140,6 +141,9 @@ def run_structured_ocr(
 
     result = {
         'input_image': str(Path(input_path).resolve()),
+        'report_options': {
+            'enable_hardcoded_rules': bool(enable_hardcoded_rules),
+        },
         'title': title,
         'remark': remark,
         'main_table': main_table,
@@ -152,7 +156,7 @@ def run_structured_ocr(
 
     t0 = time.perf_counter()
     (output_dir / 'report.xml').write_text(
-        render_structured_report_xml(result),
+        render_structured_report_xml(result, enable_hardcoded_rules=enable_hardcoded_rules),
         encoding='utf-8'
     )
     _add_profile_time(profile, 'write_report', t0)
@@ -169,6 +173,7 @@ def run_process_form_workflow(
     save_cells: bool = False,
     profile: MutableMapping[str, float] | None = None,
     ocr_candidate_mode: str = DEFAULT_OCR_CANDIDATE_MODE,
+    enable_hardcoded_rules: bool = False,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     artifacts = process_image_with_fixed_template_in_memory(
         image_path=image_path,
@@ -190,6 +195,7 @@ def run_process_form_workflow(
         config=artifacts['config'],
         profile=profile,
         ocr_candidate_mode=ocr_candidate_mode,
+        enable_hardcoded_rules=enable_hardcoded_rules,
     )
     return meta, result
 
