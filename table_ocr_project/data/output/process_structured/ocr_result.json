@@ -1,5 +1,8 @@
 {
   "input_image": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/input/sample.jpeg",
+  "report_options": {
+    "enable_hardcoded_rules": false
+  },
   "title": {
     "confidentiality": "内部",
     "date": "",
@@ -1079,7 +1082,7 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "name": "",
-        "code_name": "冯185",
+        "code_name": "猛185",
         "events": [
           {
             "start_time": "13:20",
@@ -1103,9 +1106,9 @@
             "text": "103",
             "remark": "103",
             "pilot_codes": [
-              "冯185"
+              "猛185"
             ],
-            "pilot_code": "冯185",
+            "pilot_code": "猛185",
             "flight_code": "",
             "source_cols": [
               23,
@@ -2233,7 +2236,7 @@
         "aircraft_no": "374",
         "secondary_code": "0701",
         "crew_codes": [
-          "冯185",
+          "猛185",
           "森153",
           "光180"
         ],
@@ -2244,7 +2247,7 @@
             "aircraft_no": "374",
             "secondary_code": "0701",
             "name": "",
-            "code_name": "冯185",
+            "code_name": "猛185",
             "events": [
               {
                 "start_time": "13:20",
@@ -2268,9 +2271,9 @@
                 "text": "103",
                 "remark": "103",
                 "pilot_codes": [
-                  "冯185"
+                  "猛185"
                 ],
-                "pilot_code": "冯185",
+                "pilot_code": "猛185",
                 "flight_code": "",
                 "source_cols": [
                   23,
@@ -2392,9 +2395,9 @@
             "remark": "0.65T 414 （) 103",
             "pilot_codes": [
               "豪182",
-              "冯185"
+              "猛185"
             ],
-            "pilot_code": "豪182、冯185",
+            "pilot_code": "豪182、猛185",
             "flight_code": "",
             "source_cols": [
               10,
@@ -2436,9 +2439,9 @@
             "remark": "0.65T 414 （) 103",
             "pilot_codes": [
               "豪182",
-              "冯185"
+              "猛185"
             ],
-            "pilot_code": "豪182、冯185",
+            "pilot_code": "豪182、猛185",
             "flight_code": "",
             "source_cols": [
               10,
@@ -4394,7 +4397,7 @@
         "x_min": 452.0,
         "x_max": 489.0,
         "y": 430.5,
-        "text": "冯185",
+        "text": "猛185",
         "score": 0.8114725947380066
       },
       {

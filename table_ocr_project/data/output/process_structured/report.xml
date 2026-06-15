@@ -94,7 +94,7 @@
   <Worksheet ss:Name="报告视图">
     <Table>
       <Column ss:AutoFitWidth="0" ss:Width="55"/>
-      <Column ss:AutoFitWidth="0" ss:Width="65"/>
+      <Column ss:AutoFitWidth="0" ss:Width="260"/>
       <Column ss:AutoFitWidth="0" ss:Width="60"/>
       <Column ss:AutoFitWidth="0" ss:Width="70"/>
       <Column ss:AutoFitWidth="0" ss:Width="60"/>
@@ -180,35 +180,35 @@
           <Data ss:Type="String">顶部编组信息</Data>
         </Cell>
       </Row>
-      <Row ss:AutoFitHeight="0" ss:Height="20">
-        <Cell ss:StyleID="s_label" ss:Index="1" ss:MergeAcross="1">
+      <Row ss:AutoFitHeight="0" ss:Height="32">
+        <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德1号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
+        <Cell ss:StyleID="s_value" ss:Index="2">
           <Data ss:Type="String">秦；指挥:国；电韦章 I 主见习章</Data>
         </Cell>
       </Row>
-      <Row ss:AutoFitHeight="0" ss:Height="20">
-        <Cell ss:StyleID="s_label" ss:Index="1" ss:MergeAcross="1">
+      <Row ss:AutoFitHeight="0" ss:Height="32">
+        <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德7号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
+        <Cell ss:StyleID="s_value" ss:Index="2">
           <Data ss:Type="String">管</Data>
         </Cell>
       </Row>
-      <Row ss:AutoFitHeight="0" ss:Height="20">
-        <Cell ss:StyleID="s_label" ss:Index="1" ss:MergeAcross="1">
+      <Row ss:AutoFitHeight="0" ss:Height="32">
+        <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">至德9号</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
+        <Cell ss:StyleID="s_value" ss:Index="2">
           <Data ss:Type="String">SO:刘夜间见习徐</Data>
         </Cell>
       </Row>
-      <Row ss:AutoFitHeight="0" ss:Height="20">
-        <Cell ss:StyleID="s_label" ss:Index="1" ss:MergeAcross="1">
+      <Row ss:AutoFitHeight="0" ss:Height="32">
+        <Cell ss:StyleID="s_label" ss:Index="1">
           <Data ss:Type="String">元兴</Data>
         </Cell>
-        <Cell ss:StyleID="s_value" ss:Index="2" ss:MergeAcross="10">
+        <Cell ss:StyleID="s_value" ss:Index="2">
           <Data ss:Type="String">指</Data>
         </Cell>
       </Row>
@@ -745,14 +745,14 @@
           <Data ss:Type="String">13:10~15:40</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">豪182、冯185</Data>
+          <Data ss:Type="String">豪182、猛185</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9">
           <Data ss:Type="String">0.65T 414 （) 103</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="11" ss:MergeAcross="1">
-          <Data ss:Type="String">冯185</Data>
+          <Data ss:Type="String">猛185</Data>
         </Cell>
         <Cell ss:StyleID="s_cell" ss:Index="14" ss:MergeAcross="8"/>
       </Row>
@@ -1388,7 +1388,7 @@
           <Data ss:Type="String">13:10~15:40</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="7">
-          <Data ss:Type="String">豪182、冯185</Data>
+          <Data ss:Type="String">豪182、猛185</Data>
         </Cell>
         <Cell ss:StyleID="s_cell_center" ss:Index="8"/>
         <Cell ss:StyleID="s_cell" ss:Index="9">
