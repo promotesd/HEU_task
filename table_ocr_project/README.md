@@ -2,7 +2,7 @@
 
 固定模板计划板 OCR 项目。流程会把输入图片配准到模板，裁切标题区、主表、备注区和底部署名区，识别表格内容，并输出结构化 JSON 与可用 WPS/Excel 打开的 `report.xml`。
 
-当前推荐入口是 `src/process_form.py`。默认模式关闭硬编码/先验报告校正规则，用于查看真实 OCR 与自动抽取结果；需要和人工答案对齐做对照时，可以显式开启硬编码规则。
+当前推荐入口是 `src/process_form.py`。默认模式关闭硬编码报告校正规则，但启用词典先验，用于查看真实 OCR 与自动抽取结果；需要测试完全无词典先验的基线时，可以显式关闭词典先验；需要和人工答案对齐做对照时，可以显式开启硬编码规则。
 
 ## 目录结构
 
@@ -45,7 +45,24 @@ pip install -r requirements.txt
 
 ## 快速运行
 
-默认关闭硬编码/先验规则，只看真实 OCR + 自动抽取结果：
+先进入项目目录。项目路径使用绝对路径，输入图片等参数继续使用相对路径：
+
+```bash
+cd /share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project
+```
+
+无词典先验基线：关闭外部词表和内置代字代号候选，只保留图像结构、坐标、OCR 原文和通用正则规则：
+
+```bash
+python src/process_form.py \
+  --input data/input/sample.jpeg \
+  --config config/template_config.json \
+  --output-dir data/output/process_no_priors \
+  --profile \
+  --disable-lexicon-priors
+```
+
+默认自动抽取：启用词典先验，关闭硬编码报告校正规则：
 
 ```bash
 python src/process_form.py \
@@ -56,7 +73,7 @@ python src/process_form.py \
   --profile
 ```
 
-开启硬编码/先验报告校正规则，用于和答案对齐做对照：
+开启硬编码报告校正规则，用于和答案对齐做对照：
 
 ```bash
 python src/process_form.py \
@@ -72,12 +89,28 @@ python src/process_form.py \
 
 ```text
 Hardcoded rules: disabled
+Lexicon priors: enabled
 ```
 
 或：
 
 ```text
 Hardcoded rules: enabled
+Lexicon priors: enabled
+```
+
+无词典先验时会显示：
+
+```text
+Hardcoded rules: disabled
+Lexicon priors: disabled
+```
+
+也可以用 `src/run.sh` 运行默认流程。脚本会先切到绝对项目目录，第一个参数是图片相对路径；不传时默认使用 `data/input/sample.jpeg`：
+
+```bash
+bash src/run.sh
+bash src/run.sh data/input/sample.jpeg
 ```
 
 ## 验证
@@ -89,6 +122,13 @@ bash src/eval.sh
 ```
 
 验证指定输出：
+
+```bash
+bash src/eval.sh \
+  data/output/process_no_priors/report.xml \
+  data/input/report_gt.xml \
+  data/output/eval_no_priors
+```
 
 ```bash
 bash src/eval.sh \
@@ -111,6 +151,14 @@ bash src/eval.sh \
 - `eval_result.json`
 - `eval_report.txt`
 - `eval_errors.csv`
+
+当前 `data/input/sample.jpeg` 的三组对照结果：
+
+| 模式 | 总体准确率 | 报告视图 | 结构化数据 | workflow_total | ocr_calls_total |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 无词典先验 `process_no_priors` | 44.99% | 46.35% | 42.95% | 17.261s | 12 |
+| 自动抽取 + 词典先验 `process_no_hardcoded` | 92.29% | 87.55% | 99.36% | 14.108s | 12 |
+| 硬编码报告校正 `process_hardcoded` | 99.74% | 100.00% | 99.36% | 14.054s | 12 |
 
 ## 输出文件
 

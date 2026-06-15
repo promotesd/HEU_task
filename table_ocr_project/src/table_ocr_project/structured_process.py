@@ -30,11 +30,15 @@ def _resolve_lexicon_path(lexicon_path: str | Path | None) -> Path | None:
     return candidate if candidate.exists() else None
 
 
-def _load_lexicon(lexicon_path: str | Path | None) -> Dict[str, List[str]]:
+def _load_lexicon(lexicon_path: str | Path | None, *, use_lexicon_priors: bool = True) -> Dict[str, List[str]]:
+    if not use_lexicon_priors:
+        return {'__use_lexicon_priors__': ['0']}
     resolved = _resolve_lexicon_path(lexicon_path)
     if not resolved:
         return {}
-    return load_json(resolved)
+    lexicon = load_json(resolved)
+    lexicon['__use_lexicon_priors__'] = ['1']
+    return lexicon
 
 
 def _add_profile_time(profile: MutableMapping[str, float] | None, key: str, start: float) -> None:
@@ -99,6 +103,7 @@ def run_structured_ocr(
     profile: MutableMapping[str, float] | None = None,
     ocr_candidate_mode: str = DEFAULT_OCR_CANDIDATE_MODE,
     enable_hardcoded_rules: bool = False,
+    use_lexicon_priors: bool = True,
 ) -> Dict[str, Any]:
     t0 = time.perf_counter()
     if config is None:
@@ -106,7 +111,7 @@ def run_structured_ocr(
     output_dir = Path(output_dir)
     if aligned is None:
         aligned = read_image(output_dir / 'aligned.png')
-    lexicon = _load_lexicon(lexicon_path)
+    lexicon = _load_lexicon(lexicon_path, use_lexicon_priors=use_lexicon_priors)
     _add_profile_time(profile, 'prepare_ocr_inputs', t0)
 
     t0 = time.perf_counter()
@@ -143,6 +148,7 @@ def run_structured_ocr(
         'input_image': str(Path(input_path).resolve()),
         'report_options': {
             'enable_hardcoded_rules': bool(enable_hardcoded_rules),
+            'use_lexicon_priors': bool(use_lexicon_priors),
         },
         'title': title,
         'remark': remark,
@@ -174,6 +180,7 @@ def run_process_form_workflow(
     profile: MutableMapping[str, float] | None = None,
     ocr_candidate_mode: str = DEFAULT_OCR_CANDIDATE_MODE,
     enable_hardcoded_rules: bool = False,
+    use_lexicon_priors: bool = True,
 ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     artifacts = process_image_with_fixed_template_in_memory(
         image_path=image_path,
@@ -196,6 +203,7 @@ def run_process_form_workflow(
         profile=profile,
         ocr_candidate_mode=ocr_candidate_mode,
         enable_hardcoded_rules=enable_hardcoded_rules,
+        use_lexicon_priors=use_lexicon_priors,
     )
     return meta, result
 

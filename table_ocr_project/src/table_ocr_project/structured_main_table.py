@@ -24,6 +24,7 @@ EXTRA_CODE_NAMES = [
     '彤812', '嘎825', '飞826', '高835', '本150', '游836', '麟837', '睿832',
     '聪825', '博823', '贤831', '猛185'
 ]
+LEXICON_PRIOR_FLAG = '__use_lexicon_priors__'
 IGNORE_EVENT_TEXTS = {'课目注释', '姓名', '代字', '代号', '姓名代字代号', '机型', '机号', '二次代码'}
 TOP_SECTION_HEADER_TEXTS = {'姓名', '代字', '代号', '姓名代字代号', '机型', '机号', '二次代码'}
 FLIGHT_MARKER_TEXTS = {'SD', 'STP', 'CQY', 'GC', 'MF', 'CC'}
@@ -36,6 +37,10 @@ WEAK_NOISE_TEXTS = {
 PAIR_HINT_TOKENS = {'0.55T', '0.65T', '103', 'MF(伴航)', 'MF（伴航）'}
 XXA_DROP_REMARKS = {'CC', 'cc', 'hoho'}
 IMPLICIT_CODE_EXCLUDE = {'103', '414', '044', '44', '055', '065', '070', '079'}
+
+
+def _use_lexicon_priors(lexicon: Dict[str, List[str]]) -> bool:
+    return lexicon.get(LEXICON_PRIOR_FLAG, ['1']) != ['0']
 
 
 def _find_band_index(value: float, edges: Sequence[int]) -> int:
@@ -152,7 +157,7 @@ def _clean_code_name(text: str, lexicon: Dict[str, List[str]]) -> str:
     text = _normalize_ocr_text(text)
     if not text:
         return ''
-    candidates = list(dict.fromkeys(lexicon.get('code_names', []) + EXTRA_CODE_NAMES))
+    candidates = _code_candidates(lexicon)
     if _looks_like_code_name(text):
         return _strict_pick_code_name(text, candidates, min_score=0.70)
     digits = ''.join(ch for ch in text if ch.isdigit())
@@ -165,7 +170,10 @@ def _clean_code_name(text: str, lexicon: Dict[str, List[str]]) -> str:
 
 
 def _code_candidates(lexicon: Dict[str, List[str]]) -> List[str]:
-    return list(dict.fromkeys(lexicon.get('code_names', []) + EXTRA_CODE_NAMES))
+    candidates = list(lexicon.get('code_names', []))
+    if _use_lexicon_priors(lexicon):
+        candidates += EXTRA_CODE_NAMES
+    return list(dict.fromkeys(candidates))
 
 
 def _code_from_suffix(text: str, lexicon: Dict[str, List[str]], preferred: Sequence[str] = ()) -> str:

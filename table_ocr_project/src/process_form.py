@@ -62,6 +62,11 @@ def main() -> None:
         action='store_true',
         help='Enable hardcoded/prior report normalization rules for comparison. Disabled by default for baseline testing.',
     )
+    parser.add_argument(
+        '--disable-lexicon-priors',
+        action='store_true',
+        help='Disable external lexicon and built-in code-name candidates for no-prior baseline testing.',
+    )
     args = parser.parse_args()
     args_parsed = time.perf_counter()
     if args.save_cells and not args.debug_output:
@@ -88,6 +93,7 @@ def main() -> None:
         profile=profile,
         ocr_candidate_mode=ocr_candidate_mode,
         enable_hardcoded_rules=args.enable_hardcoded_rules,
+        use_lexicon_priors=not args.disable_lexicon_priors,
     )
     workflow_done = time.perf_counter()
 
@@ -98,6 +104,7 @@ def main() -> None:
     print(f"Cell images: {'enabled' if args.save_cells else 'disabled'}")
     print(f"OCR candidate mode: {ocr_candidate_mode}")
     print(f"Hardcoded rules: {'enabled' if args.enable_hardcoded_rules else 'disabled'}")
+    print(f"Lexicon priors: {'disabled' if args.disable_lexicon_priors else 'enabled'}")
     print(f"JSON: {Path(args.output_dir) / 'ocr_result.json'}")
     print(f"XML report: {Path(args.output_dir) / 'report.xml'}")
     print(f"Main records: {len(result.get('main_table', {}).get('structured_records', []))}")
