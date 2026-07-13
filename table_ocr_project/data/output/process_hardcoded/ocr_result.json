@@ -1,7 +1,7 @@
 {
   "input_image": "/share/zhangyudong6-nfs/AAAZLYH/code/HEU_task/table_ocr_project/data/input/sample.jpeg",
   "report_options": {
-    "enable_hardcoded_rules": false,
+    "enable_hardcoded_rules": true,
     "use_lexicon_priors": true
   },
   "title": {

@@ -1,0 +1,21 @@
+XML 结构化表格识别评估报告
+==========================================
+Pred: data/output/process_hardcoded/report.xml
+GT  : data/input/report_gt.xml
+Pred XML kind: spreadsheet
+GT XML kind  : spreadsheet
+
+评估模式: spreadsheet
+
+[单元格级总体指标]
+非空单元格准确率(gt cells): 99.74%
+非空单元格CER(gt cells): 0.0003
+非空单元格编辑相似度均值: 0.9997
+非空单元格 P/R/F1: 99.74% / 99.74% / 99.74%
+
+[各工作表指标]
+- 报告视图: acc=100.00%, CER=0.0000, F1=100.00%, pred/gt cells=233/233
+- 结构化数据: acc=99.36%, CER=0.0005, F1=99.36%, pred/gt cells=156/156
+
+[单元格错误样例]
+- 结构化数据!R12C7: GT='豪182、冯185' | Pred='豪182、猛185' | CER=0.1111

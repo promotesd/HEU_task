@@ -1,0 +1,73 @@
+{
+  "pred_path": "data/output/process_hardcoded/report.xml",
+  "gt_path": "data/input/report_gt.xml",
+  "pred_kind": "spreadsheet",
+  "gt_kind": "spreadsheet",
+  "metrics": {
+    "mode": "spreadsheet",
+    "sheet_count_pred": 2,
+    "sheet_count_gt": 2,
+    "overall_cell_metrics": {
+      "field_count_pred": 389,
+      "field_count_gt": 389,
+      "field_key_union_count": 389,
+      "field_exact_acc_on_gt_keys": 0.9974293059125964,
+      "field_exact_acc_on_key_union": 0.9974293059125964,
+      "field_cer_on_gt_keys": 0.00033818058843422386,
+      "field_edit_similarity_avg": 0.9997143673236218,
+      "nonempty_field_prf": {
+        "precision": 0.9974293059125964,
+        "recall": 0.9974293059125964,
+        "f1": 0.9974293059125964
+      },
+      "errors": [
+        {
+          "key": "结构化数据!R12C7",
+          "gt": "豪182、冯185",
+          "pred": "豪182、猛185",
+          "cer": 0.1111
+        }
+      ]
+    },
+    "per_sheet": {
+      "报告视图": {
+        "pred_nonempty_cells": 233,
+        "gt_nonempty_cells": 233,
+        "cell_position_union_count": 233,
+        "cell_exact_acc_on_gt_nonempty": 1.0,
+        "cell_exact_acc_on_nonempty_union": 1.0,
+        "cell_cer_on_gt_nonempty": 0.0,
+        "cell_edit_similarity_avg": 1.0,
+        "nonempty_cell_prf": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "errors": []
+      },
+      "结构化数据": {
+        "pred_nonempty_cells": 156,
+        "gt_nonempty_cells": 156,
+        "cell_position_union_count": 156,
+        "cell_exact_acc_on_gt_nonempty": 0.9935897435897436,
+        "cell_exact_acc_on_nonempty_union": 0.9935897435897436,
+        "cell_cer_on_gt_nonempty": 0.0005293806246691371,
+        "cell_edit_similarity_avg": 0.9992877492877492,
+        "nonempty_cell_prf": {
+          "precision": 0.9935897435897436,
+          "recall": 0.9935897435897436,
+          "f1": 0.9935897435897436
+        },
+        "errors": [
+          {
+            "row": 12,
+            "col": 7,
+            "gt": "豪182、冯185",
+            "pred": "豪182、猛185",
+            "cer": 0.1111
+          }
+        ]
+      }
+    }
+  }
+}
